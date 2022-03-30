@@ -1,0 +1,91 @@
+{
+  "projectType": "application",
+  "root": "apps/formule1",
+  "sourceRoot": "apps/formule1/src",
+  "prefix": "f1",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/formule1",
+        "index": "apps/formule1/src/index.html",
+        "main": "apps/formule1/src/main.ts",
+        "polyfills": "apps/formule1/src/polyfills.ts",
+        "tsConfig": "apps/formule1/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/formule1/src/favicon.ico", "apps/formule1/src/assets"],
+        "styles": ["apps/formule1/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/formule1/src/environments/environment.ts",
+              "with": "apps/formule1/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "formule1:build:production"
+        },
+        "development": {
+          "browserTarget": "formule1:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "formule1:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/formule1/src/**/*.ts",
+          "apps/formule1/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/formule1"],
+      "options": {
+        "jestConfig": "apps/formule1/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

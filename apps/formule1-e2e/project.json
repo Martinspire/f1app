@@ -1,0 +1,28 @@
+{
+  "root": "apps/formule1-e2e",
+  "sourceRoot": "apps/formule1-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/formule1-e2e/cypress.json",
+        "devServerTarget": "formule1:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "formule1:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/formule1-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["formule1"]
+}

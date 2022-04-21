@@ -1,9 +1,9 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
-import { catchError, retry } from 'rxjs/operators';
-import { IDriverData } from '../interfaces/driver';
-import { ApiService } from './api.service';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs/internal/Observable';
+import {catchError, first, map} from 'rxjs/operators';
+import {IDriver, IDriverData} from '../interfaces/driver';
+import {ApiService} from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +14,12 @@ export class DriverService extends ApiService {
     super();
   }
 
-  getAllDrivers(): Observable<IDriverData> {
+  getAllDrivers(): Observable<IDriver[]> {
     return this.http
       .get<IDriverData>(this.apiURL + 'drivers.json?limit=1000')
-      .pipe(retry(1), catchError(this.handleError));
+      .pipe(first(), catchError(this.handleError))
+      .pipe(map((data) => {
+        return data.MRData.DriverTable.Drivers;
+      }));
   }
 }

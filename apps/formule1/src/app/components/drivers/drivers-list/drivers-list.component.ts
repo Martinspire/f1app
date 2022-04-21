@@ -18,9 +18,9 @@ export class DriversListComponent implements OnInit {
   }
 
   private getDrivers() {
-    this.driverService.getAllDrivers().subscribe((data: IDriverData) => {
+    this.driverService.getAllDrivers().subscribe((data: IDriver[]) => {
       console.log('driver data', data);
-      this.drivers = data.MRData.DriverTable.Drivers;
+      this.drivers = data;
     });
   }
 }

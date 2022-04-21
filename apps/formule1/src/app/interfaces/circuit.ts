@@ -1,9 +1,11 @@
-import { ILocationData, IMRData } from "./api";
+import {ILocationData, IMRData} from "./api";
 
-export interface ICircuitData extends IMRData{
-  CircuitTable: {
-    Circuits: ICircuitItem[];
-  }
+export interface ICircuitData extends IMRData {
+  MRData: {
+    CircuitTable: {
+      Circuits: ICircuitItem[];
+    };
+  };
 }
 
 export interface ICircuitItem {

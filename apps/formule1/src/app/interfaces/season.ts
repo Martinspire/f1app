@@ -1,10 +1,12 @@
-import { IDateTime, IMRData } from "./api";
-import { ICircuitItem } from "./circuit";
+import {IDateTime, IMRData} from "./api";
+import {ICircuitItem} from "./circuit";
 
-export interface ISeasonsData extends IMRData{
-  SeasonTable: {
-    Seasons: ISeasonsItem[];
-  }
+export interface ISeasonsData extends IMRData {
+  MRData: {
+    SeasonTable: {
+      Seasons: ISeasonsItem[];
+    };
+  };
 }
 
 export interface ISeasonsItem {
@@ -12,11 +14,11 @@ export interface ISeasonsItem {
   url: string;
 }
 
-export interface ISeasonData extends IMRData{
+export interface ISeasonData extends IMRData {
   RaceTable: {
     season: string;
     Races: IRaceItem[];
-  }
+  };
 }
 
 export interface IRaceItem {

@@ -1,1 +1,26 @@
-<p>drivers-list works!</p>
+
+<div class="overflow-x-auto">
+  <table class="table table-zebra w-full">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>Given Name</th>
+        <th>Family Name</th>
+        <th>Date of Birth</th>
+        <th>Nationality</th>
+        <th>Links</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let driver of drivers">
+        <td><span>{{driver.givenName}}</span> </td>
+        <td><span>{{driver.familyName}}</span></td>
+        <td><span>{{driver.dateOfBirth}}</span></td>
+        <td><span>{{driver.nationality}}</span></td>
+        <td><a [href]="driver.url">Wiki</a></td>
+        <td><a routerLink="['drivers/', driver.driverId]">Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

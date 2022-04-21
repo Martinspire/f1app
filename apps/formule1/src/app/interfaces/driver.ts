@@ -1,9 +1,11 @@
-import { IMRData } from "./api";
+import {IMRData} from "./api";
 
-export interface IDriverData extends IMRData{
-  DriverTable: {
-    Drivers: IDriver[];
-  }
+export interface IDriverData extends IMRData {
+  MRData: {
+    DriverTable: {
+      Drivers: IDriver[];
+    };
+  };
 }
 
 export interface IDriver {

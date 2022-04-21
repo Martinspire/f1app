@@ -1,9 +1,11 @@
-import { IMRData } from "./api";
+import {IMRData} from "./api";
 
-export interface IConstructorData extends IMRData{
-  ConstructorTable: {
-    Constructors: IConstructor[];
-  }
+export interface IConstructorData extends IMRData {
+  MRData: {
+    ConstructorTable: {
+      Constructors: IConstructor[];
+    };
+  };
 }
 
 export interface IConstructor {

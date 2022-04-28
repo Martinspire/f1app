@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TrackMapComponent } from './track-map.component';
+import { CircuitMapComponent } from './circuit-map.component';
 
-describe('TrackMapComponent', () => {
-  let component: TrackMapComponent;
-  let fixture: ComponentFixture<TrackMapComponent>;
+describe('CircuitMapComponent', () => {
+  let component: CircuitMapComponent;
+  let fixture: ComponentFixture<CircuitMapComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TrackMapComponent ]
+      declarations: [ CircuitMapComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TrackMapComponent);
+    fixture = TestBed.createComponent(CircuitMapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

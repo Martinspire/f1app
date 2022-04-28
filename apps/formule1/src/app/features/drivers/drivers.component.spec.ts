@@ -1,23 +1,21 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 
-import { DriversComponent } from './drivers.component';
+import { DriversFeatureComponent } from './drivers.component';
 
-describe('DriversComponent', () => {
-  let component: DriversComponent;
-  let fixture: ComponentFixture<DriversComponent>;
+describe('DriversFeatureComponent', () => {
+  let component: DriversFeatureComponent;
+  let fixture: ComponentFixture<DriversFeatureComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DriversComponent ]
+      declarations: [ DriversFeatureComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DriversComponent);
+    fixture = TestBed.createComponent(DriversFeatureComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,22 +1,22 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SeasonsListComponent } from './seasons-list.component';
+import { CircuitListComponent } from './circuit-list.component';
 
-describe('SeasonsListComponent', () => {
-  let component: SeasonsListComponent;
-  let fixture: ComponentFixture<SeasonsListComponent>;
+describe('CircuitListComponent', () => {
+  let component: CircuitListComponent;
+  let fixture: ComponentFixture<CircuitListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      declarations: [ SeasonsListComponent ]
+      declarations: [ CircuitListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SeasonsListComponent);
+    fixture = TestBed.createComponent(CircuitListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

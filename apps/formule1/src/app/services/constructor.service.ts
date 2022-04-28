@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { catchError, retry } from 'rxjs/operators';
-import { IConstructorData } from '../interfaces/constructor';
+import { catchError, first, map } from 'rxjs/operators';
+import { IConstructor, IConstructorData } from '../interfaces/constructor';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -14,15 +14,39 @@ export class ConstructorService extends ApiService {
     super();
   }
 
-  getConstructors(): Observable<IConstructorData> {
+  getConstructors(): Observable<IConstructor[]> {
     return this.http
       .get<IConstructorData>(this.apiURL + 'constructors.json?limit=1000')
-      .pipe(retry(1), catchError(this.handleError));
+      .pipe(
+        first(),
+        map((data) => {
+          return data.MRData.ConstructorTable.Constructors;
+        }),
+        catchError(this.handleError)
+      );
   }
 
-  getConstructor(constructor: string): Observable<IConstructorData> {
+  getConstructor(constructor: string): Observable<IConstructor[]> {
     return this.http
       .get<IConstructorData>(this.apiURL + 'constructors/' + constructor + '.json')
-      .pipe(retry(1), catchError(this.handleError));
+      .pipe(
+        first(),
+        map((data) => {
+          return data.MRData.ConstructorTable.Constructors;
+        }),
+        catchError(this.handleError)
+      );
+  }
+
+  getConstructorStandings(constructor: string): Observable<IConstructor[]> {
+    return this.http
+      .get<IConstructorData>(this.apiURL + 'constructors/' + constructor + 'constructorStandings.json')
+      .pipe(
+        first(),
+        map((data) => {
+          return data.MRData.ConstructorTable.Constructors;
+        }),
+        catchError(this.handleError)
+      );
   }
 }

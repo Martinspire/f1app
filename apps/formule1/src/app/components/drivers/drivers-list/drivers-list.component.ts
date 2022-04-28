@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DriverService} from '../../../services/driver.service';
-import {IDriver, IDriverData} from '../../../interfaces/driver';
+import {IDriver} from '../../../interfaces/driver';
 
 @Component({
   selector: 'f1-drivers-list',

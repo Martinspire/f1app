@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ISeasonsItem } from '../../../interfaces/season';
+import { SeasonService } from '../../../services/season.service';
 
 @Component({
   selector: 'f1-seasons-list',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SeasonsListComponent implements OnInit {
 
-  constructor() { }
+  public seasons: ISeasonsItem[] = [];
+
+  constructor(private seasonService: SeasonService) { }
 
   ngOnInit(): void {
+    this.getAllSeasons();
   }
 
+  private getAllSeasons() {
+    this.seasonService.getAllSeasons().subscribe((data: ISeasonsItem[]) => {
+      console.log('driver data', data);
+      this.seasons = data;
+    });
+  }
 }

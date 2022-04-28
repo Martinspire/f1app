@@ -17,9 +17,34 @@ export class DriverService extends ApiService {
   getAllDrivers(): Observable<IDriver[]> {
     return this.http
       .get<IDriverData>(this.apiURL + 'drivers.json?limit=1000')
-      .pipe(first(), catchError(this.handleError))
-      .pipe(map((data) => {
-        return data.MRData.DriverTable.Drivers;
-      }));
+      .pipe(
+        first(),
+        map((data) => {
+          return data.MRData.DriverTable.Drivers;
+        }),
+        catchError(this.handleError)
+      );
+  }
+
+  getDriver(driver: string): Observable<IDriver> {
+    return this.http
+      .get<IDriverData>(this.apiURL + 'drivers/' + driver + '.json')
+      .pipe(
+        first(),
+          map((data) => {
+            return data.MRData.DriverTable.Drivers[0];
+        }),
+        catchError(this.handleError));
+  }
+
+  getDriverStandings(driver: string): Observable<IDriver> {
+    return this.http
+      .get<IDriverData>(this.apiURL + 'drivers/' + driver + '/driverStandings.json')
+      .pipe(first(),
+        map((data) => {
+            return data.MRData.DriverTable.Drivers[0];
+        }),
+        catchError(this.handleError)
+      );
   }
 }

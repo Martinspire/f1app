@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { catchError, retry } from 'rxjs/operators';
-import { ISeasonData } from '../interfaces/season';
+import { catchError, first, map } from 'rxjs/operators';
+import { IRaceItem, ISeasonData, ISeasonsData, ISeasonsItem } from '../interfaces/season';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -14,9 +14,27 @@ export class SeasonService extends ApiService {
     super();
   }
 
-  getSeason(year: number): Observable<ISeasonData> {
+  getAllSeasons(): Observable<ISeasonsItem[]> {
+    return this.http
+      .get<ISeasonsData>(this.apiURL + 'seasons.json')
+      .pipe(
+        first(),
+        map((data) => {
+          return data.MRData.SeasonTable.Seasons;
+        }),
+        catchError(this.handleError)
+      );
+  }
+
+  getSeason(year: number): Observable<IRaceItem[]> {
     return this.http
       .get<ISeasonData>(this.apiURL + year + '.json')
-      .pipe(retry(1), catchError(this.handleError));
+      .pipe(
+        first(),
+        map((data) => {
+          return data.MRData.RaceTable.Races;
+        }),
+        catchError(this.handleError)
+      );
   }
 }

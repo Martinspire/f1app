@@ -1,15 +1,15 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {DriversComponent} from './features/drivers/drivers.component';
-import {HomeComponent} from './features/home/home.component';
-import {SeasonsComponent} from './features/seasons/seasons.component';
-import {TracksComponent} from './features/tracks/tracks.component';
+import {DriversFeatureComponent} from './features/drivers/drivers.component';
+import {HomeFeatureComponent} from './features/home/home.component';
+import {SeasonsFeatureComponent} from './features/seasons/seasons.component';
+import {CircuitsFeatureComponent} from './features/circuits/circuits.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'drivers', component: DriversComponent},
-  {path: 'seasons', component: SeasonsComponent},
-  {path: 'tracks', component: TracksComponent}
+  {path: '', component: HomeFeatureComponent},
+  {path: 'drivers', component: DriversFeatureComponent},
+  {path: 'seasons', component: SeasonsFeatureComponent},
+  {path: 'circuits', component: CircuitsFeatureComponent}
 ];
 @NgModule({
   imports: [

@@ -1,0 +1,23 @@
+<div class="overflow-x-auto">
+  <table class="table table-zebra w-full">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>Circuit</th>
+        <th>Name</th>
+        <th>Country</th>
+        <th>Links</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let circuit of circuits">
+        <td><span>{{circuit.circuitId}}</span></td>
+        <td><span>{{circuit.circuitName}}</span></td>
+        <td><span>{{circuit.Location.country}}</span></td>
+        <td><a [href]="circuit.url">Wiki</a></td>
+        <td><a routerLink="['circuits/', circuit.circuitId]">Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

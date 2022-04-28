@@ -1,1 +1,19 @@
-<p>seasons-list works!</p>
+<div class="overflow-x-auto">
+  <table class="table table-zebra w-full">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>Season</th>
+        <th>Links</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let season of seasons">
+        <td><span>{{season.season}}</span></td>
+        <td><a [href]="season.url">Wiki</a></td>
+        <td><a routerLink="['seasons/', season.season]">Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

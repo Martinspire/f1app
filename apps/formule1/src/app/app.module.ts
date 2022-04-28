@@ -13,32 +13,34 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SeasonDetailComponent } from './components/seasons/season-detail/season-detail.component';
 import { SeasonsListComponent } from './components/seasons/seasons-list/seasons-list.component';
-import { TrackDetailsComponent } from './components/tracks/track-details/track-details.component';
-import { TrackListComponent } from './components/tracks/track-list/track-list.component';
-import { TrackMapComponent } from './components/tracks/track-map/track-map.component';
-import { TrackOverviewComponent } from './components/tracks/track-overview/track-overview.component';
-import { DriversComponent } from './features/drivers/drivers.component';
-import { HomeComponent } from './features/home/home.component';
-import { TracksComponent } from './features/tracks/tracks.component';
+import { CircuitDetailsComponent } from './components/circuits/circuit-details/circuit-details.component';
+import { CircuitListComponent } from './components/circuits/circuit-list/circuit-list.component';
+import { CircuitMapComponent } from './components/circuits/circuit-map/circuit-map.component';
+import { CircuitOverviewComponent } from './components/circuits/circuit-overview/circuit-overview.component';
+import { DriversFeatureComponent } from './features/drivers/drivers.component';
+import { HomeFeatureComponent } from './features/home/home.component';
+import { SeasonsFeatureComponent } from './features/seasons/seasons.component';
+import { CircuitsFeatureComponent } from './features/circuits/circuits.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DriverBioComponent,
-    DriversComponent,
+    DriversFeatureComponent,
     DriverDetailsComponent,
     DriverHistoryComponent,
     DriversListComponent,
     FooterComponent,
     HeaderComponent,
-    HomeComponent,
+    HomeFeatureComponent,
     SeasonDetailComponent,
+    SeasonsFeatureComponent,
     SeasonsListComponent,
-    TracksComponent,
-    TrackDetailsComponent,
-    TrackListComponent,
-    TrackMapComponent,
-    TrackOverviewComponent,
+    CircuitsFeatureComponent,
+    CircuitDetailsComponent,
+    CircuitListComponent,
+    CircuitMapComponent,
+    CircuitOverviewComponent,
   ],
   imports: [
     AppRoutingModule,

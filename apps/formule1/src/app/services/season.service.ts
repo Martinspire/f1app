@@ -1,3 +1,4 @@
+import { IConstructorStandingItem, IDriverStandingItem, IConstructorStandingsData, IDriverStandingsData } from './../interfaces/standings';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
@@ -33,6 +34,30 @@ export class SeasonService extends ApiService {
         first(),
         map((data) => {
           return data.MRData.RaceTable.Races;
+        }),
+        catchError(this.handleError)
+      );
+  }
+
+  getSeasonDriverStandings(year: number): Observable<IDriverStandingItem[]> {
+    return this.http
+      .get<IDriverStandingsData>(this.apiURL + year + '/driverStandings.json')
+      .pipe(
+        first(),
+        map((data) => {
+          return data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+        }),
+        catchError(this.handleError)
+      );
+  }
+
+  getSeasonConstructorStandings(year: number): Observable<IConstructorStandingItem[]> {
+    return this.http
+      .get<IConstructorStandingsData>(this.apiURL + year + '/constructorStandings.json')
+      .pipe(
+        first(),
+        map((data) => {
+          return data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
         }),
         catchError(this.handleError)
       );

@@ -17,7 +17,8 @@ export class ApiService {
     }),
   };
 
-  // Error handling
+  // Error handling, disabling checking for any type since I don't know what errors this API will give
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   handleError(error: any) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
@@ -27,7 +28,7 @@ export class ApiService {
       // Get server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    window.alert(errorMessage);
+    console.log(errorMessage);
     return throwError(() => {
       return errorMessage;
     });

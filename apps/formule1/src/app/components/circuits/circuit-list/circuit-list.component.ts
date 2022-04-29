@@ -11,6 +11,8 @@ export class CircuitListComponent implements OnInit {
 
 public circuits: ICircuitItem[] = [];
 
+public loading = false;
+
 constructor(private circuitService: CircuitService) { }
 
 ngOnInit(): void {
@@ -18,9 +20,11 @@ ngOnInit(): void {
 }
 
 private getAllCircuits() {
+  this.loading = true;
   this.circuitService.getAllCircuits().subscribe((data: ICircuitItem[]) => {
     console.log('circuits data', data);
     this.circuits = data;
+    this.loading = false;
   });
 }
 }

@@ -11,6 +11,8 @@ export class SeasonsListComponent implements OnInit {
 
   public seasons: ISeasonsItem[] = [];
 
+  public loading = false;
+
   constructor(private seasonService: SeasonService) { }
 
   ngOnInit(): void {
@@ -18,9 +20,12 @@ export class SeasonsListComponent implements OnInit {
   }
 
   private getAllSeasons() {
+    this.loading = true;
     this.seasonService.getAllSeasons().subscribe((data: ISeasonsItem[]) => {
       console.log('seasons data', data);
-      this.seasons = data;
+      const reversedSeasons = Array.from(data).reverse();
+      this.seasons = reversedSeasons;
+      this.loading = false;
     });
   }
 }

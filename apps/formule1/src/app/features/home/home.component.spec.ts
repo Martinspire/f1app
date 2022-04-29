@@ -4,6 +4,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockComponent } from 'ng-mocks';
 
 import { HomeFeatureComponent } from './home.component';
+import { SeasonDriverStandingsComponent } from '../../components/seasons/season-driver-standings/season-driver-standings.component';
+import { SeasonConstructorStandingsComponent } from '../../components/seasons/season-constructor-standings/season-constructor-standings.component';
 
 describe('HomeFeatureComponent', () => {
   let component: HomeFeatureComponent;
@@ -12,7 +14,12 @@ describe('HomeFeatureComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      declarations: [ HomeFeatureComponent, MockComponent(SeasonDetailComponent) ]
+      declarations: [
+        HomeFeatureComponent,
+        MockComponent(SeasonDetailComponent),
+        MockComponent(SeasonDriverStandingsComponent),
+        MockComponent(SeasonConstructorStandingsComponent)
+      ]
     })
     .compileComponents();
   });

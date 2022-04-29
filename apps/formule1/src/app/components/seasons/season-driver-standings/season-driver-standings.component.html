@@ -1,0 +1,24 @@
+<div class="overflow-x-auto">
+  <div class="btn loading" *ngIf="loading" aria-busy="true"></div>
+  <table class="table table-zebra w-full" aria-describedby="season detail">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>Position</th>
+        <th>Points</th>
+        <th>Wins</th>
+        <th>Driver name</th>
+        <th>Constructor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let driverStanding of driverStandings">
+        <td><span>{{driverStanding.position}}</span></td>
+        <td><span>{{driverStanding.points}}</span></td>
+        <td><span>{{driverStanding.wins}}</span></td>
+        <td><span>{{driverStanding.Driver.givenName + ' ' + driverStanding.Driver.familyName}}</span></td>
+        <td><span>{{driverStanding.Constructors[0].name}}</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

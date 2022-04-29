@@ -1,0 +1,10 @@
+<section class="prose w-full max-w-4xl flex-grow px-6 py-6">
+  <h1 class="heading-1">Season detail - {{season}}</h1>
+  <f1-season-detail [seasonId]="season"></f1-season-detail>
+
+  <h2 class="heading-2">Driver Standings</h2>
+  <f1-season-driver-standings [seasonId]="season"></f1-season-driver-standings>
+
+  <h2 class="heading-2">Constructor Standings</h2>
+  <f1-season-constructor-standings [seasonId]="season"></f1-season-constructor-standings>
+</section>

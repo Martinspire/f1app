@@ -1,20 +1,22 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DriverDetailsComponent } from './driver-details.component';
+import { DriverDetailComponent } from './driver-detail.component';
 
 describe('DriverDetailsComponent', () => {
-  let component: DriverDetailsComponent;
-  let fixture: ComponentFixture<DriverDetailsComponent>;
+  let component: DriverDetailComponent;
+  let fixture: ComponentFixture<DriverDetailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DriverDetailsComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [ DriverDetailComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DriverDetailsComponent);
+    fixture = TestBed.createComponent(DriverDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

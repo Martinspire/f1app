@@ -11,6 +11,8 @@ export class DriversListComponent implements OnInit {
 
   public drivers: IDriver[] = [];
 
+  public loading = false;
+
   constructor(private driverService: DriverService) { }
 
   ngOnInit(): void {
@@ -18,9 +20,11 @@ export class DriversListComponent implements OnInit {
   }
 
   private getDrivers() {
+    this.loading = true;
     this.driverService.getAllDrivers().subscribe((data: IDriver[]) => {
       console.log('driver data', data);
       this.drivers = data;
+      this.loading = false;
     });
   }
 }

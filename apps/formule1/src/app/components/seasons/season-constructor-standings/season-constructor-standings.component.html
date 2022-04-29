@@ -1,0 +1,22 @@
+<div class="overflow-x-auto">
+  <div class="btn loading" *ngIf="loading" aria-busy="true"></div>
+  <table class="table table-zebra w-full" aria-describedby="season detail">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>Position</th>
+        <th>Points</th>
+        <th>Wins</th>
+        <th>Constructor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let constructorStanding of constructorStandings">
+        <td><span>{{constructorStanding.position}}</span></td>
+        <td><span>{{constructorStanding.points}}</span></td>
+        <td><span>{{constructorStanding.wins}}</span></td>
+        <td><span>{{constructorStanding.Constructor.name}}</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

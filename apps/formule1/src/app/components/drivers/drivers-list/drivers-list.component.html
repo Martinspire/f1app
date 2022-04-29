@@ -1,6 +1,7 @@
 
 <div class="overflow-x-auto">
-  <table class="table table-zebra w-full">
+  <div class="btn loading" *ngIf="loading" aria-busy="true"></div>
+  <table class="table table-zebra w-full" aria-describedby="drivers list">
     <!-- head -->
     <thead>
       <tr>
@@ -19,7 +20,7 @@
         <td><span>{{driver.dateOfBirth}}</span></td>
         <td><span>{{driver.nationality}}</span></td>
         <td><a [href]="driver.url">Wiki</a></td>
-        <td><a routerLink="['drivers/', driver.driverId]">Details</a></td>
+        <td><a [routerLink]="['/drivers', driver.driverId]">Details</a></td>
       </tr>
     </tbody>
   </table>

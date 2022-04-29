@@ -12,6 +12,8 @@ export class SeasonDetailComponent implements OnChanges {
 
   public races: IRaceItem[] = [];
 
+  public loading = false;
+
   constructor(private seasonService: SeasonService) { }
 
   ngOnChanges(): void {
@@ -25,9 +27,11 @@ export class SeasonDetailComponent implements OnChanges {
   }
 
   private getSeason(seasonId: number) {
+    this.loading = true;
     this.seasonService.getSeason(seasonId).subscribe((data: IRaceItem[]) => {
       console.log('season data', data);
       this.races = data;
+      this.loading = false;
     });
   }
 }

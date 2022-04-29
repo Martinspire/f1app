@@ -15,4 +15,6 @@ export interface IDriver {
   familyName: string;
   dateOfBirth: string;
   nationality: string;
+  permanentNumber?: string;
+  code?: string;
 }

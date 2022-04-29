@@ -1,5 +1,6 @@
 <div class="overflow-x-auto">
-  <table class="table table-zebra w-full">
+  <div class="btn loading" *ngIf="loading" aria-busy="true"></div>
+  <table class="table table-zebra w-full" aria-describedby="circuits table">
     <!-- head -->
     <thead>
       <tr>
@@ -16,7 +17,7 @@
         <td><span>{{circuit.circuitName}}</span></td>
         <td><span>{{circuit.Location.country}}</span></td>
         <td><a [href]="circuit.url">Wiki</a></td>
-        <td><a routerLink="['circuits/', circuit.circuitId]">Details</a></td>
+        <td><a [routerLink]="['/circuits/', circuit.circuitId]">Details</a></td>
       </tr>
     </tbody>
   </table>

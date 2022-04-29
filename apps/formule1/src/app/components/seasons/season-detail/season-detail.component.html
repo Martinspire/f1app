@@ -1,5 +1,6 @@
 <div class="overflow-x-auto">
-  <table class="table table-zebra w-full">
+  <div class="btn loading" *ngIf="loading" aria-busy="true"></div>
+  <table class="table table-zebra w-full" aria-describedby="season detail">
     <!-- head -->
     <thead>
       <tr>
@@ -8,7 +9,6 @@
         <th>Race name</th>
         <th>Circuit</th>
         <th>Links</th>
-        <th>Details</th>
       </tr>
     </thead>
     <tbody>
@@ -18,7 +18,6 @@
         <td><span>{{race.raceName}}</span></td>
         <td><span>{{race.Circuit.circuitName}}</span></td>
         <td><a [href]="race.url">Wiki</a></td>
-        <td><a routerLink="['seasons/', race.season]">Details</a></td>
       </tr>
     </tbody>
   </table>

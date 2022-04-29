@@ -1,1 +1,25 @@
-<p>season-detail works!</p>
+<div class="overflow-x-auto">
+  <table class="table table-zebra w-full">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>Round</th>
+        <th>Date</th>
+        <th>Race name</th>
+        <th>Circuit</th>
+        <th>Links</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let race of races">
+        <td><span>{{race.round}}</span></td>
+        <td><span>{{race.date}}</span></td>
+        <td><span>{{race.raceName}}</span></td>
+        <td><span>{{race.Circuit.circuitName}}</span></td>
+        <td><a [href]="race.url">Wiki</a></td>
+        <td><a routerLink="['seasons/', race.season]">Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

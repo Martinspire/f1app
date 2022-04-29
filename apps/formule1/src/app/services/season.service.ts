@@ -16,7 +16,7 @@ export class SeasonService extends ApiService {
 
   getAllSeasons(): Observable<ISeasonsItem[]> {
     return this.http
-      .get<ISeasonsData>(this.apiURL + 'seasons.json')
+      .get<ISeasonsData>(this.apiURL + 'seasons.json?limit=1000')
       .pipe(
         first(),
         map((data) => {

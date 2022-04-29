@@ -1,4 +1,7 @@
+import { SeasonDetailComponent } from './../../components/seasons/season-detail/season-detail.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MockComponent } from 'ng-mocks';
 
 import { HomeFeatureComponent } from './home.component';
 
@@ -8,7 +11,8 @@ describe('HomeFeatureComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeFeatureComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [ HomeFeatureComponent, MockComponent(SeasonDetailComponent) ]
     })
     .compileComponents();
   });

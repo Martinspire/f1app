@@ -14,12 +14,12 @@ public circuits: ICircuitItem[] = [];
 constructor(private circuitService: CircuitService) { }
 
 ngOnInit(): void {
-  this.getAllSeasons();
+  this.getAllCircuits();
 }
 
-private getAllSeasons() {
+private getAllCircuits() {
   this.circuitService.getAllCircuits().subscribe((data: ICircuitItem[]) => {
-    console.log('driver data', data);
+    console.log('circuits data', data);
     this.circuits = data;
   });
 }

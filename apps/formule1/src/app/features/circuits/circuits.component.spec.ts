@@ -1,7 +1,8 @@
-/* tslint:disable:no-unused-variable */
+import { MockComponent } from 'ng-mocks';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CircuitsFeatureComponent } from './circuits.component';
+import { CircuitListComponent } from '../../components/circuits/circuit-list/circuit-list.component';
 
 describe('CircuitsFeatureComponent', () => {
   let component: CircuitsFeatureComponent;
@@ -9,7 +10,7 @@ describe('CircuitsFeatureComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CircuitsFeatureComponent ]
+      declarations: [ CircuitsFeatureComponent, MockComponent(CircuitListComponent) ]
     })
     .compileComponents();
   }));

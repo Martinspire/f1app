@@ -2,6 +2,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgIconsModule } from '@ng-icons/core';
+import { HeroUsers } from '@ng-icons/heroicons/outline';
+import { MomentModule } from 'ngx-moment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +24,7 @@ import { DriversFeatureComponent } from './features/drivers/drivers.component';
 import { HomeFeatureComponent } from './features/home/home.component';
 import { SeasonsFeatureComponent } from './features/seasons/seasons.component';
 import { CircuitsFeatureComponent } from './features/circuits/circuits.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -45,9 +49,12 @@ import { CircuitsFeatureComponent } from './features/circuits/circuits.component
   imports: [
     AppRoutingModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MomentModule,
+    NgIconsModule.withIcons({ HeroUsers }),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -19,7 +19,7 @@ export class SeasonsListComponent implements OnInit {
 
   private getAllSeasons() {
     this.seasonService.getAllSeasons().subscribe((data: ISeasonsItem[]) => {
-      console.log('driver data', data);
+      console.log('seasons data', data);
       this.seasons = data;
     });
   }

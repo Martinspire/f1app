@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "../../node_modules/@angular/**/*.d.ts"],
   "compilerOptions": {
     "types": ["jest", "node"]
   }

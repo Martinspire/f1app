@@ -4,7 +4,6 @@
     <!-- head -->
     <thead>
       <tr>
-        <th>Circuit</th>
         <th>Name</th>
         <th>Country</th>
         <th>Links</th>
@@ -13,7 +12,6 @@
     </thead>
     <tbody>
       <tr *ngFor="let circuit of circuits">
-        <td><span>{{circuit.circuitId}}</span></td>
         <td><span>{{circuit.circuitName}}</span></td>
         <td><span>{{circuit.Location.country}}</span></td>
         <td><a [href]="circuit.url">Wiki</a></td>

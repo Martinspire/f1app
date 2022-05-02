@@ -1,1 +1,6 @@
-<p>circuit-map works!</p>
+<div class="circuit-map"
+    leaflet
+    [leafletOptions]="options"
+    (leafletMapReady)="onMapReady($event)">
+    <div [leafletLayer]="circuitMarker"></div>
+</div>

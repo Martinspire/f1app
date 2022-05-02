@@ -2,6 +2,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { NgIconsModule } from '@ng-icons/core';
 import { HeroUsers } from '@ng-icons/heroicons/outline';
 import { MomentModule } from 'ngx-moment';
@@ -30,6 +32,8 @@ import { DriverDetailFeatureComponent } from './features/drivers/driver-detail-f
 import { CircuitDetailFeatureComponent } from './features/circuits/circuit-detail-feature/circuit-detail-feature.component';
 import { SeasonDriverStandingsComponent } from './components/seasons/season-driver-standings/season-driver-standings.component';
 import { SeasonConstructorStandingsComponent } from './components/seasons/season-constructor-standings/season-constructor-standings.component';
+import { SeasonMapComponent } from './components/seasons/season-map/season-map.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -55,14 +59,17 @@ import { SeasonConstructorStandingsComponent } from './components/seasons/season
     CircuitDetailFeatureComponent,
     SeasonDriverStandingsComponent,
     SeasonConstructorStandingsComponent,
+    SeasonMapComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    CommonModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    LeafletModule,
     MomentModule,
     NgIconsModule.withIcons({ HeroUsers }),
   ],

@@ -9,6 +9,7 @@
         <th>Wins</th>
         <th>Driver name</th>
         <th>Constructor</th>
+        <th>Details</th>
       </tr>
     </thead>
     <tbody>
@@ -18,6 +19,7 @@
         <td><span>{{driverStanding.wins}}</span></td>
         <td><span>{{driverStanding.Driver.givenName + ' ' + driverStanding.Driver.familyName}}</span></td>
         <td><span>{{driverStanding.Constructors[0].name}}</span></td>
+        <td><a [routerLink]="['/drivers', driverStanding.Driver.driverId]">Driver</a></td>
       </tr>
     </tbody>
   </table>

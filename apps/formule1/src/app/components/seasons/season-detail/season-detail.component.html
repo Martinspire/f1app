@@ -1,3 +1,5 @@
+<f1-season-map *ngIf="races" [races]="races"></f1-season-map>
+
 <div class="overflow-x-auto">
   <div class="btn loading" *ngIf="loading" aria-busy="true"></div>
   <table class="table table-zebra w-full" aria-describedby="season detail">
@@ -9,6 +11,7 @@
         <th>Race name</th>
         <th>Circuit</th>
         <th>Links</th>
+        <th>Details</th>
       </tr>
     </thead>
     <tbody>
@@ -18,6 +21,7 @@
         <td><span>{{race.raceName}}</span></td>
         <td><span>{{race.Circuit.circuitName}}</span></td>
         <td><a [href]="race.url">Wiki</a></td>
+        <td><a [routerLink]="['/circuits/', race.Circuit.circuitId]">Track</a></td>
       </tr>
     </tbody>
   </table>

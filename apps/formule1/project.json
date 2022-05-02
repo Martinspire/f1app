@@ -15,7 +15,10 @@
         "tsConfig": "apps/formule1/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/formule1/src/favicon.ico", "apps/formule1/src/assets"],
-        "styles": ["apps/formule1/src/styles.scss"],
+        "styles": [
+          "./node_modules/leaflet/dist/leaflet.css",
+          "apps/formule1/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {

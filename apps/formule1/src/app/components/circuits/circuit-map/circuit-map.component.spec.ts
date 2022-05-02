@@ -1,3 +1,4 @@
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CircuitMapComponent } from './circuit-map.component';
@@ -8,6 +9,7 @@ describe('CircuitMapComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [LeafletModule],
       declarations: [ CircuitMapComponent ]
     })
     .compileComponents();

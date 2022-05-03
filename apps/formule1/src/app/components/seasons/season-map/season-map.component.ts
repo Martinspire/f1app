@@ -1,6 +1,7 @@
-import { Component, Input, OnChanges } from '@angular/core';
-import { CircleMarker, circleMarker, latLng, tileLayer, MapOptions, latLngBounds, LatLngExpression } from 'leaflet';
-import { IRaceItem } from '../../../interfaces/season';
+import {Component, Input, OnChanges} from '@angular/core';
+import {CircleMarker, circleMarker, latLng, tileLayer, MapOptions, latLngBounds, LatLngExpression} from 'leaflet';
+import {AppConstant} from '../../../constants/app.constants';
+import {IRaceItem} from '../../../interfaces/season';
 
 @Component({
   selector: 'f1-season-map',
@@ -11,13 +12,13 @@ export class SeasonMapComponent implements OnChanges {
 
   @Input() races: IRaceItem[] = [];
 
-  private mapProvider = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  private mapProvider = AppConstant.mapProvider;
 
   public options!: MapOptions;
 
   public raceMarker: CircleMarker[] = [];
 
-  public map !:L.Map;
+  public map !: L.Map;
 
   constructor() {
     this.options = {
@@ -28,7 +29,7 @@ export class SeasonMapComponent implements OnChanges {
         })
       ],
       zoom: 2,
-      center: latLng(0,0)
+      center: latLng(0, 0)
     };
     //
   }
@@ -40,10 +41,10 @@ export class SeasonMapComponent implements OnChanges {
   onMapReady(map: L.Map) {
     this.map = map;
     this.fitMap();
- }
+  }
 
   showPopup(race: IRaceItem, position: LatLngExpression) {
-        this.map.openPopup(`${race.round} - ${race.raceName} - ${race.Circuit.Location.country}`, position);
+    this.map.openPopup(`${race.round} - ${race.raceName} - ${race.Circuit.Location.country}`, position);
   }
 
   private getSeasonMap() {
@@ -53,7 +54,7 @@ export class SeasonMapComponent implements OnChanges {
           Number(race.Circuit.Location.lat),
           Number(race.Circuit.Location.long)
         ];
-        const raceMarker = circleMarker(position).on('click', () => {this.showPopup(race, position)});
+        const raceMarker = circleMarker(position).on('click', () => {this.showPopup(race, position);});
         this.raceMarker.push(
           raceMarker
         );

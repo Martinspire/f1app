@@ -1,6 +1,7 @@
-import { HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import {HttpHeaders} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {throwError} from 'rxjs';
+import {AppConstant} from '../constants/app.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { throwError } from 'rxjs';
 export class ApiService {
 
   // Define API
-  public apiURL = 'http://ergast.com/api/f1/';
+  public apiURL = AppConstant.apiURL;
 
   // Http Options
   public httpOptions = {

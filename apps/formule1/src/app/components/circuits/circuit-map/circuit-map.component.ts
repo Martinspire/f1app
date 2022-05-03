@@ -1,23 +1,24 @@
-import { Component, Input, OnChanges } from '@angular/core';
-import { circleMarker, CircleMarker, latLng, latLngBounds, LatLngExpression, MapOptions, tileLayer } from 'leaflet';
-import { ICircuitItem } from '../../../interfaces/circuit';
+import {Component, Input, OnChanges} from '@angular/core';
+import {circleMarker, CircleMarker, latLng, LatLngExpression, MapOptions, tileLayer} from 'leaflet';
+import {AppConstant} from '../../../constants/app.constants';
+import {ICircuitItem} from '../../../interfaces/circuit';
 
 @Component({
   selector: 'f1-circuit-map',
   templateUrl: './circuit-map.component.html',
   styleUrls: ['./circuit-map.component.scss']
 })
-export class CircuitMapComponent  implements OnChanges {
+export class CircuitMapComponent implements OnChanges {
 
   @Input() circuit!: ICircuitItem;
 
-  private mapProvider = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  private mapProvider = AppConstant.mapProvider;
 
   public options!: MapOptions;
 
   public circuitMarker!: CircleMarker;
 
-  public map !:L.Map;
+  public map !: L.Map;
 
   constructor() {
     this.options = {
@@ -28,7 +29,7 @@ export class CircuitMapComponent  implements OnChanges {
         })
       ],
       zoom: 15,
-      center: latLng(0,0)
+      center: latLng(0, 0)
     };
     //
   }
@@ -40,10 +41,10 @@ export class CircuitMapComponent  implements OnChanges {
   onMapReady(map: L.Map) {
     this.map = map;
     this.fitMap();
- }
+  }
 
   showPopup(circuit: ICircuitItem, position: LatLngExpression) {
-        this.map.openPopup(`${circuit.circuitName} - ${circuit.Location.country}`, position);
+    this.map.openPopup(`${circuit.circuitName} - ${circuit.Location.country}`, position);
   }
 
   private getTrackMap() {
@@ -52,14 +53,14 @@ export class CircuitMapComponent  implements OnChanges {
         Number(this.circuit.Location.lat),
         Number(this.circuit.Location.long)
       ];
-      this.circuitMarker = circleMarker(position).on('click', () => {this.showPopup(this.circuit, position)});
+      this.circuitMarker = circleMarker(position).on('click', () => {this.showPopup(this.circuit, position);});
       this.fitMap();
     }
   }
 
   private fitMap() {
     if (this.circuitMarker && this.map) {
-        this.map.setView(this.circuitMarker.getLatLng())
+      this.map.setView(this.circuitMarker.getLatLng());
     }
   }
 }

@@ -16,7 +16,7 @@
         "inlineStyleLanguage": "scss",
         "assets": ["apps/formule1/src/favicon.ico", "apps/formule1/src/assets"],
         "styles": [
-          "./node_modules/leaflet/dist/leaflet.css",
+          "apps/formule1/src/assets/leaflet-dist/leaflet.css",
           "apps/formule1/src/styles.scss"
         ],
         "scripts": []
@@ -85,7 +85,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/formule1"],
       "options": {
-        "jestConfig": "apps/formule1/jest.config.js",
+        "jestConfig": "apps/formule1/jest.config.ts",
         "passWithNoTests": true
       }
     }

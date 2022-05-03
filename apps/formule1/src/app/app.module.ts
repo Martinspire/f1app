@@ -2,6 +2,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
+import {CommonModule} from '@angular/common';
 
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import {NgIconsModule} from '@ng-icons/core';
@@ -33,18 +34,6 @@ import {CircuitDetailFeatureComponent} from './features/circuits/circuit-detail-
 import {SeasonDriverStandingsComponent} from './components/seasons/season-driver-standings/season-driver-standings.component';
 import {SeasonConstructorStandingsComponent} from './components/seasons/season-constructor-standings/season-constructor-standings.component';
 import {SeasonMapComponent} from './components/seasons/season-map/season-map.component';
-import {CommonModule} from '@angular/common';
-import {StoreModule} from '@ngrx/store';
-import {EffectsModule} from '@ngrx/effects';
-import * as fromSeasons from './stores/seasons/seasons.reducer';
-import {SeasonsEffects} from './stores/seasons/seasons.effects';
-import {SeasonsFacade} from './stores/seasons/seasons.facade';
-import * as fromCircuits from './stores/circuits/circuits.reducer';
-import {CircuitsEffects} from './stores/circuits/circuits.effects';
-import {CircuitsFacade} from './stores/circuits/circuits.facade';
-import * as fromDrivers from './stores/drivers/drivers.reducer';
-import {DriversEffects} from './stores/drivers/drivers.effects';
-import {DriversFacade} from './stores/drivers/drivers.facade';
 
 @NgModule({
   declarations: [
@@ -84,24 +73,7 @@ import {DriversFacade} from './stores/drivers/drivers.facade';
     LeafletModule,
     MomentModule,
     NgIconsModule.withIcons({HeroUsers}),
-
-    EffectsModule.forFeature([CircuitsEffects]),
-    EffectsModule.forFeature([DriversEffects]),
-    EffectsModule.forFeature([SeasonsEffects]),
-    StoreModule.forFeature(
-      fromCircuits.CIRCUITS_FEATURE_KEY,
-      fromCircuits.reducer
-    ),
-    StoreModule.forFeature(
-      fromDrivers.DRIVERS_FEATURE_KEY,
-      fromDrivers.reducer
-    ),
-    StoreModule.forFeature(
-      fromSeasons.SEASONS_FEATURE_KEY,
-      fromSeasons.reducer
-    ),
   ],
-  providers: [CircuitsFacade, DriversFacade, SeasonsFacade],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -3,5 +3,6 @@
   "include": ["**/*.ts", "../../node_modules/@angular/**/*.d.ts"],
   "compilerOptions": {
     "types": ["jest", "node"]
-  }
+  },
+  "exclude": ["jest.config.ts"]
 }

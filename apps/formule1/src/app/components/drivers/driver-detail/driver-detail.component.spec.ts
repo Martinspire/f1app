@@ -1,3 +1,5 @@
+import { DriverResultsComponent } from './../driver-results/driver-results.component';
+import { MockComponent } from 'ng-mocks';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -10,7 +12,7 @@ describe('DriverDetailsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      declarations: [ DriverDetailComponent ]
+      declarations: [ DriverDetailComponent, MockComponent(DriverResultsComponent) ]
     })
     .compileComponents();
   });

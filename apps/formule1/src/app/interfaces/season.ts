@@ -16,16 +16,16 @@ export interface ISeasonsItem {
 
 export interface ISeasonData extends IMRData {
   MRData: {
-    RaceTable: IRaceTable;
+    RaceTable: ISeasonRaceTable;
   }
 }
 
-export interface IRaceTable {
+export interface ISeasonRaceTable {
   season: string;
-  Races: IRaceItem[];
+  Races: ISeasonRaceItem[];
 }
 
-export interface IRaceItem {
+export interface ISeasonRaceItem {
   season: string;
   round: string;
   url: string;

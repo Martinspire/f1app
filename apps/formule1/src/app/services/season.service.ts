@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, first, map } from 'rxjs/operators';
-import { IRaceItem, ISeasonData, ISeasonsData, ISeasonsItem } from '../interfaces/season';
+import { ISeasonRaceItem, ISeasonData, ISeasonsData, ISeasonsItem } from '../interfaces/season';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -27,7 +27,7 @@ export class SeasonService extends ApiService {
       );
   }
 
-  getSeason(year: number): Observable<IRaceItem[]> {
+  getSeason(year: number): Observable<ISeasonRaceItem[]> {
     return this.http
       .get<ISeasonData>(this.apiURL + year + '.json')
       .pipe(

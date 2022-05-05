@@ -34,6 +34,7 @@ import {CircuitDetailFeatureComponent} from './features/circuits/circuit-detail-
 import {SeasonDriverStandingsComponent} from './components/seasons/season-driver-standings/season-driver-standings.component';
 import {SeasonConstructorStandingsComponent} from './components/seasons/season-constructor-standings/season-constructor-standings.component';
 import {SeasonMapComponent} from './components/seasons/season-map/season-map.component';
+import { DriverResultsComponent } from './components/drivers/driver-results/driver-results.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import {SeasonMapComponent} from './components/seasons/season-map/season-map.com
     SeasonMapComponent,
     SeasonsFeatureComponent,
     SeasonsListComponent,
+    DriverResultsComponent,
   ],
   imports: [
     AppRoutingModule,

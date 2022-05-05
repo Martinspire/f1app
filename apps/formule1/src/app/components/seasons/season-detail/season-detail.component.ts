@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { IRaceItem } from '../../../interfaces/season';
+import { ISeasonRaceItem } from '../../../interfaces/season';
 import { SeasonService } from '../../../services/season.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { SeasonService } from '../../../services/season.service';
 export class SeasonDetailComponent implements OnChanges {
   @Input() seasonId = '';
 
-  public races: IRaceItem[] = [];
+  public races: ISeasonRaceItem[] = [];
 
   public loading = false;
 
@@ -28,7 +28,7 @@ export class SeasonDetailComponent implements OnChanges {
 
   private getSeason(seasonId: number) {
     this.loading = true;
-    this.seasonService.getSeason(seasonId).subscribe((data: IRaceItem[]) => {
+    this.seasonService.getSeason(seasonId).subscribe((data: ISeasonRaceItem[]) => {
       console.log('season data', data);
       this.races = data;
       this.loading = false;

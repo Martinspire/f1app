@@ -1,7 +1,7 @@
 import {Component, Input, OnChanges} from '@angular/core';
 import {CircleMarker, circleMarker, latLng, tileLayer, MapOptions, latLngBounds, LatLngExpression} from 'leaflet';
 import {AppConstant} from '../../../constants/app.constants';
-import {IRaceItem} from '../../../interfaces/season';
+import {ISeasonRaceItem} from '../../../interfaces/season';
 
 @Component({
   selector: 'f1-season-map',
@@ -10,7 +10,7 @@ import {IRaceItem} from '../../../interfaces/season';
 })
 export class SeasonMapComponent implements OnChanges {
 
-  @Input() races: IRaceItem[] = [];
+  @Input() races: ISeasonRaceItem[] = [];
 
   private mapProvider = AppConstant.mapProvider;
 
@@ -43,7 +43,7 @@ export class SeasonMapComponent implements OnChanges {
     this.fitMap();
   }
 
-  showPopup(race: IRaceItem, position: LatLngExpression) {
+  showPopup(race: ISeasonRaceItem, position: LatLngExpression) {
     this.map.openPopup(`${race.round} - ${race.raceName} - ${race.Circuit.Location.country}`, position);
   }
 

@@ -4,6 +4,21 @@ F1 app to try out some things for Sogeti
 
 Made with NX, Angular, Jest, Cypress en Tailwind. DaisyUI Tailwind thema, Hero Icons
 
+# Assignment
+
+So we've made changes to the assignment for recruitment and we want to achieve the following
+
+Create a driver page where you can:
+
+* select a driver
+* see details of said driver
+* see a list of his last 5 results.
+* If he has wins, show his last 5 wins.
+* If he has podiums, show his last 5 podiums.
+* If he has point finishes, show his last 5 point finishes.
+
+Outside of that we've implemented basic pages to consume the API and get it working properly.
+
 # Sources:
 
 - Angular: https://www.angular.io

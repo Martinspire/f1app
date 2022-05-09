@@ -1,1 +1,9 @@
-Some driver bio
+<h2 class="heading-2" *ngIf="driver">{{driver.givenName + ' ' + driver.familyName}}</h2>
+<div class="driver-bio-container">
+    <div class="driver-image" *ngIf="image">
+        <img class="rounded-md" [src]="image.thumbnail?.source" [width]="image.thumbnail?.width" [height]="image.thumbnail?.height" [alt]="image.title" />
+    </div>
+    <div class="driver-extract" *ngIf="summary">
+        <p>{{summary}}</p>
+    </div>
+</div>

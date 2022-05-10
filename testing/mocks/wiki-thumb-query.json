@@ -1,0 +1,22 @@
+{
+    "batchcomplete": "",
+    "query": {
+        "normalized": [{
+            "from": "Charles_Leclerc",
+            "to": "Charles Leclerc"
+        }],
+        "pages": {
+            "44924226": {
+                "pageid": 44924226,
+                "ns": 0,
+                "title": "Charles Leclerc",
+                "thumbnail": {
+                    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Charles-Leclerc.jpg/66px-Charles-Leclerc.jpg",
+                    "width": 66,
+                    "height": 100
+                },
+                "pageimage": "Charles-Leclerc.jpg"
+            }
+        }
+    }
+}

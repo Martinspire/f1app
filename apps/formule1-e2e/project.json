@@ -1,5 +1,4 @@
 {
-  "root": "apps/formule1-e2e",
   "sourceRoot": "apps/formule1-e2e/src",
   "projectType": "application",
   "targets": {

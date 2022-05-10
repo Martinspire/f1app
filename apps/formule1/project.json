@@ -1,6 +1,5 @@
 {
   "projectType": "application",
-  "root": "apps/formule1",
   "sourceRoot": "apps/formule1/src",
   "prefix": "f1",
   "targets": {

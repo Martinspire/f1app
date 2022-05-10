@@ -1,0 +1,24 @@
+{
+    "batchcomplete": "",
+    "query": {
+      "normalized": [
+        {
+          "from": "Max_Verstappen",
+          "to": "Max Verstappen"
+        }
+      ],
+      "pages": {
+        "41758713": {
+          "pageid": 41758713,
+          "ns": 0,
+          "title": "Max Verstappen",
+          "thumbnail": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Max_Verstappen_2017_Malaysia_3.jpg/266px-Max_Verstappen_2017_Malaysia_3.jpg",
+            "width": 266,
+            "height": 400
+          },
+          "pageimage": "Max_Verstappen_2017_Malaysia_3.jpg"
+        }
+      }
+    }
+  }

@@ -2,7 +2,7 @@
 
 <div class="overflow-x-auto">
   <div class="btn loading" *ngIf="loading" aria-busy="true"></div>
-  <table class="table table-zebra w-full" aria-describedby="season detail">
+  <table class="table table-zebra w-full" aria-describedby="season detail" *ngIf="races && races.length > 0">
     <!-- head -->
     <thead>
       <tr>

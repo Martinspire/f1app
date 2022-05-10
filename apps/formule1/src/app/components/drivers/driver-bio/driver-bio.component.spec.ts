@@ -1,25 +1,19 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { WikiService } from './../../../services/wiki.service';
 
 import { DriverBioComponent } from './driver-bio.component';
+import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
 
 describe('DriverBioComponent', () => {
-  let component: DriverBioComponent;
-  let fixture: ComponentFixture<DriverBioComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ DriverBioComponent ]
-    })
-    .compileComponents();
+  let spectator: Spectator<DriverBioComponent>;
+  const createComponent = createComponentFactory({
+    component: DriverBioComponent,
+    mocks: [WikiService]
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(DriverBioComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  beforeEach(() => spectator = createComponent());
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should be created', () => {
+    expect(spectator).toBeTruthy();
   });
 });

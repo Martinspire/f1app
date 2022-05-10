@@ -1,4 +1,4 @@
-import {HttpHeaders} from '@angular/common/http';
+import {HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {throwError} from 'rxjs';
 import {AppConstant} from '../constants/app.constants';
@@ -20,16 +20,18 @@ export class ApiService {
 
   // Error handling, disabling checking for any type since I don't know what errors this API will give
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  handleError(error: any) {
+  handleError(error: HttpErrorResponse) {
     let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
+    if (error && error.error instanceof ErrorEvent) {
       // Get client-side error
       errorMessage = error.error.message;
-    } else {
+    } else if (error && error.status && error.message) {
       // Get server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    } else {
+      errorMessage = String(error);
     }
-    console.log(errorMessage);
+    console.error(errorMessage);
     return throwError(() => {
       return errorMessage;
     });

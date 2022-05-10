@@ -3,5 +3,10 @@
   "projects": {
     "formule1": "apps/formule1",
     "formule1-e2e": "apps/formule1-e2e"
+  },
+  "schematics": {
+    "@ngneat/spectator:spectator-component": {
+      "jest": true
+    }
   }
 }

@@ -4,15 +4,12 @@ import {IWikiQuery, IWikiResult} from '../interfaces/wiki';
 import {Observable} from 'rxjs/internal/Observable';
 import {HttpClient} from '@angular/common/http';
 import {catchError, first, map} from 'rxjs/operators';
+import { AppConstant } from '../constants/app.constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WikiService extends ApiService {
-
-  // dont forget &origin=* to get around CORS
-  private wikiImageUrl = 'https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&origin=*&format=json&pithumbsize=400&titles=';
-  private wikiSummaryUrl = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&origin=*&exintro&explaintext&redirects=1&titles=';
 
   constructor(private http: HttpClient) {
     super();
@@ -20,7 +17,7 @@ export class WikiService extends ApiService {
 
   getWikiImage(query: string): Observable<IWikiResult> {
     return this.http
-      .get<IWikiQuery>(this.wikiImageUrl + query)
+      .get<IWikiQuery>(AppConstant.wikiImageUrl + query)
       .pipe(
         first(),
         map((data) => {
@@ -32,7 +29,7 @@ export class WikiService extends ApiService {
 
   getWikiSummary(query: string): Observable<IWikiResult> {
     return this.http
-      .get<IWikiQuery>(this.wikiSummaryUrl + query)
+      .get<IWikiQuery>(AppConstant.wikiSummaryUrl + query)
       .pipe(
         first(),
         map((data) => {

@@ -1,3 +1,4 @@
+<div class="btn loading" *ngIf="loading" aria-busy="true"></div>
 <div *ngIf="lastFiveWins.length > 0; else noWins">
   <h3 class="heading-3">Last {{lastFiveWins.length}} wins <span *ngIf="wins.length > 0"> - total: {{wins.length}}</span></h3>
 

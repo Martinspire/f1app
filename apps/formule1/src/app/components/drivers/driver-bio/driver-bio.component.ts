@@ -52,7 +52,7 @@ export class DriverBioComponent implements OnChanges {
       if (data && data.extract) {
         this.summary = data.extract;
       }
-      this.loadingImage = false;
+      this.loadingSummary = false;
     });
   }
 }

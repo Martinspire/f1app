@@ -14,7 +14,7 @@ export interface IWikiNormalized {
 }
 
 export interface IWikiResult {
-  pageId: number;
+  pageid: number;
   ns: number;
   title: string;
   thumbnail?: IWikiThumb;

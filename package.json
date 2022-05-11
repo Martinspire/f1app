@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-three/core": "~5.0.0",
     "@angular/animations": "13.3.5",
     "@angular/common": "13.3.5",
     "@angular/compiler": "13.3.5",
@@ -22,6 +23,7 @@
     "@angular/router": "13.3.5",
     "@nrwl/angular": "14.1.4",
     "rxjs": "~7.4.0",
+    "three": "~0.140.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },
@@ -30,6 +32,7 @@
     "@angular-eslint/eslint-plugin": "~13.0.1",
     "@angular-eslint/eslint-plugin-template": "~13.0.1",
     "@angular-eslint/template-parser": "~13.0.1",
+    "@angular-three/schematics": "^5.2.2",
     "@angular/cli": "13.3.4",
     "@angular/compiler-cli": "13.3.5",
     "@angular/language-service": "13.3.5",
@@ -50,6 +53,7 @@
     "@types/jest": "27.4.1",
     "@types/leaflet": "^1.7.9",
     "@types/node": "16.11.7",
+    "@types/three": "~0.140.0",
     "@typescript-eslint/eslint-plugin": "5.18.0",
     "@typescript-eslint/parser": "5.18.0",
     "autoprefixer": "^10.4.0",
@@ -73,4 +77,3 @@
     "typescript": "4.6.4"
   }
 }
-

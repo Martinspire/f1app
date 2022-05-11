@@ -8,6 +8,7 @@ import { DriverDetailFeatureComponent } from './features/drivers/driver-detail-f
 import {HomeFeatureComponent} from './features/home/home.component';
 import {SeasonsFeatureComponent} from './features/seasons/seasons.component';
 import { SeasonDetailFeatureComponent } from './features/seasons/season-detail-feature/season-detail-feature.component';
+import { TestFeatureComponent } from './features/test-feature/test-feature.component';
 
 const routes: Routes = [
   {path: '', component: HomeFeatureComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'drivers/:driver', component: DriverDetailFeatureComponent},
   {path: 'seasons', component: SeasonsFeatureComponent},
   {path: 'seasons/:season', component: SeasonDetailFeatureComponent},
+  {path: 'test', component: TestFeatureComponent},
 ];
 @NgModule({
   imports: [

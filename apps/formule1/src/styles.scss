@@ -4,6 +4,28 @@
 
 /* You can add global styles to this file, and also import other style files */
 
+@font-face {
+  font-family: "Formula1-Regular";
+  src: url("assets/fonts/Formula1-Regular.ttf");
+}
+@font-face {
+  font-family: "Formula1-Bold";
+  src: url("assets/fonts/Formula1-Bold.ttf");
+}
+@font-face {
+  font-family: "Formula1-Black";
+  src: url("assets/fonts/Formula1-Black.ttf");
+}
+@font-face {
+  font-family: "Formula1-Wide";
+  src: url("assets/fonts/Formula1-Wide.ttf");
+}
+
+
 body {
   overflow-y: scroll;
+}
+
+.heading-1, .heading-2, .heading-3, .heading-4, .heading-5 {
+  font-family: 'Formula1-Black';
 }

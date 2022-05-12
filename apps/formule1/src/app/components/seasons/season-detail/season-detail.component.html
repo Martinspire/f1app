@@ -1,8 +1,8 @@
 <f1-season-map *ngIf="races" [races]="races"></f1-season-map>
 
-<div class="overflow-x-auto">
+<div>
   <div class="btn loading" *ngIf="loading" aria-busy="true"></div>
-  <table class="table table-zebra w-full" aria-describedby="season detail" *ngIf="races && races.length > 0">
+  <table class="table table-zebra table-auto" aria-describedby="season detail" *ngIf="races && races.length > 0">
     <!-- head -->
     <thead>
       <tr>
@@ -17,7 +17,7 @@
     <tbody>
       <tr *ngFor="let race of races">
         <td><span>{{race.round}}</span></td>
-        <td><span>{{race.date}}</span></td>
+        <td><span>{{race.date | amParse: 'YYYY-MM-DD' | amDateFormat: 'DD-MM'}}</span></td>
         <td><span>{{race.raceName}}</span></td>
         <td><span>{{race.Circuit.circuitName}}</span></td>
         <td><a [href]="race.url">Wiki</a></td>

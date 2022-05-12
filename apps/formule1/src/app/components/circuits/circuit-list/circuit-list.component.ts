@@ -23,6 +23,9 @@ private getAllCircuits() {
   this.loading = true;
   this.circuitService.getAllCircuits().subscribe((data: ICircuitItem[]) => {
     console.log('circuits data', data);
+    data.forEach(circuit => {
+      console.log(circuit.circuitId + ' - ' + circuit.circuitName + ' - ' + circuit.Location.country);
+    })
     this.circuits = data;
     this.loading = false;
   });

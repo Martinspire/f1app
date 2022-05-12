@@ -15,6 +15,11 @@ module.exports = {
     ],
     theme: {
         extend: {},
+        fontFamily: {
+          sans: ['"Formula1-Regular"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+          heading: ['"Formula1-Black"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+          special: ['"Formula1-Wide"', '"Helvetica Neue"', 'Arial', 'sans-serif']
+        }
     },
     plugins: [
         tailwindAspectRatio,
@@ -23,4 +28,10 @@ module.exports = {
         tailwindTypography,
         daisyui
     ],
+    purge: {
+      enabled: true,
+      content: [
+          './**/*.html'
+      ]
+  }
 };

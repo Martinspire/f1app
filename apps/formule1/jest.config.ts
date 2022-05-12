@@ -11,8 +11,11 @@ module.exports = {
   coverageDirectory: '../../coverage/apps/formule1',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
+    "node_modules/three/examples/jsm/.+\\.(j|t)s?$": "ts-jest"
   },
-  transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
+  transformIgnorePatterns: [
+    '/node_modules/(?!@ionic|three/examples/jsm/).+\\.js$'
+  ],
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',
     'jest-preset-angular/build/serializers/ng-snapshot',

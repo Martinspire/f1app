@@ -1,5 +1,4 @@
-<div class="canvas-container">
-  <ngt-canvas>
-    <f1-three-model></f1-three-model>
-  </ngt-canvas>
+<div class="canvas-container" #threeContainer [hidden]="hideCanvas">
+  <canvas #threeCanvas></canvas>
 </div>
+<p *ngIf="hideCanvas">No model available</p>

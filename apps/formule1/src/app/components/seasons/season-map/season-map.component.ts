@@ -1,5 +1,5 @@
 import {Component, Input, OnChanges} from '@angular/core';
-import {CircleMarker, circleMarker, latLng, tileLayer, MapOptions, latLngBounds, LatLngExpression} from 'leaflet';
+import {CircleMarker, circleMarker, latLng, tileLayer, MapOptions, latLngBounds, LatLngExpression, LatLng} from 'leaflet';
 import {AppConstant} from '../../../constants/app.constants';
 import {ISeasonRaceItem} from '../../../interfaces/season';
 
@@ -12,23 +12,23 @@ export class SeasonMapComponent implements OnChanges {
 
   @Input() races: ISeasonRaceItem[] = [];
 
-  private mapProvider = AppConstant.mapProvider;
-
   public options!: MapOptions;
-
   public raceMarker: CircleMarker[] = [];
-
   public map !: L.Map;
+  public loaded = false;
+
+  private mapProvider = AppConstant.mapProvider;
 
   constructor() {
     this.options = {
       layers: [
         tileLayer(this.mapProvider, {
           maxZoom: 18,
+          noWrap: false,
           attribution: '...'
         })
       ],
-      zoom: 2,
+      zoom: 1.2,
       center: latLng(0, 0)
     };
     //
@@ -40,7 +40,11 @@ export class SeasonMapComponent implements OnChanges {
 
   onMapReady(map: L.Map) {
     this.map = map;
-    this.fitMap();
+
+    // const bounds = latLngBounds([[85, 180],[-85, -180]]);
+    // const wantedZoom = this.map.getBoundsZoom(bounds, true);
+    // const center = bounds.getCenter();
+    // this.map.setView(center, wantedZoom);
   }
 
   showPopup(race: ISeasonRaceItem, position: LatLngExpression) {
@@ -59,18 +63,7 @@ export class SeasonMapComponent implements OnChanges {
           raceMarker
         );
       });
-      this.fitMap();
-    }
-  }
-
-  private fitMap() {
-    if (this.raceMarker && this.raceMarker.length > 0 && this.map) {
-      const bounds = latLngBounds(this.raceMarker.map(marker => {
-        return marker.getLatLng();
-      }));
-      if (bounds) {
-        this.map.fitBounds(bounds);
-      }
+      this.loaded = true;
     }
   }
 }

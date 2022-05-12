@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ThreeModelComponent } from './three-model.component';
+import { AudioPlayerComponent } from './audio-player.component';
 
-describe('ThreeModelComponent', () => {
-  let component: ThreeModelComponent;
-  let fixture: ComponentFixture<ThreeModelComponent>;
+describe('AudioPlayerComponent', () => {
+  let component: AudioPlayerComponent;
+  let fixture: ComponentFixture<AudioPlayerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ThreeModelComponent],
+      declarations: [AudioPlayerComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ThreeModelComponent);
+    fixture = TestBed.createComponent(AudioPlayerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

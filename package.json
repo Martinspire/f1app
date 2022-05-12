@@ -12,7 +12,6 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-three/core": "~5.0.0",
     "@angular/animations": "13.3.5",
     "@angular/common": "13.3.5",
     "@angular/compiler": "13.3.5",
@@ -32,7 +31,6 @@
     "@angular-eslint/eslint-plugin": "~13.0.1",
     "@angular-eslint/eslint-plugin-template": "~13.0.1",
     "@angular-eslint/template-parser": "~13.0.1",
-    "@angular-three/schematics": "^5.2.2",
     "@angular/cli": "13.3.4",
     "@angular/compiler-cli": "13.3.5",
     "@angular/language-service": "13.3.5",

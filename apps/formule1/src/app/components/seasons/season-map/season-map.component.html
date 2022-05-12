@@ -1,7 +1,8 @@
 <div class="season-map"
     leaflet
     [leafletOptions]="options"
-    (leafletMapReady)="onMapReady($event)">
+    (leafletMapReady)="onMapReady($event)"
+    *ngIf="loaded">
     <div *ngFor="let marker of raceMarker"
       [leafletLayer]="marker"
     ></div>

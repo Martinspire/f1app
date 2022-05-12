@@ -8,8 +8,6 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { NgIconsModule } from '@ng-icons/core';
 import { HeroUsers } from '@ng-icons/heroicons/outline';
 import { MomentModule } from 'ngx-moment';
-import { NgtCanvasModule } from '@angular-three/core';
-import { NgtBufferGeometryModule } from '@angular-three/core/geometries'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,7 +37,8 @@ import { SeasonMapComponent } from './components/seasons/season-map/season-map.c
 import { DriverResultsComponent } from './components/drivers/driver-results/driver-results.component';
 import { TestFeatureComponent } from './features/test-feature/test-feature.component';
 import { ThreeViewerComponent } from './components/three-viewer/three-viewer.component';
-import { ThreeModelComponent } from './components/three-viewer/three-model/three-model.component';
+import { CircuitViewerComponent } from './components/circuits/circuit-viewer/circuit-viewer.component';
+import { AudioPlayerComponent } from './components/footer/audio-player/audio-player.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +68,8 @@ import { ThreeModelComponent } from './components/three-viewer/three-model/three
     DriverResultsComponent,
     TestFeatureComponent,
     ThreeViewerComponent,
-    ThreeModelComponent,
+    CircuitViewerComponent,
+    AudioPlayerComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -83,11 +83,6 @@ import { ThreeModelComponent } from './components/three-viewer/three-model/three
     LeafletModule,
     MomentModule,
     NgIconsModule.withIcons({ HeroUsers }),
-    NgtCanvasModule,
-    // NgtMeshModule,
-    // NgtBufferGeometryModule,
-    // NgtMeshBasicMaterialModule,
-    NgtBufferGeometryModule,
   ],
   bootstrap: [AppComponent],
 })

@@ -2,11 +2,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { NgIconsModule } from '@ng-icons/core';
-import { HeroUsers } from '@ng-icons/heroicons/outline';
 import { MomentModule } from 'ngx-moment';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -38,7 +36,7 @@ import { DriverResultsComponent } from './components/drivers/driver-results/driv
 import { TestFeatureComponent } from './features/test-feature/test-feature.component';
 import { ThreeViewerComponent } from './components/three-viewer/three-viewer.component';
 import { CircuitViewerComponent } from './components/circuits/circuit-viewer/circuit-viewer.component';
-import { AudioPlayerComponent } from './components/footer/audio-player/audio-player.component';
+import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +80,6 @@ import { AudioPlayerComponent } from './components/footer/audio-player/audio-pla
 
     LeafletModule,
     MomentModule,
-    NgIconsModule.withIcons({ HeroUsers }),
   ],
   bootstrap: [AppComponent],
 })

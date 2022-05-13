@@ -1,0 +1,53 @@
+.audio-toggle {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: flex-end;
+    z-index: 1000;
+}
+
+.hype-btn {
+    margin: 10px;
+}
+
+.audio-song-selection {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    background-color: #000;
+    border-radius: 5px;
+    &.hide {
+        visibility: hidden;
+    }
+}
+
+.song {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 10px 10px 0;
+    &:first-child {
+        margin-left: 10px;
+    }
+}
+
+.audio-btn {
+    min-width: 100px;
+    margin-top: 10px;
+}
+
+.f1-icon {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    background-size: cover;
+}
+
+.f1-icon-red {
+    background-image: url('assets/images/f1-logo-red.jpg');
+}
+
+.f1-icon-white {
+    background-image: url('assets/images/f1-logo-white.jpg');
+}

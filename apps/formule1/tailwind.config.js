@@ -28,10 +28,4 @@ module.exports = {
         tailwindTypography,
         daisyui
     ],
-    purge: {
-      enabled: true,
-      content: [
-          './**/*.html'
-      ]
-  }
 };

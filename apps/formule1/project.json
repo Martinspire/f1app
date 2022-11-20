@@ -1,4 +1,6 @@
 {
+  "name": "formule1",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/formule1/src",
   "prefix": "f1",
@@ -18,7 +20,11 @@
           "apps/formule1/src/assets/leaflet-dist/leaflet.css",
           "apps/formule1/src/styles.scss"
         ],
-        "scripts": []
+        "scripts": [],
+        "allowedCommonJsDependencies": [
+          "leaflet",
+          "moment"
+        ]
       },
       "configurations": {
         "production": {
@@ -82,7 +88,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/formule1"],
+      "outputs": ["{workspaceRoot}/coverage/apps/formule1"],
       "options": {
         "jestConfig": "apps/formule1/jest.config.ts",
         "passWithNoTests": true

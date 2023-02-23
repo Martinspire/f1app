@@ -19,6 +19,20 @@ export const AppConstant = {
       icon: 'f1-icon-white',
       url: 'assets/audio/f1-buildup.mp3',
       playing: false
+    },
+    {
+      id: 'f1-mexican',
+      name: 'Formula 1 Mexican Theme',
+      icon: 'f1-icon-mexican',
+      url: 'assets/audio/f1-mexican.mp3',
+      playing: false
+    },
+    {
+      id: 'f1-flute',
+      name: 'Formula 1 Flute Theme',
+      icon: 'f1-icon-flute',
+      url: 'assets/audio/f1-flute.mp3',
+      playing: false
     }
   ]
 };

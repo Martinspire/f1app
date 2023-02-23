@@ -8,7 +8,8 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "project-install": "npm install --legacy-peer-deps"
+    "project-install": "npm install --legacy-peer-deps",
+    "deploy": "nx run formule1:deploy --base-href=https://martinspire.github.io/f1app/ --cname=github.com"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +23,7 @@
     "@angular/router": "14.2.11",
     "@nrwl/angular": "15.8.0-beta.3",
     "@nrwl/cli": "^15.8.0-beta.3",
+    "angular-cli-ghpages": "^1.0.5",
     "rxjs": "~7.5.0",
     "three": "~0.150.0",
     "tslib": "^2.0.0",

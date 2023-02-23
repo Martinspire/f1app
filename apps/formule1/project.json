@@ -102,6 +102,9 @@
       "outputs": [
         "{workspaceRoot}/coverage/apps/formule1"
       ]
+    },
+    "deploy": {
+      "executor": "angular-cli-ghpages:deploy"
     }
   }
 }

@@ -1,7 +1,7 @@
 name: CI / CD for Angular
 on:
   push:
-    branches: [ "main" ]
+    branches: ['main']
 
 jobs:
   build-and-deploy:
@@ -20,13 +20,13 @@ jobs:
         run: npm ci
 
       - name: Lint
-        run: npm run lint
+        run: nx lint
 
       #- name: Tests
       #  run: npm run test:prod
 
       - name: Build
-        run: npm run build:prod
+        run: nx build
 
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v3
@@ -35,4 +35,3 @@ jobs:
           build_dir: dist/apps/formule1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-

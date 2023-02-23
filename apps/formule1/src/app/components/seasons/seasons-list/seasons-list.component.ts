@@ -10,6 +10,9 @@ import { SeasonService } from '../../../services/season.service';
 export class SeasonsListComponent implements OnInit {
 
   public seasons: ISeasonsItem[] = [];
+  public filteredSeasons: ISeasonsItem[] = [];
+
+  public seasonFilter = '';
 
   public loading = false;
 
@@ -25,7 +28,25 @@ export class SeasonsListComponent implements OnInit {
       console.log('seasons data', data);
       const reversedSeasons = Array.from(data).reverse();
       this.seasons = reversedSeasons;
+      this.applyFilters();
       this.loading = false;
     });
+  }
+
+  public applyFilters() {
+    this.filteredSeasons = this.seasons.filter(season => {
+      if (
+        season &&
+        season.season.toLowerCase().indexOf(this.seasonFilter.toLowerCase()) > -1
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }
+
+  public resetFilters() {
+    this.seasonFilter = '';
   }
 }

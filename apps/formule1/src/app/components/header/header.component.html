@@ -1,4 +1,4 @@
-<div class="navbar bg-base-100">
+<div class="navbar bg-red-600 text-primary-content">
     <div class="navbar-start">
         <div class="dropdown">
             <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -14,14 +14,17 @@
         <a class="btn btn-ghost normal-case text-xl font-special">F1 App</a>
     </div>
     <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal p-0">
-            <li><a [routerLink]="['/']">Home</a></li>
-            <li><a [routerLink]="['/drivers']">Drivers</a></li>
-            <li><a [routerLink]="['/seasons']">Seasons</a></li>
-            <li><a [routerLink]="['/circuits']">Circuits</a></li>
+        <ul class="menu menu-horizontal p-0 rounded-box">
+            <li><a class="hover:bg-red-900" [routerLink]="['/']">Home</a></li>
+            <li><a class="hover:bg-red-900" [routerLink]="['/drivers']">Drivers</a></li>
+            <li><a class="hover:bg-red-900" [routerLink]="['/seasons']">Seasons</a></li>
+            <li><a class="hover:bg-red-900" [routerLink]="['/circuits']">Circuits</a></li>
         </ul>
     </div>
     <div class="navbar-end">
-        <a class="btn" [routerLink]="['/drivers/max_verstappen']">See Max!</a>
+        <ul class="menu menu-horizontal p-0 rounded-box">
+          <li><a class="hover:bg-gray-900" (click)="showAudioPlayer()">Hype!</a></li>
+          <li><a class="hover:bg-orange-600" [routerLink]="['/drivers/max_verstappen']">See Max!</a></li>
+        </ul>
     </div>
 </div>

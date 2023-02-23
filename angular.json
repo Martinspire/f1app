@@ -1,7 +1,0 @@
-{
-  "version": 2,
-  "projects": {
-    "formule1": "apps/formule1",
-    "formule1-e2e": "apps/formule1-e2e"
-  }
-}

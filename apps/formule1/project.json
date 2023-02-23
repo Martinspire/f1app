@@ -1,43 +1,32 @@
 {
-  "name": "formule1",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "formule1",
+  "prefix": "f1",
   "projectType": "application",
   "sourceRoot": "apps/formule1/src",
-  "prefix": "f1",
+  "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/apps/formule1",
-        "index": "apps/formule1/src/index.html",
-        "main": "apps/formule1/src/main.ts",
-        "polyfills": "apps/formule1/src/polyfills.ts",
-        "tsConfig": "apps/formule1/tsconfig.app.json",
-        "inlineStyleLanguage": "scss",
-        "assets": ["apps/formule1/src/favicon.ico", "apps/formule1/src/assets"],
-        "styles": [
-          "apps/formule1/src/assets/leaflet-dist/leaflet.css",
-          "apps/formule1/src/styles.scss"
-        ],
-        "scripts": [],
-        "allowedCommonJsDependencies": [
-          "leaflet",
-          "moment"
-        ]
-      },
       "configurations": {
+        "development": {
+          "buildOptimizer": false,
+          "extractLicenses": false,
+          "namedChunks": true,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
         "production": {
           "budgets": [
             {
-              "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
+              "maximumError": "20mb",
+              "maximumWarning": "10mb",
+              "type": "initial"
             },
             {
-              "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
+              "maximumError": "100kb",
+              "maximumWarning": "10kb",
+              "type": "anyComponentStyle"
             }
           ],
           "fileReplacements": [
@@ -46,30 +35,36 @@
               "with": "apps/formule1/src/environments/environment.prod.ts"
             }
           ],
-          "outputHashing": "all"
-        },
-        "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
-          "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
+          "outputHashing": "all"
         }
       },
-      "defaultConfiguration": "production"
-    },
-    "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
-      "configurations": {
-        "production": {
-          "browserTarget": "formule1:build:production"
-        },
-        "development": {
-          "browserTarget": "formule1:build:development"
-        }
+      "defaultConfiguration": "production",
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "allowedCommonJsDependencies": [
+          "leaflet",
+          "moment"
+        ],
+        "assets": [
+          "apps/formule1/src/favicon.ico",
+          "apps/formule1/src/assets"
+        ],
+        "index": "apps/formule1/src/index.html",
+        "inlineStyleLanguage": "scss",
+        "main": "apps/formule1/src/main.ts",
+        "outputPath": "dist/apps/formule1",
+        "polyfills": "apps/formule1/src/polyfills.ts",
+        "scripts": [],
+        "styles": [
+          "apps/formule1/src/assets/leaflet-dist/leaflet.css",
+          "apps/formule1/src/assets/styles/styles.scss"
+        ],
+        "tsConfig": "apps/formule1/tsconfig.app.json"
       },
-      "defaultConfiguration": "development"
+      "outputs": [
+        "{options.outputPath}"
+      ]
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -86,14 +81,27 @@
         ]
       }
     },
+    "serve": {
+      "configurations": {
+        "development": {
+          "browserTarget": "formule1:build:development"
+        },
+        "production": {
+          "browserTarget": "formule1:build:production"
+        }
+      },
+      "defaultConfiguration": "development",
+      "executor": "@angular-devkit/build-angular:dev-server"
+    },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/apps/formule1"],
       "options": {
         "jestConfig": "apps/formule1/jest.config.ts",
         "passWithNoTests": true
-      }
+      },
+      "outputs": [
+        "{workspaceRoot}/coverage/apps/formule1"
+      ]
     }
-  },
-  "tags": []
+  }
 }

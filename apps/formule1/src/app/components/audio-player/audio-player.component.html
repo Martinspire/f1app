@@ -1,17 +1,19 @@
-<div class="audio-toggle flex flex-row">
-    <button class="btn hype-btn" (click)="toggleSongs()">
-      <span>Hype</span>
-    </button>
-    <div class="audio-song-selection" [class]="(showSongs && songs && songs.length > 0) ? 'show': 'hide'">
-        <div class="song" *ngFor="let song of songs">
-            <span class="f1-icon" [class]="song.icon"></span>
-            <button class="btn audio-btn" (click)="togglePlayback(song)">
-              <span *ngIf="!song.playing">Play</span>
-              <span *ngIf="song.playing">Pause</span>
-            </button>
-            <audio #songElements>
-              <source src="{{song.url}}" type="audio/mpeg"/>
-            </audio>
-        </div>
+<f1-modal #modalComponent>
+  <div class="audio-toggle">
+    <div class="audio-song-selection" [class]="(songs && songs.length > 0) ? 'show': 'hide'">
+      <div class="song" *ngFor="let song of songs">
+        <span class="f1-icon" [class]="song.icon"></span>
+        <button class="btn audio-btn" (click)="togglePlayback(song)">
+          <span *ngIf="!song.playing">Play</span>
+          <span *ngIf="song.playing">Pause</span>
+        </button>
+        <audio #songElements>
+          <source src="{{song.url}}" type="audio/mpeg"/>
+        </audio>
+      </div>
     </div>
-</div>
+    <div class="modal-action">
+      <label class="btn" (click)="close()">Close</label>
+    </div>
+  </div>
+</f1-modal>

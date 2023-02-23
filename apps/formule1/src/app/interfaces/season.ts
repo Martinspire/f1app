@@ -1,5 +1,5 @@
-import {IDateTime, IMRData} from "./api";
-import {ICircuitItem} from "./circuit";
+import { IDateTime, IMRData } from "./api";
+import { ICircuitItem } from "./circuit";
 
 export interface ISeasonsData extends IMRData {
   MRData: {
@@ -33,8 +33,9 @@ export interface ISeasonRaceItem {
   Circuit: ICircuitItem;
   date: string; // yyyy-mm-dd
   time: string; // hh:mm:ssZ
-  FirstPractice: IDateTime;
-  SecondPractice: IDateTime;
-  ThirdPractice: IDateTime;
-  Qualifying: IDateTime;
+  FirstPractice?: IDateTime;
+  SecondPractice?: IDateTime;
+  ThirdPractice?: IDateTime;
+  Qualifying?: IDateTime;
+  Sprint?: IDateTime;
 }

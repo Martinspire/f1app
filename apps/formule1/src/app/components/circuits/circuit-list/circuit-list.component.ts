@@ -9,25 +9,46 @@ import { CircuitService } from '../../../services/circuit.service';
 })
 export class CircuitListComponent implements OnInit {
 
-public circuits: ICircuitItem[] = [];
+  public circuits: ICircuitItem[] = [];
+  public filteredCircuits: ICircuitItem[] = [];
 
-public loading = false;
+  public nameFilter = '';
+  public countryFilter = '';
 
-constructor(private circuitService: CircuitService) { }
+  public loading = false;
 
-ngOnInit(): void {
-  this.getAllCircuits();
-}
+  constructor(private circuitService: CircuitService) { }
 
-private getAllCircuits() {
-  this.loading = true;
-  this.circuitService.getAllCircuits().subscribe((data: ICircuitItem[]) => {
-    console.log('circuits data', data);
-    data.forEach(circuit => {
-      console.log(circuit.circuitId + ' - ' + circuit.circuitName + ' - ' + circuit.Location.country);
-    })
-    this.circuits = data;
-    this.loading = false;
-  });
-}
+  ngOnInit(): void {
+    this.getAllCircuits();
+  }
+
+  private getAllCircuits() {
+    this.loading = true;
+    this.circuitService.getAllCircuits().subscribe((data: ICircuitItem[]) => {
+      console.log('circuits data', data);
+      this.circuits = data;
+      this.applyFilters();
+      this.loading = false;
+    });
+  }
+
+  public applyFilters() {
+    this.filteredCircuits = this.circuits.filter(circuit => {
+      if (
+        circuit &&
+        circuit.circuitName.toLowerCase().indexOf(this.nameFilter.toLowerCase()) > -1 &&
+        circuit.Location.country.toLowerCase().indexOf(this.countryFilter.toLowerCase()) > -1
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }
+
+  public resetFilters() {
+    this.nameFilter = '';
+    this.countryFilter = '';
+  }
 }

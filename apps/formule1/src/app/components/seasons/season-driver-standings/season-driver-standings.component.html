@@ -1,7 +1,6 @@
 <div class="overflow-x-auto">
   <div class="btn loading" *ngIf="loading" aria-busy="true"></div>
   <table class="table table-zebra w-full" aria-describedby="season detail" *ngIf="driverStandings && driverStandings.length > 0">
-    <!-- head -->
     <thead>
       <tr>
         <th>Position</th>
@@ -18,7 +17,7 @@
         <td><span>{{driverStanding.points}}</span></td>
         <td><span>{{driverStanding.wins}}</span></td>
         <td><span>{{driverStanding.Driver.givenName + ' ' + driverStanding.Driver.familyName}}</span></td>
-        <td><span>{{driverStanding.Constructors[0].name}}</span></td>
+        <td><span *ngIf="driverStanding.Constructors.length > 0">{{driverStanding.Constructors[0].name}}</span></td>
         <td><a [routerLink]="['/drivers', driverStanding.Driver.driverId]">Driver</a></td>
       </tr>
     </tbody>

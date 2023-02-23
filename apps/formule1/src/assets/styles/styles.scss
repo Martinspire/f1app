@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './global/_body';
+@import './global/_fonts';
+@import './global/_heading';
+@import './global/_layout';
+@import './global/_table';

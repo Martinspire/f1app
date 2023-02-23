@@ -1,6 +1,7 @@
-import { Component, ElementRef, AfterViewInit, QueryList, ViewChildren } from '@angular/core';
-import {AppConstant} from '../../constants/app.constants';
-import {ISong} from '../../interfaces/audio';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { AppConstant } from '../../constants/app.constants';
+import { ISong } from '../../interfaces/audio';
+import { ModalService } from '../modal/modal.service';
 
 @Component({
   selector: 'f1-audio-player',
@@ -11,9 +12,8 @@ export class AudioPlayerComponent implements AfterViewInit {
 
   @ViewChildren('songElements') songElements!: QueryList<ElementRef<HTMLAudioElement>>;
   public songs: ISong[] = [];
-  public showSongs = false;
 
-  constructor() {
+  constructor(private modalService: ModalService<AudioPlayerComponent>) {
     //
     this.songs = AppConstant.songs;
   }
@@ -27,10 +27,6 @@ export class AudioPlayerComponent implements AfterViewInit {
     });
   }
 
-  public toggleSongs() {
-    this.showSongs = !this.showSongs;
-  }
-
   public togglePlayback(song: ISong) {
     if (song.ref?.nativeElement.paused) {
       song.ref.nativeElement.play();
@@ -39,5 +35,9 @@ export class AudioPlayerComponent implements AfterViewInit {
       song.ref?.nativeElement.pause();
       song.playing = false;
     }
+  }
+
+  public close() {
+    this.modalService.close();
   }
 }

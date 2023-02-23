@@ -1,0 +1,13 @@
+tr.align-text-top {
+  th, td {
+    vertical-align: text-top;
+  }
+}
+
+.table-sticky-background {
+  position: sticky;
+  width: 100%;
+  height: 40px;
+  display: block;
+  background-color: hsla(var(--b1) / var(--tw-bg-opacity, 1));
+}

@@ -1,6 +1,6 @@
 # About
 
-F1 app to try out some things for Sogeti
+F1 app to try out some things
 
 Made with NX, Angular, Jest, Cypress en Tailwind. DaisyUI Tailwind thema, Hero Icons
 

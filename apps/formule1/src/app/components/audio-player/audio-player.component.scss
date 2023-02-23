@@ -1,11 +1,3 @@
-.audio-toggle {
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    align-items: flex-end;
-    z-index: 1000;
-}
-
 .hype-btn {
     margin: 10px;
 }
@@ -14,7 +6,6 @@
     display: flex;
     flex: 1;
     flex-direction: row;
-    background-color: #000;
     border-radius: 5px;
     &.hide {
         visibility: hidden;

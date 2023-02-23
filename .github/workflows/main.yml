@@ -20,13 +20,13 @@ jobs:
         run: npm ci
 
       - name: Lint
-        run: nx lint
+        run: npx nx lint
 
       #- name: Tests
       #  run: npm run test:prod
 
       - name: Build
-        run: nx build
+        run: npx nx build
 
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v3

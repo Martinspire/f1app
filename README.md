@@ -1,6 +1,6 @@
 # About
 
-F1 app to try out some things
+F1 app to try out some things.
 
 Made with NX, Angular, Jest, Cypress en Tailwind. DaisyUI Tailwind thema, Hero Icons
 
@@ -27,6 +27,8 @@ Outside of that we've implemented basic pages to consume the API and get it work
 * Tailwind CSS Framework: <https://tailwindcss.com>
 * Daisy Tailwind CSS Theme: <https://daisyui.com>
 * NX Workspace: <https://nx.dev>
+* Leaflet (Maps): <https://leafletjs.com/index.html>
+* Three (3d viewer): <https://threejs.org>
 
 ### Plugins and libraries
 

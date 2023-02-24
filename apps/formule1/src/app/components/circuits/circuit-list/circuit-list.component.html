@@ -1,36 +1,47 @@
 <div class="btn loading" *ngIf="loading" aria-busy="true"></div>
-<div class="table-sticky-background sticky top-14 z-10" aria-hidden="true">&nbsp;</div>
-<table class="table table-zebra w-full my-0 rounded-lg" aria-describedby="circuits table">
-  <thead>
-    <tr class="align-text-top">
-      <th class="sticky top-20 z-20 rounded-tl-lg">
-        <label class="label">Name</label>
-        <br/>
-        <input
-          type="text"
-          class="input input-bordered w-full max-w-xs"
-          [(ngModel)]="nameFilter"
-          (ngModelChange)="applyFilters()">
-      </th>
-      <th class="sticky top-20 z-20">
-        <label class="label">Country</label>
-        <br/>
-        <input
-          type="text"
-          class="input input-bordered w-full max-w-xs"
-          [(ngModel)]="countryFilter"
-          (ngModelChange)="applyFilters()">
-      </th>
-      <th class="sticky top-20 z-20">Links</th>
-      <th class="sticky top-20 z-20 rounded-tr-lg">Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let circuit of filteredCircuits">
-      <td><span>{{circuit.circuitName}}</span></td>
-      <td><span>{{circuit.Location.country}}</span></td>
-      <td><a [href]="circuit.url">Wiki</a></td>
-      <td><a [routerLink]="['/circuits/', circuit.circuitId]">Details</a></td>
-    </tr>
-  </tbody>
-</table>
+
+<div class="relative overflow-x-auto">
+  <table
+    class="table table-zebra w-full my-0 rounded-lg"
+    aria-describedby="circuits table"
+  >
+    <thead>
+      <tr class="align-text-top">
+        <th class="rounded-tl-lg">
+          <label class="label">Name</label>
+          <br />
+          <input
+            type="text"
+            class="input input-bordered w-full max-w-xs"
+            [(ngModel)]="nameFilter"
+            (ngModelChange)="applyFilters()"
+          />
+        </th>
+        <th class="">
+          <label class="label">Country</label>
+          <br />
+          <input
+            type="text"
+            class="input input-bordered w-full max-w-xs"
+            [(ngModel)]="countryFilter"
+            (ngModelChange)="applyFilters()"
+          />
+        </th>
+        <th class="">Links</th>
+        <th class="rounded-tr-lg">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let circuit of filteredCircuits">
+        <td>
+          <span>{{ circuit.circuitName }}</span>
+        </td>
+        <td>
+          <span>{{ circuit.Location.country }}</span>
+        </td>
+        <td><a [href]="circuit.url">Wiki</a></td>
+        <td><a [routerLink]="['/circuits/', circuit.circuitId]">Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,49 +1,65 @@
 .hype-btn {
-    margin: 10px;
+  margin: 10px;
 }
 
 .audio-song-selection {
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    border-radius: 5px;
-    &.hide {
-        visibility: hidden;
-    }
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  border-radius: 5px;
+  &.hide {
+    visibility: hidden;
+  }
 }
 
 .song {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px 10px 10px 0;
-    &:first-child {
-        margin-left: 10px;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 10px 10px 0;
+  &:first-child {
+    margin-left: 10px;
+  }
 }
 
 .audio-btn {
-    min-width: 100px;
-    margin-top: 10px;
+  min-width: 100px;
+  margin-top: 10px;
 }
 
 .f1-icon {
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    border-radius: 5px;
-    background-size: cover;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  background-size: cover;
 }
 
 .f1-icon-red {
-    background-image: url('../../../assets/images/f1-logo-red.jpg');
+  background-image: url('../../../assets/images/f1-logo-red.jpg');
 }
 .f1-icon-white {
-    background-image: url('../../../assets/images/f1-logo-white.jpg');
+  background-image: url('../../../assets/images/f1-logo-white.jpg');
 }
 .f1-icon-mexican {
   background-image: url('../../../assets/images/f1-logo-mexican.jpg');
 }
 .f1-icon-flute {
   background-image: url('../../../assets/images/f1-logo-flute.jpg');
+}
+
+@media (max-width: 640px) {
+  .audio-song-selection {
+    flex-direction: column;
+  }
+  .song {
+    flex-direction: row;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  .audio-btn {
+    margin-left: 10px;
+    margin-top: 0;
+  }
 }

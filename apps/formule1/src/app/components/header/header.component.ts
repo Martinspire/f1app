@@ -9,6 +9,8 @@ import { ModalService } from '../modal/modal.service';
 })
 export class HeaderComponent {
 
+  public dropdownOpen = false;
+
   constructor(private modalService: ModalService<AudioPlayerComponent>) {}
 
   async showAudioPlayer(): Promise<void> {
@@ -17,5 +19,15 @@ export class HeaderComponent {
     );
 
     await this.modalService.open(AudioPlayerComponent);
+  }
+
+  toggle() {
+    this.dropdownOpen = !this.dropdownOpen;
+    console.log(this.dropdownOpen);
+  }
+
+  close() {
+    this.dropdownOpen = false;
+    console.log(this.dropdownOpen);
   }
 }

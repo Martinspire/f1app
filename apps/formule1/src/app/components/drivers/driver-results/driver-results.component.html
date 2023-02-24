@@ -1,82 +1,124 @@
 <div class="btn loading" *ngIf="loading" aria-busy="true"></div>
 <div *ngIf="lastFiveWins.length > 0; else noWins">
-  <h3 class="heading-3">Last {{lastFiveWins.length}} wins <span *ngIf="wins.length > 0"> - total: {{wins.length}}</span></h3>
-
-  <table class="table table-zebra w-full" aria-describedby="season detail">
-    <thead>
-      <tr>
-        <th>Round</th>
-        <th>Date</th>
-        <th>Race name</th>
-        <th>Points</th>
-        <th>Links</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let race of lastFiveWins">
-        <td><span>{{race.round}}</span></td>
-        <td><span>{{race.date}}</span></td>
-        <td><span>{{race.raceName}}</span></td>
-        <td><span>{{race.Results[0].points}}</span></td>
-        <td><a [href]="race.url">Wiki</a></td>
-      </tr>
-    </tbody>
-  </table>
+  <h3 class="heading-3">
+    Last {{ lastFiveWins.length }} wins
+    <span *ngIf="wins.length > 0"> - total: {{ wins.length }}</span>
+  </h3>
+  <div class="relative overflow-x-auto">
+    <table class="table table-zebra w-full" aria-describedby="season detail">
+      <thead>
+        <tr>
+          <th>Round</th>
+          <th>Date</th>
+          <th>Race name</th>
+          <th>Points</th>
+          <th>Links</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let race of lastFiveWins">
+          <td>
+            <span>{{ race.round }}</span>
+          </td>
+          <td>
+            <span>{{ race.date }}</span>
+          </td>
+          <td>
+            <span>{{ race.raceName }}</span>
+          </td>
+          <td>
+            <span>{{ race.Results[0].points }}</span>
+          </td>
+          <td><a [href]="race.url">Wiki</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 <ng-template #noWins><p>This driver did not get any wins</p></ng-template>
 
 <div *ngIf="lastFivePodiums.length > 0; else noPodiums">
-  <h3 class="heading-3">Last {{lastFivePodiums.length}} podiums <span *ngIf="podiums.length > 0"> - total: {{podiums.length}}</span></h3>
+  <h3 class="heading-3">
+    Last {{ lastFivePodiums.length }} podiums
+    <span *ngIf="podiums.length > 0"> - total: {{ podiums.length }}</span>
+  </h3>
 
-  <table class="table table-zebra w-full" aria-describedby="season detail">
-    <thead>
-      <tr>
-        <th>Round</th>
-        <th>Date</th>
-        <th>Race name</th>
-        <th>Position</th>
-        <th>Points</th>
-        <th>Links</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let race of lastFivePodiums">
-        <td><span>{{race.round}}</span></td>
-        <td><span>{{race.date}}</span></td>
-        <td><span>{{race.raceName}}</span></td>
-        <td><span>{{race.Results[0].positionText}}</span></td>
-        <td><span>{{race.Results[0].points}}</span></td>
-        <td><a [href]="race.url">Wiki</a></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="relative overflow-x-auto">
+    <table class="table table-zebra w-full" aria-describedby="season detail">
+      <thead>
+        <tr>
+          <th>Round</th>
+          <th>Date</th>
+          <th>Race name</th>
+          <th>Position</th>
+          <th>Points</th>
+          <th>Links</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let race of lastFivePodiums">
+          <td>
+            <span>{{ race.round }}</span>
+          </td>
+          <td>
+            <span>{{ race.date }}</span>
+          </td>
+          <td>
+            <span>{{ race.raceName }}</span>
+          </td>
+          <td>
+            <span>{{ race.Results[0].positionText }}</span>
+          </td>
+          <td>
+            <span>{{ race.Results[0].points }}</span>
+          </td>
+          <td><a [href]="race.url">Wiki</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 <ng-template #noPodiums><p>This driver did not get any podiums</p></ng-template>
 
 <div *ngIf="lastFivePoints.length > 0; else noPoints">
-  <h3 class="heading-3">Last {{lastFivePoints.length}} points <span *ngIf="points.length > 0"> - total: {{points.length}}</span></h3>
+  <h3 class="heading-3">
+    Last {{ lastFivePoints.length }} points
+    <span *ngIf="points.length > 0"> - total: {{ points.length }}</span>
+  </h3>
 
-  <table class="table table-zebra w-full" aria-describedby="season detail">
-    <thead>
-      <tr>
-        <th>Round</th>
-        <th>Date</th>
-        <th>Race name</th>
-        <th>Position</th>
-        <th>Points</th>
-        <th>Links</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let race of lastFivePoints">
-        <td><span>{{race.round}}</span></td>
-        <td><span>{{race.date}}</span></td>
-        <td><span>{{race.raceName}}</span></td>
-        <td><span>{{race.Results[0].positionText}}</span></td>
-        <td><span>{{race.Results[0].points}}</span></td>
-        <td><a [href]="race.url">Wiki</a></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="relative overflow-x-auto">
+    <table class="table table-zebra w-full" aria-describedby="season detail">
+      <thead>
+        <tr>
+          <th>Round</th>
+          <th>Date</th>
+          <th>Race name</th>
+          <th>Position</th>
+          <th>Points</th>
+          <th>Links</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let race of lastFivePoints">
+          <td>
+            <span>{{ race.round }}</span>
+          </td>
+          <td>
+            <span>{{ race.date }}</span>
+          </td>
+          <td>
+            <span>{{ race.raceName }}</span>
+          </td>
+          <td>
+            <span>{{ race.Results[0].positionText }}</span>
+          </td>
+          <td>
+            <span>{{ race.Results[0].points }}</span>
+          </td>
+          <td><a [href]="race.url">Wiki</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 <ng-template #noPoints><p>This driver did not get any points</p></ng-template>

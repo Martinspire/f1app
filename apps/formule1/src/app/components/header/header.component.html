@@ -1,30 +1,77 @@
 <div class="navbar bg-red-600 text-primary-content">
-    <div class="navbar-start">
-        <div class="dropdown">
-            <label tabindex="0" class="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-      </label>
-            <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                <li><a [routerLink]="['/']">Home</a></li>
-                <li><a [routerLink]="['/drivers']">Drivers</a></li>
-                <li><a [routerLink]="['/seasons']">Seasons</a></li>
-                <li><a [routerLink]="['/circuits']">Circuits</a></li>
-            </ul>
-        </div>
-        <a class="btn btn-ghost normal-case text-xl font-special">F1 App</a>
-    </div>
-    <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal p-0 rounded-box">
-            <li><a class="hover:bg-red-900" [routerLink]="['/']">Home</a></li>
-            <li><a class="hover:bg-red-900" [routerLink]="['/drivers']">Drivers</a></li>
-            <li><a class="hover:bg-red-900" [routerLink]="['/seasons']">Seasons</a></li>
-            <li><a class="hover:bg-red-900" [routerLink]="['/circuits']">Circuits</a></li>
-        </ul>
-    </div>
-    <div class="navbar-end">
-        <ul class="menu menu-horizontal p-0 rounded-box">
-          <li><a class="hover:bg-gray-900" (click)="showAudioPlayer()">Hype!</a></li>
-          <li><a class="hover:bg-orange-600" [routerLink]="['/drivers/max_verstappen']">See Max!</a></li>
-        </ul>
-    </div>
+  <div class="navbar-start relative">
+    <button class="btn btn-ghost lg:hidden" (click)="toggle()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h8m-8 6h16"
+        />
+      </svg>
+    </button>
+    <ul
+      *ngIf="dropdownOpen"
+      class="drop-menu menu menu-compact mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+    >
+      <li class="menu-title">
+        <span>Pages</span>
+      </li>
+      <li><a [routerLink]="['/']" (click)="close()">Home</a></li>
+      <li><a [routerLink]="['/drivers']" (click)="close()">Drivers</a></li>
+      <li><a [routerLink]="['/seasons']" (click)="close()">Seasons</a></li>
+      <li><a [routerLink]="['/circuits']" (click)="close()">Circuits</a></li>
+      <li class="menu-title">
+        <span>Hype</span>
+      </li>
+      <li>
+        <a class="hover:bg-gray-900" (click)="showAudioPlayer(); close()"
+          >Get hyped!</a
+        >
+      </li>
+      <li>
+        <a
+          class="hover:bg-orange-600"
+          [routerLink]="['/drivers/max_verstappen']"
+          (click)="close()"
+          >See Max!</a
+        >
+      </li>
+    </ul>
+    <a class="btn btn-ghost normal-case text-xl font-special">F1 App</a>
+  </div>
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal p-0 rounded-box">
+      <li><a class="hover:bg-red-900" [routerLink]="['/']">Home</a></li>
+      <li>
+        <a class="hover:bg-red-900" [routerLink]="['/drivers']">Drivers</a>
+      </li>
+      <li>
+        <a class="hover:bg-red-900" [routerLink]="['/seasons']">Seasons</a>
+      </li>
+      <li>
+        <a class="hover:bg-red-900" [routerLink]="['/circuits']">Circuits</a>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-end hidden lg:flex">
+    <ul class="menu menu-horizontal p-0 rounded-box">
+      <li>
+        <a class="hover:bg-gray-900" (click)="showAudioPlayer()">Hype!</a>
+      </li>
+      <li>
+        <a
+          class="hover:bg-orange-600"
+          [routerLink]="['/drivers/max_verstappen']"
+          >See Max!</a
+        >
+      </li>
+    </ul>
+  </div>
 </div>

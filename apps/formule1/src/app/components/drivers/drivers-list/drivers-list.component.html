@@ -1,62 +1,76 @@
 <div class="btn loading" *ngIf="loading" aria-busy="true"></div>
-<div class="table-sticky-background sticky top-14 z-10" aria-hidden="true">&nbsp;</div>
-<table
-  class="table table-zebra w-full my-0"
-  aria-describedby="drivers list"
-  *ngIf="drivers && drivers.length > 0">
-  <thead>
-    <tr class="align-text-top">
-      <th class="sticky top-20 z-20 rounded-tl-lg">
-        <label class="label">Given Name</label>
-        <br/>
-        <input
-          type="text"
-          class="input input-bordered w-full max-w-xs"
-          [(ngModel)]="givenFilter"
-          (ngModelChange)="applyFilters()">
-      </th>
-      <th class="sticky top-20 z-20">
-        <label class="label">Family Name</label>
-        <br/>
-        <input
-          type="text"
-          class="input input-bordered w-full max-w-xs"
-          [(ngModel)]="familyFilter"
-          (ngModelChange)="applyFilters()">
-      </th>
-      <th class="sticky top-20 z-20">
-        <label class="label">Date of Birth</label>
-        <br/>
-        <input
-          type="text"
-          class="input input-bordered w-full max-w-xs"
-          [(ngModel)]="dateFilter"
-          (ngModelChange)="applyFilters()">
-      </th>
-      <th class="sticky top-20 z-20">
-        <label class="label">Nationality</label>
-        <br/>
-        <input
-          type="text"
-          class="input input-bordered w-full max-w-xs"
-          [(ngModel)]="nationalityFilter"
-          (ngModelChange)="applyFilters()">
-      </th>
-      <th class="sticky top-20 z-20">Links</th>
-      <th class="sticky top-20 z-20 rounded-tr-lg">Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let driver of filteredDrivers" class="hover">
-      <td><span>{{driver.givenName}}</span> </td>
-      <td><span>{{driver.familyName}}</span></td>
-      <td><span>{{driver.dateOfBirth}}</span></td>
-      <td><span>{{driver.nationality}}</span></td>
-      <td><a [href]="driver.url">Wiki</a></td>
-      <td><a [routerLink]="['/drivers', driver.driverId]">Details</a></td>
-    </tr>
-    <tr *ngIf="filteredDrivers.length === 0">
-      <td colspan="6">No drivers found</td>
-    </tr>
-  </tbody>
-</table>
+<div class="relative overflow-x-auto">
+  <table
+    class="table table-zebra w-full my-0"
+    aria-describedby="drivers list"
+    *ngIf="drivers && drivers.length > 0"
+  >
+    <thead>
+      <tr class="align-text-top">
+        <th class="rounded-tl-lg">
+          <label class="label">Given Name</label>
+          <br />
+          <input
+            type="text"
+            class="input input-bordered w-full max-w-xs"
+            [(ngModel)]="givenFilter"
+            (ngModelChange)="applyFilters()"
+          />
+        </th>
+        <th class="">
+          <label class="label">Family Name</label>
+          <br />
+          <input
+            type="text"
+            class="input input-bordered w-full max-w-xs"
+            [(ngModel)]="familyFilter"
+            (ngModelChange)="applyFilters()"
+          />
+        </th>
+        <th class="">
+          <label class="label">Date of Birth</label>
+          <br />
+          <input
+            type="text"
+            class="input input-bordered w-full max-w-xs"
+            [(ngModel)]="dateFilter"
+            (ngModelChange)="applyFilters()"
+          />
+        </th>
+        <th class="">
+          <label class="label">Nationality</label>
+          <br />
+          <input
+            type="text"
+            class="input input-bordered w-full max-w-xs"
+            [(ngModel)]="nationalityFilter"
+            (ngModelChange)="applyFilters()"
+          />
+        </th>
+        <th class="">Links</th>
+        <th class="rounded-tr-lg">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let driver of filteredDrivers" class="hover">
+        <td>
+          <span>{{ driver.givenName }}</span>
+        </td>
+        <td>
+          <span>{{ driver.familyName }}</span>
+        </td>
+        <td>
+          <span>{{ driver.dateOfBirth }}</span>
+        </td>
+        <td>
+          <span>{{ driver.nationality }}</span>
+        </td>
+        <td><a [href]="driver.url">Wiki</a></td>
+        <td><a [routerLink]="['/drivers', driver.driverId]">Details</a></td>
+      </tr>
+      <tr *ngIf="filteredDrivers.length === 0">
+        <td colspan="6">No drivers found</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

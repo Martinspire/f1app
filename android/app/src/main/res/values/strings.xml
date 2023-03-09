@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">F1 Data</string>
+    <string name="title_activity_main">F1 Data</string>
+    <string name="package_name">com.martinspire.f1app</string>
+    <string name="custom_url_scheme">com.martinspire.f1app</string>
+</resources>

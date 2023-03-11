@@ -2,19 +2,20 @@ import { IMRData, ITime } from './api';
 import { ICircuitItem } from './circuit';
 import { IConstructor } from './constructor';
 import { IDriver } from './driver';
+import { IFastestLap } from './race';
 
-export interface IRaceData extends IMRData {
+export interface ISprintRaceData extends IMRData {
   MRData: {
     RaceTable: {
       driverId?: string;
       season?: string;
       round?: string
-      Races: IRaceItem[];
+      Races: ISprintRaceItem[];
     };
   };
 }
 
-export interface IRaceItem {
+export interface ISprintRaceItem {
   raceId: string; // number as string
   round: string; // number as string
   url: string; // wiki link
@@ -22,10 +23,10 @@ export interface IRaceItem {
   Circuit: ICircuitItem;
   date: string; // yyyy-mm-dd as string
   time: string; // hh:mm:ssZ
-  Results: IRaceResult[];
+  SprintResults: ISprintRaceResult[];
 }
 
-export interface IRaceResult {
+export interface ISprintRaceResult {
   number: string; // number as string
   position: string; // number as string
   positionText: string;
@@ -37,16 +38,4 @@ export interface IRaceResult {
   status: string; // e.g. +2 laps
   Time: ITime;
   FastestLap: IFastestLap;
-}
-
-export interface IFastestLap {
-  rank: string;
-  lap: string;
-  Time: {
-    time: string; // m:s.mmm
-  },
-  AverageSpeed: {
-    units: string; //"kph"
-    speed: string; // may need to be rounded, 3 decimals
-  }
 }

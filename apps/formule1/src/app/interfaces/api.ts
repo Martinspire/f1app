@@ -18,3 +18,8 @@ export interface ILocationData {
   locality: string;
   country: string;
 }
+
+export interface ITime {
+  millis: string; // millis since start of day
+  time: string; // hh:mm:ss.mmm
+}

@@ -5,7 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { QRCodeModule } from 'angularx-qrcode';
 import { MomentModule } from 'ngx-moment';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
@@ -27,6 +29,7 @@ import { SeasonDetailComponent } from './components/seasons/season-detail/season
 import { SeasonDriverStandingsComponent } from './components/seasons/season-driver-standings/season-driver-standings.component';
 import { SeasonMapComponent } from './components/seasons/season-map/season-map.component';
 import { SeasonsListComponent } from './components/seasons/seasons-list/seasons-list.component';
+import { ShareComponent } from './components/share/share.component';
 import { ThreeViewerComponent } from './components/three-viewer/three-viewer.component';
 import { CircuitDetailFeatureComponent } from './features/circuits/circuit-detail-feature/circuit-detail-feature.component';
 import { CircuitsFeatureComponent } from './features/circuits/circuits.component';
@@ -68,6 +71,7 @@ import { TestFeatureComponent } from './features/test-feature/test-feature.compo
     SeasonsListComponent,
     TestFeatureComponent,
     ThreeViewerComponent,
+    ShareComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -80,6 +84,7 @@ import { TestFeatureComponent } from './features/test-feature/test-feature.compo
 
     LeafletModule,
     MomentModule,
+    QRCodeModule
   ],
   bootstrap: [AppComponent],
 })

@@ -3,7 +3,7 @@ import { ICircuitItem } from './circuit';
 import { IConstructor } from './constructor';
 import { IDriver } from './driver';
 
-export interface IRaceData extends IMRData {
+export interface IQualiData extends IMRData {
   MRData: {
     RaceTable: {
       driverId?: string;

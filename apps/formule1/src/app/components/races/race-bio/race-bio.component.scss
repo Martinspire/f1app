@@ -1,0 +1,23 @@
+.race-extract p {
+  white-space: pre-wrap;
+}
+
+.race-bio-container {
+  display: flex;
+}
+
+.race-image {
+  padding: 0 20px 0 0;
+}
+
+.race-extract {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 640px) {
+  .race-bio-container {
+    flex-direction: column;
+  }
+}

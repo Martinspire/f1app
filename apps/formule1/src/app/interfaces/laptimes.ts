@@ -20,7 +20,7 @@ export interface ILapTime {
   Circuit: ICircuitItem;
   date: string;
   time: string;
-  Laps: ILap;
+  Laps: ILap[];
 }
 
 export interface ILap {

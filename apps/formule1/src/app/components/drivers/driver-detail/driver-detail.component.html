@@ -1,46 +1,63 @@
 <div class="overflow-x-auto">
-    <f1-driver-bio *ngIf="driver" [driver]="driver"></f1-driver-bio>
-    <div class="btn loading" *ngIf="loading" aria-busy="true"></div>
-    <table class="table table-zebra w-full" aria-describedby="Driver detail" *ngIf="driver">
-        <!-- head -->
-        <thead>
-            <tr>
-                <th>Field</th>
-                <th>Value</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Number</td>
-                <td><span>{{driver.permanentNumber ? driver.permanentNumber : '-'}}</span></td>
-            </tr>
-            <tr>
-                <td>Code</td>
-                <td><span>{{driver.code ? driver.code : '-'}}</span></td>
-            </tr>
-            <tr>
-                <td>Given Name</td>
-                <td><span>{{driver.givenName}}</span></td>
-            </tr>
-            <tr>
-                <td>Family Name</td>
-                <td><span>{{driver.familyName}}</span></td>
-            </tr>
-            <tr>
-                <td>Date of Birth</td>
-                <td><span>{{driver.dateOfBirth}}</span></td>
-            </tr>
-            <tr>
-                <td>Nationality</td>
-                <td><span>{{driver.nationality}}</span></td>
-            </tr>
-            <tr>
-                <td>Wiki</td>
-                <td><a [href]="driver.url">Wiki</a></td>
-            </tr>
-        </tbody>
-    </table>
+  <f1-driver-bio *ngIf="driver" [driver]="driver"></f1-driver-bio>
+  <div class="btn loading" *ngIf="loading" aria-busy="true"></div>
+  <table
+    class="table table-zebra w-full"
+    aria-describedby="Driver detail"
+    *ngIf="driver"
+  >
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Number</td>
+        <td>
+          <span>{{
+            driver.permanentNumber ? driver.permanentNumber : '-'
+          }}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Code</td>
+        <td>
+          <span>{{ driver.code ? driver.code : '-' }}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Given Name</td>
+        <td>
+          <span>{{ driver.givenName }}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Family Name</td>
+        <td>
+          <span>{{ driver.familyName }}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Date of Birth</td>
+        <td>
+          <span>{{ driver.dateOfBirth }}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Nationality</td>
+        <td>
+          <span>{{ driver.nationality }}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Wiki</td>
+        <td><a [href]="driver.url">Wiki</a></td>
+      </tr>
+    </tbody>
+  </table>
 
-    <h2 class="heading-2"></h2>
-    <f1-driver-results *ngIf="driver" [driver]="driver"></f1-driver-results>
+  <h2 class="heading-2"></h2>
+  <f1-driver-results *ngIf="driver" [driver]="driver"></f1-driver-results>
 </div>

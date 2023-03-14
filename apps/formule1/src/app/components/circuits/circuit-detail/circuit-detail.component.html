@@ -1,12 +1,15 @@
 <ng-container *ngIf="circuit">
-  <h1 class="heading-2">Circuit detail - {{circuit.circuitName}}</h1>
+  <h1 class="heading-2">Circuit detail - {{ circuit.circuitName }}</h1>
   <f1-circuit-viewer [circuit]="circuit"></f1-circuit-viewer>
   <f1-circuit-map [circuit]="circuit"></f1-circuit-map>
 
   <div class="overflow-x-auto">
     <div class="btn loading" *ngIf="loading" aria-busy="true"></div>
-    <table class="table table-zebra w-full" aria-describedby="Circuit detail" *ngIf="circuit">
-      <!-- head -->
+    <table
+      class="table table-zebra w-full"
+      aria-describedby="Circuit detail"
+      *ngIf="circuit"
+    >
       <thead>
         <tr>
           <th>Field</th>
@@ -15,16 +18,26 @@
       </thead>
       <tbody>
         <tr>
-          <td>Circuit Name</td><td><span>{{circuit.circuitName}}</span></td>
+          <td>Circuit Name</td>
+          <td>
+            <span>{{ circuit.circuitName }}</span>
+          </td>
         </tr>
         <tr>
-          <td>Country</td><td><span>{{circuit.Location.country}}</span></td>
+          <td>Country</td>
+          <td>
+            <span>{{ circuit.Location.country }}</span>
+          </td>
         </tr>
         <tr>
-          <td>Locality</td><td><span>{{circuit.Location.locality}}</span></td>
+          <td>Locality</td>
+          <td>
+            <span>{{ circuit.Location.locality }}</span>
+          </td>
         </tr>
         <tr>
-          <td>Wiki</td><td><a [href]="circuit.url">Wiki</a></td>
+          <td>Wiki</td>
+          <td><a [href]="circuit.url">Wiki</a></td>
         </tr>
       </tbody>
     </table>

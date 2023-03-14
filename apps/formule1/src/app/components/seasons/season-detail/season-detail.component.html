@@ -36,7 +36,9 @@
         </td>
         <td><a [href]="race.url">Wiki</a></td>
         <td>
-          <a [routerLink]="['/circuits/', race.Circuit.circuitId]">Track</a>
+          <a [routerLink]="['/circuits/', race.Circuit.circuitId]">Circuit</a
+          >&nbsp;
+          <a [routerLink]="['/races/', race.season, race.round]">Race</a>
         </td>
       </tr>
     </tbody>

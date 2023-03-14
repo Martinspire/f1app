@@ -1,7 +1,7 @@
-import {Component, Input, OnChanges} from '@angular/core';
-import {circleMarker, CircleMarker, latLng, LatLngExpression, MapOptions, tileLayer} from 'leaflet';
-import {AppConstant} from '../../../constants/app.constants';
-import {ICircuitItem} from '../../../interfaces/circuit';
+import { Component, Input, OnChanges } from '@angular/core';
+import { circleMarker, CircleMarker, latLng, LatLngExpression, MapOptions, tileLayer } from 'leaflet';
+import { AppConstant } from '../../../constants/app.constants';
+import { ICircuitItem } from '../../../interfaces/circuit';
 
 @Component({
   selector: 'f1-circuit-map',
@@ -35,7 +35,7 @@ export class CircuitMapComponent implements OnChanges {
   }
 
   ngOnChanges(): void {
-    this.getTrackMap();
+    this.getCircuitMap();
   }
 
   onMapReady(map: L.Map) {
@@ -47,7 +47,7 @@ export class CircuitMapComponent implements OnChanges {
     this.map.openPopup(`${circuit.circuitName} - ${circuit.Location.country}`, position);
   }
 
-  private getTrackMap() {
+  private getCircuitMap() {
     if (this.circuit) {
       const position: LatLngExpression = [
         Number(this.circuit.Location.lat),

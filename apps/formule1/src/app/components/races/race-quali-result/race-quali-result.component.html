@@ -1,0 +1,52 @@
+<div class="btn loading" *ngIf="loading" aria-busy="true"></div>
+
+<h3 class="heading-3">Quali results</h3>
+<div class="relative overflow-x-auto">
+  <table
+    class="table table-zebra w-full my-0 rounded-lg"
+    aria-describedby="circuits table"
+    *ngIf="!loading && qualiResults"
+  >
+    <thead>
+      <tr class="align-text-top">
+        <th class="rounded-tl-lg">Position</th>
+        <th>Driver</th>
+        <th>Constructor</th>
+        <th *ngIf="!haveQ2 && !haveQ3">Time</th>
+        <th *ngIf="haveQ2">Q1 Time</th>
+        <th *ngIf="haveQ2">Q2 Time</th>
+        <th *ngIf="haveQ3">Q3 Time</th>
+        <th class="rounded-tr-lg">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let result of qualiResults.QualifyingResults">
+        <td>
+          <span>{{ result.position }}</span>
+        </td>
+        <td>
+          <span>{{
+            result.Driver.givenName + ' ' + result.Driver.familyName
+          }}</span>
+        </td>
+        <td>
+          <span>{{ result.Constructor.name }}</span>
+        </td>
+        <td>
+          <span>{{ result.Q1 }}</span>
+        </td>
+        <td *ngIf="haveQ2">
+          <span>{{ result.Q2 }}</span>
+        </td>
+        <td *ngIf="haveQ3">
+          <span>{{ result.Q3 }}</span>
+        </td>
+        <td>
+          <a [routerLink]="['/drivers/', result.Driver.driverId]">Driver</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p *ngIf="!loading && !qualiResults">This race did not have a qualification</p>

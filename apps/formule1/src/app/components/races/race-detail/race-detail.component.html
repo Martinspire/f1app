@@ -1,0 +1,11 @@
+<div class="btn loading" *ngIf="loading" aria-busy="true"></div>
+
+<f1-race-bio [race]="race" [season]="season" [round]="round"></f1-race-bio>
+<f1-race-result [race]="race"></f1-race-result>
+<!-- <f1-race-fastest-laps [season]="season" [round]="round"></f1-race-fastest-laps> -->
+<!-- <f1-race-pitstops [season]="season" [round]="round"></f1-race-pitstops> -->
+<f1-race-sprint-result
+  [season]="season"
+  [round]="round"
+></f1-race-sprint-result>
+<f1-race-quali-result [season]="season" [round]="round"></f1-race-quali-result>

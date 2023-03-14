@@ -17,19 +17,19 @@ export class CircuitDetailComponent implements OnChanges {
   constructor(private circuitService: CircuitService) { }
 
   ngOnChanges(): void {
-    this.getDriverParam();
+    this.getCircuitParam();
   }
 
-  private getDriverParam() {
+  private getCircuitParam() {
     if (this.circuitId) {
-      this.getDriver(this.circuitId);
+      this.getCircuit(this.circuitId);
     }
   }
 
-  private getDriver(circuitId: string) {
+  private getCircuit(circuitId: string) {
     this.loading = true;
     this.circuitService.getCircuit(circuitId).subscribe((data: ICircuitItem) => {
-      console.log('driver data', data);
+      console.log('circuit data', data);
       this.circuit = data;
       this.loading = false;
     });

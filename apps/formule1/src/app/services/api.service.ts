@@ -1,7 +1,7 @@
-import {HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {throwError} from 'rxjs';
-import {AppConstant} from '../constants/app.constants';
+import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { AppConstant } from '../constants/app.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class ApiService {
 
   // Error handling, disabling checking for any type since I don't know what errors this API will give
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  handleError(error: HttpErrorResponse) {
+  handleError(error: HttpErrorResponse): Observable<never> {
     let errorMessage = '';
     if (error && error.error instanceof ErrorEvent) {
       // Get client-side error
@@ -32,8 +32,6 @@ export class ApiService {
       errorMessage = String(error);
     }
     console.error(errorMessage);
-    return throwError(() => {
-      return errorMessage;
-    });
+    throw new Error(errorMessage);
   }
 }

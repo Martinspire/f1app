@@ -14,6 +14,7 @@ export class RaceFastestLapsComponent implements OnChanges {
   public laps: ILap[] = [];
 
   public loading = false;
+  public error = false;
 
   constructor(private raceService: RaceService) { }
 
@@ -29,10 +30,17 @@ export class RaceFastestLapsComponent implements OnChanges {
 
   private getLaps(season: string, round: string) {
     this.loading = true;
-    this.raceService.getLapsResult(season, round).subscribe((data: ILap[]) => {
-      console.log('laps data', data);
-      this.laps = data;
-      this.loading = false;
+    this.raceService.getLapsResult(season, round).subscribe({
+      next: (data: ILap[]) => {
+        console.log('laps data', data);
+        this.laps = data;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.log('error', error);
+        this.error = true;
+        this.loading = false;
+      }
     });
   }
 }

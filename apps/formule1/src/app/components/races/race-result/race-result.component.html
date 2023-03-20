@@ -1,45 +1,50 @@
 <div class="btn loading" *ngIf="!race" aria-busy="true"></div>
 
-<h3 class="heading-3">Race results</h3>
-<div class="relative overflow-x-auto">
-  <table
-    class="table table-zebra w-full my-0 rounded-lg"
-    aria-describedby="circuits table"
-    *ngIf="race"
-  >
-    <thead>
-      <tr class="align-text-top">
-        <th class="rounded-tl-lg">Position</th>
-        <th>Driver</th>
-        <th>Constructor</th>
-        <th>Points</th>
-        <th>Status</th>
-        <th class="rounded-tr-lg">Details</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let result of race.Results">
-        <td>
-          <span>{{ result.position }}</span>
-        </td>
-        <td>
-          <span>{{
-            result.Driver.givenName + ' ' + result.Driver.familyName
-          }}</span>
-        </td>
-        <td>
-          <span>{{ result.Constructor.name }}</span>
-        </td>
-        <td>
-          <span>{{ result.points }}</span>
-        </td>
-        <td>
-          <span>{{ result.status }}</span>
-        </td>
-        <td>
-          <a [routerLink]="['/drivers/', result.Driver.driverId]">Driver</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<ng-container *ngIf="race.Results">
+  <h3 class="heading-3">Race results</h3>
+  <div class="relative overflow-x-auto">
+    <table
+      class="table table-zebra w-full my-0 rounded-lg"
+      aria-describedby="circuits table"
+      *ngIf="race"
+    >
+      <thead>
+        <tr class="align-text-top">
+          <th class="rounded-tl-lg">Position</th>
+          <th>Driver</th>
+          <th>Constructor</th>
+          <th>Points</th>
+          <th>Status</th>
+          <th class="rounded-tr-lg">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let result of race.Results">
+          <td>
+            <span>{{ result.position }}</span>
+          </td>
+          <td>
+            <span>{{
+              result.Driver.givenName + ' ' + result.Driver.familyName
+            }}</span>
+          </td>
+          <td>
+            <span>{{ result.Constructor.name }}</span>
+          </td>
+          <td>
+            <span>{{ result.points }}</span>
+          </td>
+          <td>
+            <span>{{ result.status }}</span>
+          </td>
+          <td>
+            <a [routerLink]="['/drivers/', result.Driver.driverId]">Driver</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-container>
+<ng-container *ngIf="!race.Results">
+  <p>This race does not have results yet</p>
+</ng-container>

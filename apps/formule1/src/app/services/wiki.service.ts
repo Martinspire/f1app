@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-import {ApiService} from './api.service';
-import {IWikiQuery, IWikiResult} from '../interfaces/wiki';
-import {Observable} from 'rxjs/internal/Observable';
-import {HttpClient} from '@angular/common/http';
-import {catchError, first, map} from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { catchError, first, map } from 'rxjs/operators';
 import { AppConstant } from '../constants/app.constants';
+import { IWikiQuery, IWikiResult } from '../interfaces/wiki';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,10 @@ export class WikiService extends ApiService {
       .pipe(
         first(),
         map((data) => {
+          if (!data?.query?.pages) {
+            console.log('data not right', data);
+            throw new Error('data not right');
+          }
           return Object.values(data.query.pages)[0];
         }),
         catchError(this.handleError)
@@ -33,6 +37,10 @@ export class WikiService extends ApiService {
       .pipe(
         first(),
         map((data) => {
+          if (!data?.query?.pages) {
+            console.log('data not right', data);
+            throw new Error('data not right');
+          }
           return Object.values(data.query.pages)[0];
         }),
         catchError(this.handleError)

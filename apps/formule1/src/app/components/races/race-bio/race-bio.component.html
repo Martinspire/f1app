@@ -1,4 +1,7 @@
-<h2 class="heading-2">Race Result - Round {{ round }} of {{ season }}</h2>
+<h2 class="heading-2">
+  Race <span *ngIf="haveResults">Result </span>- Round {{ round }} of
+  {{ season }}
+</h2>
 <div class="race-bio-container">
   <div class="btn loading" *ngIf="loadingImage" aria-busy="true"></div>
   <div class="btn loading" *ngIf="loadingSummary" aria-busy="true"></div>

@@ -20,6 +20,10 @@ export class ConstructorService extends ApiService {
       .pipe(
         first(),
         map((data) => {
+          if (!data?.MRData?.ConstructorTable?.Constructors) {
+            console.log('data not right', data);
+            throw new Error('data not right');
+          }
           return data.MRData.ConstructorTable.Constructors;
         }),
         catchError(this.handleError)
@@ -32,6 +36,10 @@ export class ConstructorService extends ApiService {
       .pipe(
         first(),
         map((data) => {
+          if (!data?.MRData?.ConstructorTable?.Constructors) {
+            console.log('data not right', data);
+            throw new Error('data not right');
+          }
           return data.MRData.ConstructorTable.Constructors;
         }),
         catchError(this.handleError)
@@ -44,6 +52,10 @@ export class ConstructorService extends ApiService {
       .pipe(
         first(),
         map((data) => {
+          if (!data?.MRData?.ConstructorTable?.Constructors) {
+            console.log('data not right', data);
+            throw new Error('data not right');
+          }
           return data.MRData.ConstructorTable.Constructors;
         }),
         catchError(this.handleError)

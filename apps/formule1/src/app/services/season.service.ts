@@ -1,9 +1,9 @@
-import { IConstructorStandingItem, IDriverStandingItem, IConstructorStandingsData, IDriverStandingsData } from './../interfaces/standings';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, first, map } from 'rxjs/operators';
-import { ISeasonRaceItem, ISeasonData, ISeasonsData, ISeasonsItem } from '../interfaces/season';
+import { ISeasonData, ISeasonRaceItem, ISeasonsData, ISeasonsItem } from '../interfaces/season';
+import { IConstructorStandingItem, IConstructorStandingsData, IDriverStandingItem, IDriverStandingsData } from './../interfaces/standings';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -21,6 +21,10 @@ export class SeasonService extends ApiService {
       .pipe(
         first(),
         map((data) => {
+          if (!data?.MRData?.SeasonTable?.Seasons) {
+            console.log('data not right', data);
+            throw new Error('data not right');
+          }
           return data.MRData.SeasonTable.Seasons;
         }),
         catchError(this.handleError)
@@ -33,6 +37,10 @@ export class SeasonService extends ApiService {
       .pipe(
         first(),
         map((data) => {
+          if (!data?.MRData?.RaceTable?.Races) {
+            console.log('data not right', data);
+            throw new Error('data not right');
+          }
           return data.MRData.RaceTable.Races;
         }),
         catchError(this.handleError)
@@ -45,6 +53,10 @@ export class SeasonService extends ApiService {
       .pipe(
         first(),
         map((data) => {
+          if (!data?.MRData?.StandingsTable?.StandingsLists[0]?.DriverStandings) {
+            console.log('data not right', data);
+            throw new Error('data not right');
+          }
           return data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
         }),
         catchError(this.handleError)
@@ -57,6 +69,10 @@ export class SeasonService extends ApiService {
       .pipe(
         first(),
         map((data) => {
+          if (!data?.MRData?.StandingsTable?.StandingsLists[0]?.ConstructorStandings) {
+            console.log('data not right', data);
+            throw new Error('data not right');
+          }
           return data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
         }),
         catchError(this.handleError)

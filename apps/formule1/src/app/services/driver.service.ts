@@ -1,10 +1,10 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { catchError, first, map } from 'rxjs/operators';
+import { IDriver, IDriverData } from '../interfaces/driver';
 import { IRaceData, IRaceItem } from './../interfaces/race';
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/internal/Observable';
-import {catchError, first, map} from 'rxjs/operators';
-import {IDriver, IDriverData} from '../interfaces/driver';
-import {ApiService} from './api.service';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,10 @@ export class DriverService extends ApiService {
       .pipe(
         first(),
         map((data) => {
+          if (!data?.MRData?.DriverTable?.Drivers) {
+            console.log('data not right', data);
+            throw new Error('data not right');
+          }
           return data.MRData.DriverTable.Drivers;
         }),
         catchError(this.handleError)
@@ -33,6 +37,10 @@ export class DriverService extends ApiService {
       .pipe(
         first(),
           map((data) => {
+            if (!data?.MRData?.DriverTable?.Drivers[0]) {
+              console.log('data not right', data);
+              throw new Error('data not right');
+            }
             return data.MRData.DriverTable.Drivers[0];
         }),
         catchError(this.handleError));
@@ -43,6 +51,10 @@ export class DriverService extends ApiService {
       .get<IDriverData>(this.apiURL + 'drivers/' + driver + '/driverStandings.json')
       .pipe(first(),
         map((data) => {
+            if (!data?.MRData?.DriverTable?.Drivers[0]) {
+              console.log('data not right', data);
+              throw new Error('data not right');
+            }
             return data.MRData.DriverTable.Drivers[0];
         }),
         catchError(this.handleError)
@@ -54,6 +66,10 @@ export class DriverService extends ApiService {
       .get<IRaceData>(this.apiURL + 'drivers/' + driver + '/results.json?limit=1000') // right now 500-ish is the record so should be fine for now
       .pipe(first(),
         map((data) => {
+            if (!data?.MRData?.RaceTable?.Races) {
+              console.log('data not right', data);
+              throw new Error('data not right');
+            }
             return data.MRData.RaceTable.Races;
         }),
         catchError(this.handleError)

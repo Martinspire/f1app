@@ -5,7 +5,7 @@ import { catchError, first, map } from 'rxjs/operators';
 import { ILap, ILapTimesData } from '../interfaces/laptimes';
 import { IPitstop, IPitstopsData } from '../interfaces/pitstops';
 import { IQualiData, IQualiItem } from '../interfaces/quali';
-import { IRaceData, IRaceItem } from '../interfaces/race';
+import { IPlannedRaceData, IPlannedRaceItem, IRaceData, IRaceItem } from '../interfaces/race';
 import { ISprintRaceData, ISprintRaceItem } from '../interfaces/sprint';
 import { ApiService } from './api.service';
 
@@ -18,12 +18,32 @@ export class RaceService  extends ApiService {
     super();
   }
 
+  getPlannedRace(year: string, raceNumber: string): Observable<IPlannedRaceItem> {
+    return this.http
+      .get<IPlannedRaceData>(this.apiURL + year + '/' + raceNumber + '.json')
+      .pipe(
+        first(),
+        map((data) => {
+          if (!data?.MRData?.RaceTable?.Races[0]) {
+            console.log('data not right', data);
+            throw new Error('data not right');
+          }
+          return data.MRData.RaceTable.Races[0];
+        }),
+        catchError(this.handleError)
+      );
+  }
+
   getRaceResult(year: string, raceNumber: string): Observable<IRaceItem> {
     return this.http
       .get<IRaceData>(this.apiURL + year + '/' + raceNumber + '/results.json')
       .pipe(
         first(),
         map((data) => {
+          if (!data?.MRData?.RaceTable?.Races[0]) {
+            console.log('data not right', data);
+            throw new Error('data not right');
+          }
           return data.MRData.RaceTable.Races[0];
         }),
         catchError(this.handleError)
@@ -36,6 +56,10 @@ export class RaceService  extends ApiService {
       .pipe(
         first(),
         map((data) => {
+          if (!data?.MRData?.RaceTable?.Races[0]) {
+            console.log('data not right', data);
+            throw new Error('data not right');
+          }
           return data.MRData.RaceTable.Races[0];
         }),
         catchError(this.handleError)
@@ -48,6 +72,10 @@ export class RaceService  extends ApiService {
       .pipe(
         first(),
         map((data) => {
+          if (!data?.MRData?.RaceTable?.Races[0]) {
+            console.log('data not right', data);
+            throw new Error('data not right');
+          }
           return data.MRData.RaceTable.Races[0];
         }),
         catchError(this.handleError)
@@ -60,6 +88,10 @@ export class RaceService  extends ApiService {
       .pipe(
         first(),
         map((data) => {
+          if (!data?.MRData?.RaceTable?.Races[0]) {
+            console.log('data not right', data);
+            throw new Error('data not right');
+          }
           return data.MRData.RaceTable.Races[0].PitStops;
         }),
         catchError(this.handleError)
@@ -72,6 +104,10 @@ export class RaceService  extends ApiService {
       .pipe(
         first(),
         map((data) => {
+          if (!data?.MRData?.RaceTable?.Races[0]) {
+            console.log('data not right', data);
+            throw new Error('data not right');
+          }
           return data.MRData.RaceTable.Races[0].Laps;
         }),
         catchError(this.handleError)

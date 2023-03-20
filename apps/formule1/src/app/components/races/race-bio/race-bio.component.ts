@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { IRaceItem } from '../../../interfaces/race';
+import { IPlannedRaceItem, IRaceItem } from '../../../interfaces/race';
 import { IWikiResult } from '../../../interfaces/wiki';
 import { WikiService } from '../../../services/wiki.service';
 
@@ -9,7 +9,7 @@ import { WikiService } from '../../../services/wiki.service';
   styleUrls: ['./race-bio.component.scss']
 })
 export class RaceBioComponent implements OnChanges {
-  @Input() race!: IRaceItem;
+  @Input() race!: IRaceItem | IPlannedRaceItem;
   @Input() round!: string;
   @Input() season!: string;
 
@@ -18,6 +18,7 @@ export class RaceBioComponent implements OnChanges {
 
   public loadingImage = false;
   public loadingSummary = false;
+  public haveResults = false;
 
   constructor(private wikiService: WikiService) { }
 
@@ -29,10 +30,13 @@ export class RaceBioComponent implements OnChanges {
     if (this.race) {
       this.getRaceImage(this.race);
       this.getRaceSummary(this.race);
+      if ((this.race as IRaceItem ).Results) {
+        this.haveResults = true;
+      }
     }
   }
 
-  private getRaceImage(race: IRaceItem) {
+  private getRaceImage(race: IRaceItem | IPlannedRaceItem) {
     this.loadingImage = true;
     const wikiUrlSplit = race.url.split('/');
     const wikiName = wikiUrlSplit[wikiUrlSplit.length - 1]; // lets hope this is consistent in the api
@@ -44,7 +48,7 @@ export class RaceBioComponent implements OnChanges {
     });
   }
 
-  private getRaceSummary(race: IRaceItem) {
+  private getRaceSummary(race: IRaceItem | IPlannedRaceItem) {
     this.loadingSummary = true;
 
 

@@ -14,6 +14,7 @@ export class RaceSprintResultComponent implements OnChanges {
   public sprintResults!: ISprintRaceItem;
 
   public loading = false;
+  public error = false;
 
   constructor(private raceService: RaceService) { }
 
@@ -29,10 +30,17 @@ export class RaceSprintResultComponent implements OnChanges {
 
   private getSprint(season: string, round: string) {
     this.loading = true;
-    this.raceService.getSprintRaceResult(season, round).subscribe((data: ISprintRaceItem) => {
-      console.log('sprint data', data);
-      this.sprintResults = data;
-      this.loading = false;
+    this.raceService.getSprintRaceResult(season, round).subscribe({
+      next: (data: ISprintRaceItem) => {
+        console.log('sprint data', data);
+        this.sprintResults = data;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.log('error', error);
+        this.error = true;
+        this.loading = false;
+      }
     });
   }
 }

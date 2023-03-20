@@ -1,4 +1,4 @@
-import { IMRData, ITime } from './api';
+import { IDateTime, IMRData, ITime } from './api';
 import { ICircuitItem } from './circuit';
 import { IConstructor } from './constructor';
 import { IDriver } from './driver';
@@ -49,4 +49,30 @@ export interface IFastestLap {
     units: string; //"kph"
     speed: string; // may need to be rounded, 3 decimals
   }
+}
+
+export interface IPlannedRaceData extends IMRData {
+  MRData: {
+    RaceTable: {
+      driverId?: string;
+      season?: string;
+      round?: string
+      Races: IPlannedRaceItem[];
+    };
+  };
+}
+
+export interface IPlannedRaceItem {
+  season: string;
+  round: string;
+  url: string;
+  raceName: string;
+  Circuit: ICircuitItem;
+  date: string; // yyyy-mm-dd
+  time: string; // hh:mm:ssZ
+  FirstPractice?: IDateTime;
+  SecondPractice?: IDateTime;
+  ThirdPractice?: IDateTime;
+  Qualifying?: IDateTime;
+  Sprint?: IDateTime;
 }

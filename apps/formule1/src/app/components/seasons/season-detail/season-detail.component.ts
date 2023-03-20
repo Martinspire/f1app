@@ -14,6 +14,8 @@ export class SeasonDetailComponent implements OnChanges {
 
   public loading = false;
 
+  public today = new Date();
+
   constructor(private seasonService: SeasonService) { }
 
   ngOnChanges(): void {

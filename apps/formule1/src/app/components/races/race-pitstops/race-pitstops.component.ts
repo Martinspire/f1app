@@ -14,6 +14,7 @@ export class RacePitstopsComponent implements OnChanges {
   public pitstops: IPitstop[] = [];
 
   public loading = false;
+  public error = false;
 
   constructor(private raceService: RaceService) { }
 
@@ -29,10 +30,17 @@ export class RacePitstopsComponent implements OnChanges {
 
   private getPitstops(season: string, round: string) {
     this.loading = true;
-    this.raceService.getPitstopResult(season, round).subscribe((data: IPitstop[]) => {
-      console.log('pitstops data', data);
-      this.pitstops = data;
-      this.loading = false;
+    this.raceService.getPitstopResult(season, round).subscribe({
+      next: (data: IPitstop[]) => {
+        console.log('pitstops data', data);
+        this.pitstops = data;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.log('error', error);
+        this.error = true;
+        this.loading = false;
+      }
     });
   }
 }

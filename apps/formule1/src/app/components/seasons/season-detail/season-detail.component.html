@@ -24,7 +24,9 @@
         </td>
         <td>
           <span>{{
-            race.date | amParse : 'YYYY-MM-DD' | amDateFormat : 'DD-MM'
+            race.date
+              | dfnsParse : 'yyyy-MM-dd' : today : {}
+              | dfnsFormat : 'dd-MM'
           }}</span>
         </td>
         <td>
@@ -38,7 +40,13 @@
         <td>
           <a [routerLink]="['/circuits/', race.Circuit.circuitId]">Circuit</a
           >&nbsp;
-          <a [routerLink]="['/races/', race.season, race.round]">Race</a>
+          <a
+            [routerLink]="['/races/', race.season, race.round]"
+            *ngIf="
+              race.date | dfnsParse : 'yyyy-MM-dd' : today : {} | dfnsIsPast
+            "
+            >Race</a
+          >
         </td>
       </tr>
     </tbody>

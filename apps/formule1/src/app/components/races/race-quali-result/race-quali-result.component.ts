@@ -14,6 +14,7 @@ export class RaceQualiResultComponent implements OnChanges {
   public qualiResults!: IQualiItem;
 
   public loading = false;
+  public error = false;
   public haveQ2 = false;
   public haveQ3 = false;
 
@@ -31,16 +32,23 @@ export class RaceQualiResultComponent implements OnChanges {
 
   private getQuali(season: string, round: string) {
     this.loading = true;
-    this.raceService.getQualiRaceResult(season, round).subscribe((data: IQualiItem) => {
+    this.raceService.getQualiRaceResult(season, round).subscribe({
+      next: (data: IQualiItem) => {
       console.log('quali data', data);
-      this.qualiResults = data;
-      if (this.qualiResults.QualifyingResults[0].Q2) {
-        this.haveQ2 = true;
+        this.qualiResults = data;
+        if (this.qualiResults.QualifyingResults[0].Q2) {
+          this.haveQ2 = true;
+        }
+        if (this.qualiResults.QualifyingResults[0].Q3) {
+          this.haveQ3 = true;
+        }
+        this.loading = false;
+      },
+      error: (error) => {
+        console.log('error', error);
+        this.error = true;
+        this.loading = false;
       }
-      if (this.qualiResults.QualifyingResults[0].Q3) {
-        this.haveQ3 = true;
-      }
-      this.loading = false;
     });
   }
 }

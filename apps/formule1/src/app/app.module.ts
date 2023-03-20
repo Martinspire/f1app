@@ -6,7 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { QRCodeModule } from 'angularx-qrcode';
-import { MomentModule } from 'ngx-moment';
+import { DateFnsModule } from 'ngx-date-fns';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,6 +45,12 @@ import { RaceDetailFeatureComponent } from './features/races/race-detail/race-de
 import { SeasonDetailFeatureComponent } from './features/seasons/season-detail-feature/season-detail-feature.component';
 import { SeasonsFeatureComponent } from './features/seasons/seasons.component';
 import { TestFeatureComponent } from './features/test-feature/test-feature.component';
+import { NextRaceComponent } from './components/next/next-race/next-race.component';
+import { NextSeasonComponent } from './components/next/next-season/next-season.component';
+import { NextCountdownComponent } from './components/next/next-countdown/next-countdown.component';
+import { NextSessionComponent } from './components/next/next-session/next-session.component';
+import { NextRaweCeekComponent } from './components/next/next-rawe-ceek/next-rawe-ceek.component';
+import { NextScheduleComponent } from './components/next/next-schedule/next-schedule.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +90,12 @@ import { TestFeatureComponent } from './features/test-feature/test-feature.compo
     RaceQualiResultComponent,
     RaceDetailFeatureComponent,
     RaceBioComponent,
+    NextRaceComponent,
+    NextSeasonComponent,
+    NextCountdownComponent,
+    NextSessionComponent,
+    NextRaweCeekComponent,
+    NextScheduleComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -94,8 +106,8 @@ import { TestFeatureComponent } from './features/test-feature/test-feature.compo
     HttpClientModule,
     ReactiveFormsModule,
 
+    DateFnsModule.forRoot(),
     LeafletModule,
-    MomentModule,
     QRCodeModule
   ],
   bootstrap: [AppComponent],

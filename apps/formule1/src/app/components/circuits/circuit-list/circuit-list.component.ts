@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICircuitItem } from '../../../interfaces/circuit';
-import { CircuitService } from '../../../services/circuit.service';
+import { CircuitService } from '../../../services/api/circuit.service';
 
 @Component({
   selector: 'f1-circuit-list',

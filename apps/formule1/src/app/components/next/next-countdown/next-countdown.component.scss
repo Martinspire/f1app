@@ -1,0 +1,32 @@
+.countdown-container {
+  display: flex;
+  flex-direction: row;
+  .description {
+    font-size: 0.4rem;
+    opacity: 0.7;
+  }
+  &.big {
+    font-size: 2.5rem;
+    .description {
+      font-size: 0.8rem;
+    }
+  }
+  &.large {
+    font-size: 2rem;
+    .description {
+      font-size: 0.6rem;
+    }
+  }
+  &.medium {
+    font-size: 1.5rem;
+    .description {
+      font-size: 0.4rem;
+    }
+  }
+  &.small {
+    font-size: 0.8rem;
+    .description {
+      font-size: 0.25rem;
+    }
+  }
+}

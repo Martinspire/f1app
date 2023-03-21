@@ -1,13 +1,20 @@
 <section class="prose w-full max-w-4xl flex-grow my-6 py-6">
-  <h1 class="heading-1">Welcome</h1>
-  <p>Welcome to the F1 App</p>
+  <div class="btn loading" *ngIf="loading" aria-busy="true"></div>
 
-  <h2 class="heading-2">Calendar {{lastSeason}}</h2>
-  <f1-season-detail [seasonId]="lastSeason"></f1-season-detail>
+  <ng-container *ngIf="!loading">
+    <f1-next-home></f1-next-home>
 
-  <h2 class="heading-2">Driver Standings {{lastSeason}}</h2>
-  <f1-season-driver-standings [seasonId]="lastSeason"></f1-season-driver-standings>
+    <h2 class="heading-2">Calendar {{ currentSeason.season }}</h2>
+    <f1-season-detail [seasonId]="currentSeason.season"></f1-season-detail>
 
-  <h2 class="heading-2">Constructor Standings {{lastSeason}}</h2>
-  <f1-season-constructor-standings [seasonId]="lastSeason"></f1-season-constructor-standings>
+    <h2 class="heading-2">Driver Standings {{ currentSeason.season }}</h2>
+    <f1-season-driver-standings
+      [seasonId]="currentSeason.season"
+    ></f1-season-driver-standings>
+
+    <h2 class="heading-2">Constructor Standings {{ currentSeason.season }}</h2>
+    <f1-season-constructor-standings
+      [seasonId]="currentSeason.season"
+    ></f1-season-constructor-standings>
+  </ng-container>
 </section>

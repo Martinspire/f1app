@@ -2,7 +2,7 @@
 import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
 import { MockInstance, MockProvider } from 'ng-mocks';
 import { of } from 'rxjs';
-import { WikiService } from '../../../services/wiki.service';
+import { WikiService } from '../../../services/api/wiki.service';
 
 import { RaceBioComponent } from './race-bio.component';
 

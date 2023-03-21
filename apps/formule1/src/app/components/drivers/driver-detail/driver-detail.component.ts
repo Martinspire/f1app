@@ -1,6 +1,6 @@
-import { IDriver } from './../../../interfaces/driver';
 import { Component, Input, OnChanges } from '@angular/core';
-import { DriverService } from './../../../services/driver.service';
+import { IDriver } from './../../../interfaces/driver';
+import { DriverService } from './../../../services/api/driver.service';
 
 @Component({
   selector: 'f1-driver-detail',

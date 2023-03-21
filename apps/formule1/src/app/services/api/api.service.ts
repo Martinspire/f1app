@@ -1,7 +1,7 @@
 import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { AppConstant } from '../constants/app.constants';
+import { AppConstant } from '../../constants/app.constants';
 
 @Injectable({
   providedIn: 'root'

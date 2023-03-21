@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { IConstructorStandingItem } from '../../../interfaces/standings';
-import { SeasonService } from '../../../services/season.service';
+import { SeasonService } from '../../../services/api/season.service';
 
 @Component({
   selector: 'f1-season-constructor-standings',
@@ -29,7 +29,7 @@ export class SeasonConstructorStandingsComponent implements OnChanges {
   private getConstructorStandings(seasonId: number) {
     this.loading = true;
     this.seasonService.getSeasonConstructorStandings(seasonId).subscribe((data: IConstructorStandingItem[]) => {
-      console.log('season data', data);
+      console.log('constructor standings data', data);
       this.constructorStandings = data;
       this.loading = false;
     });

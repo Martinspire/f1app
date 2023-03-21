@@ -1,6 +1,6 @@
-import { IDriverStandingItem } from './../../../interfaces/standings';
 import { Component, Input, OnChanges } from '@angular/core';
-import { SeasonService } from '../../../services/season.service';
+import { SeasonService } from '../../../services/api/season.service';
+import { IDriverStandingItem } from './../../../interfaces/standings';
 
 @Component({
   selector: 'f1-season-driver-standings',
@@ -29,7 +29,7 @@ export class SeasonDriverStandingsComponent implements OnChanges {
   private getDriverStandings(seasonId: number) {
     this.loading = true;
     this.seasonService.getSeasonDriverStandings(seasonId).subscribe((data: IDriverStandingItem[]) => {
-      console.log('season data', data);
+      console.log('driver standings data', data);
       this.driverStandings = data;
       this.loading = false;
     });

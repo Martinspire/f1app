@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ISeasonsItem } from '../../../interfaces/season';
-import { SeasonService } from '../../../services/season.service';
+import { SeasonService } from '../../../services/api/season.service';
 
 @Component({
   selector: 'f1-seasons-list',

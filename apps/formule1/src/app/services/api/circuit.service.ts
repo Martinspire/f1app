@@ -2,46 +2,45 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, first, map } from 'rxjs/operators';
-import { AppConstant } from '../constants/app.constants';
-import { IWikiQuery, IWikiResult } from '../interfaces/wiki';
+import { ICircuitData, ICircuitItem } from '../../interfaces/circuit';
 import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class WikiService extends ApiService {
+export class CircuitService  extends ApiService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient){
     super();
   }
 
-  getWikiImage(query: string): Observable<IWikiResult> {
+  getAllCircuits(): Observable<ICircuitItem[]> {
     return this.http
-      .get<IWikiQuery>(AppConstant.wikiImageUrl + query)
+      .get<ICircuitData>(this.apiURL + 'circuits.json?limit=1000')
       .pipe(
         first(),
         map((data) => {
-          if (!data?.query?.pages) {
+          if (!data?.MRData?.CircuitTable?.Circuits[0]) {
             console.log('data not right', data);
             throw new Error('data not right');
           }
-          return Object.values(data.query.pages)[0];
+          return data.MRData.CircuitTable.Circuits;
         }),
         catchError(this.handleError)
       );
   }
 
-  getWikiSummary(query: string): Observable<IWikiResult> {
+  getCircuit(circuit: string): Observable<ICircuitItem> {
     return this.http
-      .get<IWikiQuery>(AppConstant.wikiSummaryUrl + query)
+      .get<ICircuitData>(this.apiURL + 'circuits/' + circuit + '.json')
       .pipe(
         first(),
         map((data) => {
-          if (!data?.query?.pages) {
+          if (!data?.MRData?.CircuitTable?.Circuits[0]) {
             console.log('data not right', data);
             throw new Error('data not right');
           }
-          return Object.values(data.query.pages)[0];
+          return data.MRData.CircuitTable.Circuits[0];
         }),
         catchError(this.handleError)
       );

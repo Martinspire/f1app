@@ -1,7 +1,7 @@
-import {Component, Input, OnChanges} from '@angular/core';
-import {CircleMarker, circleMarker, latLng, tileLayer, MapOptions, latLngBounds, LatLngExpression, LatLng} from 'leaflet';
-import {AppConstant} from '../../../constants/app.constants';
-import {ISeasonRaceItem} from '../../../interfaces/season';
+import { Component, Input, OnChanges } from '@angular/core';
+import { CircleMarker, circleMarker, latLng, LatLngExpression, MapOptions, tileLayer } from 'leaflet';
+import { AppConstant } from '../../../constants/app.constants';
+import { ISeasonRaceItem } from '../../../interfaces/season';
 
 @Component({
   selector: 'f1-season-map',

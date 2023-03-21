@@ -26,6 +26,7 @@ export interface ISeasonRaceTable {
 }
 
 export interface ISeasonRaceItem {
+  [key: string]: any;
   season: string;
   round: string;
   url: string;

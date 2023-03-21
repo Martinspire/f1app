@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { IPlannedRaceItem, IRaceItem } from '../../../interfaces/race';
-import { RaceService } from '../../../services/race.service';
+import { RaceService } from '../../../services/api/race.service';
 
 @Component({
   selector: 'f1-race-detail',

@@ -2,45 +2,46 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, first, map } from 'rxjs/operators';
-import { ICircuitData, ICircuitItem } from '../interfaces/circuit';
+import { AppConstant } from '../../constants/app.constants';
+import { IWikiQuery, IWikiResult } from '../../interfaces/wiki';
 import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CircuitService  extends ApiService {
+export class WikiService extends ApiService {
 
-  constructor(private http: HttpClient){
+  constructor(private http: HttpClient) {
     super();
   }
 
-  getAllCircuits(): Observable<ICircuitItem[]> {
+  getWikiImage(query: string): Observable<IWikiResult> {
     return this.http
-      .get<ICircuitData>(this.apiURL + 'circuits.json?limit=1000')
+      .get<IWikiQuery>(AppConstant.wikiImageUrl + query)
       .pipe(
         first(),
         map((data) => {
-          if (!data?.MRData?.CircuitTable?.Circuits[0]) {
+          if (!data?.query?.pages) {
             console.log('data not right', data);
             throw new Error('data not right');
           }
-          return data.MRData.CircuitTable.Circuits;
+          return Object.values(data.query.pages)[0];
         }),
         catchError(this.handleError)
       );
   }
 
-  getCircuit(circuit: string): Observable<ICircuitItem> {
+  getWikiSummary(query: string): Observable<IWikiResult> {
     return this.http
-      .get<ICircuitData>(this.apiURL + 'circuits/' + circuit + '.json')
+      .get<IWikiQuery>(AppConstant.wikiSummaryUrl + query)
       .pipe(
         first(),
         map((data) => {
-          if (!data?.MRData?.CircuitTable?.Circuits[0]) {
+          if (!data?.query?.pages) {
             console.log('data not right', data);
             throw new Error('data not right');
           }
-          return data.MRData.CircuitTable.Circuits[0];
+          return Object.values(data.query.pages)[0];
         }),
         catchError(this.handleError)
       );

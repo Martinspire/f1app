@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { IQualiItem } from '../../../interfaces/quali';
-import { RaceService } from '../../../services/race.service';
+import { RaceService } from '../../../services/api/race.service';
 
 @Component({
   selector: 'f1-race-quali-result',

@@ -2,11 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, first, map } from 'rxjs/operators';
-import { ILap, ILapTimesData } from '../interfaces/laptimes';
-import { IPitstop, IPitstopsData } from '../interfaces/pitstops';
-import { IQualiData, IQualiItem } from '../interfaces/quali';
-import { IPlannedRaceData, IPlannedRaceItem, IRaceData, IRaceItem } from '../interfaces/race';
-import { ISprintRaceData, ISprintRaceItem } from '../interfaces/sprint';
+import { ILap, ILapTimesData } from '../../interfaces/laptimes';
+import { IPitstop, IPitstopsData } from '../../interfaces/pitstops';
+import { IQualiData, IQualiItem } from '../../interfaces/quali';
+import { IPlannedRaceData, IPlannedRaceItem, IRaceData, IRaceItem } from '../../interfaces/race';
+import { ISprintRaceData, ISprintRaceItem } from '../../interfaces/sprint';
 import { ApiService } from './api.service';
 
 @Injectable({

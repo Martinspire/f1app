@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import { ISeasonsItem } from '../../interfaces/season';
-import { SeasonService } from '../../services/season.service';
+import { Component, OnInit } from '@angular/core';
+import { ISeasonRaceItem } from '../../interfaces/season';
+import { NextService } from '../../services/api/next.service';
+import { EventService } from '../../services/event.service';
 
 @Component({
   selector: 'f1-feature-home',
@@ -9,22 +10,25 @@ import { SeasonService } from '../../services/season.service';
 })
 export class HomeFeatureComponent implements OnInit {
 
-  public seasons: ISeasonsItem[] = [];
-  public lastSeason = '';
+  public currentSeason!: ISeasonRaceItem;
+  public loading = false;
 
-  constructor(private seasonService: SeasonService) { }
+  constructor(
+    private eventService: EventService,
+    private nextService: NextService
+  ) { }
 
   ngOnInit(): void {
-    this.getAllSeasons();
+    this.getCurrentSeason();
   }
 
-  private getAllSeasons() {
-    this.seasonService.getAllSeasons().subscribe((data: ISeasonsItem[]) => {
-      console.log('seasons data', data);
-      this.seasons = data;
-      if (this.seasons && this.seasons.length > 0) {
-        this.lastSeason = this.seasons[this.seasons.length - 1].season;
-      }
+  private getCurrentSeason() {
+    this.loading = true;
+    this.nextService.getCurrentSeason().subscribe((data: ISeasonRaceItem[]) => {
+      console.log('current season data', data);
+      this.currentSeason = data[0]; // get a race from season to display some information about
+      this.loading = false;
+      this.eventService.findProgress(data);
     });
   }
 }

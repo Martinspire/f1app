@@ -51,6 +51,7 @@ import { NextCountdownComponent } from './components/next/next-countdown/next-co
 import { NextSessionComponent } from './components/next/next-session/next-session.component';
 import { NextRaweCeekComponent } from './components/next/next-rawe-ceek/next-rawe-ceek.component';
 import { NextScheduleComponent } from './components/next/next-schedule/next-schedule.component';
+import { NextHomeComponent } from './components/next/next-home/next-home.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +97,7 @@ import { NextScheduleComponent } from './components/next/next-schedule/next-sche
     NextSessionComponent,
     NextRaweCeekComponent,
     NextScheduleComponent,
+    NextHomeComponent,
   ],
   imports: [
     AppRoutingModule,

@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { ISeasonRaceItem } from '../../../interfaces/season';
-import { SeasonService } from '../../../services/season.service';
+import { SeasonService } from '../../../services/api/season.service';
 
 @Component({
   selector: 'f1-season-detail',

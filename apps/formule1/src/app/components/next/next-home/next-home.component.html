@@ -1,0 +1,17 @@
+<div class="outer">
+  <div class="inner">
+    <h1>
+      Upcoming event: <span>{{ upcomingEvent.raceName }}</span>
+    </h1>
+    <h2>
+      Race: <span>{{ countToRaceDate | dfnsFormat : 'dd-MM-yyyy' }}</span> -
+      <span>{{ countToRaceDate | dfnsFormat : 'hh:mm' }}</span>
+    </h2>
+    <p>
+      <f1-next-countdown
+        [type]="CountdownType.Big"
+        [date]="countToRaceDate"
+      ></f1-next-countdown>
+    </p>
+  </div>
+</div>

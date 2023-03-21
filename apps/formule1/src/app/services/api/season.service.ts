@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, first, map } from 'rxjs/operators';
-import { ISeasonData, ISeasonRaceItem, ISeasonsData, ISeasonsItem } from '../interfaces/season';
-import { IConstructorStandingItem, IConstructorStandingsData, IDriverStandingItem, IDriverStandingsData } from './../interfaces/standings';
+import { ISeasonData, ISeasonRaceItem, ISeasonsData, ISeasonsItem } from '../../interfaces/season';
+import { IConstructorStandingItem, IConstructorStandingsData, IDriverStandingItem, IDriverStandingsData } from '../../interfaces/standings';
 import { ApiService } from './api.service';
 
 @Injectable({

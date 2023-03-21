@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, first, map } from 'rxjs/operators';
-import { IDriver, IDriverData } from '../interfaces/driver';
-import { IRaceData, IRaceItem } from './../interfaces/race';
+import { IDriver, IDriverData } from '../../interfaces/driver';
+import { IRaceData, IRaceItem } from '../../interfaces/race';
 import { ApiService } from './api.service';
 
 @Injectable({

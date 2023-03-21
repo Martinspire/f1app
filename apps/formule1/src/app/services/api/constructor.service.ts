@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, first, map } from 'rxjs/operators';
-import { IConstructor, IConstructorData } from '../interfaces/constructor';
+import { IConstructor, IConstructorData } from '../../interfaces/constructor';
 import { ApiService } from './api.service';
 
 @Injectable({

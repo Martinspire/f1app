@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, first, map } from 'rxjs/operators';
-import { IPlannedRaceData, IPlannedRaceItem } from '../interfaces/race';
-import { ISeasonData, ISeasonRaceItem } from '../interfaces/season';
+import { IPlannedRaceData, IPlannedRaceItem } from '../../interfaces/race';
+import { ISeasonData, ISeasonRaceItem } from '../../interfaces/season';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -31,17 +31,17 @@ export class NextService  extends ApiService {
       );
   }
 
-  getCurrentSeason(): Observable<ISeasonRaceItem> {
+  getCurrentSeason(): Observable<ISeasonRaceItem[]> {
     return this.http
       .get<ISeasonData>(this.apiURL + 'current.json')
       .pipe(
         first(),
         map((data) => {
-          if (!data?.MRData?.RaceTable?.Races[0]) {
+          if (!data?.MRData?.RaceTable?.Races) {
             console.log('data not right', data);
             throw new Error('data not right');
           }
-          return data.MRData.RaceTable.Races[0];
+          return data.MRData.RaceTable.Races;
         }),
         catchError(this.handleError)
       );

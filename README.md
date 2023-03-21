@@ -21,28 +21,29 @@ Outside of that we've implemented basic pages to consume the API and get it work
 
 ## Sources
 
-* Angular: <https://www.angular.io>
-* Jest: <https://jestjs.io>
-* Cypress: <https://www.cypress.io>
-* Tailwind CSS Framework: <https://tailwindcss.com>
-* Daisy Tailwind CSS Theme: <https://daisyui.com>
-* NX Workspace: <https://nx.dev>
-* Leaflet (Maps): <https://leafletjs.com/index.html>
-* Three (3d viewer): <https://threejs.org>
+* Angular: the main framework used <https://www.angular.io>
+* Jest: to unit test our code <https://jestjs.io>
+* Cypress: to end-to-end test our code <https://www.cypress.io>
+* Tailwind CSS Framework: to style our application <https://tailwindcss.com>
+* Daisy Tailwind CSS Theme: to apply a nice theme to our styling <https://daisyui.com>
+* NX Workspace: to manage application <https://nx.dev>
+* Leaflet: to show maps <https://leafletjs.com/index.html>
+* Three: to render 3d models <https://threejs.org>
 
 ### Plugins and libraries
 
-* FontAwesome Icons
-* Tailwind plugins
+* FontAwesome Icons - to get some easy and clean icons
+* Tailwind plugins - to make tailwind have a few more features
   * Aspect Ratio (official)
   * Forms (official)
   * Line Clamp (official)
   * Typography (official)
-* MomentJS - NGX Moment - <https://github.com/urish/ngx-moment>
-* ESLint
-* Prettier
-* NG Mocks - <https://github.com/ike18t/ng-mocks>
-* NG Spectator - <https://github.com/ngneat/spectator>
+* Date-FNS - For managing dates <https://date-fns.org>
+* NGX-Date-FNS - for using them in Angular easily <https://github.com/joanllenas/ngx-date-fns>
+* ESLint - for validating code
+* Prettier - for formatting code
+* NG Mocks - for easily mock items to test code <https://github.com/ike18t/ng-mocks>
+* NG Spectator - for easily bootstrapping tests and parsing DOM in tests<https://github.com/ngneat/spectator>
 
 ## Developed
 

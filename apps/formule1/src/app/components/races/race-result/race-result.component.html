@@ -14,6 +14,7 @@
           <th>Driver</th>
           <th>Constructor</th>
           <th>Points</th>
+          <th>Laps</th>
           <th>Status</th>
           <th class="rounded-tr-lg">Details</th>
         </tr>
@@ -35,6 +36,9 @@
             <span>{{ result.points }}</span>
           </td>
           <td>
+            <span>{{ result.laps }}</span>
+          </td>
+          <td>
             <span>{{ result.status }}</span>
           </td>
           <td>
@@ -44,6 +48,12 @@
       </tbody>
     </table>
   </div>
+  <button
+    class="btn btn-primary"
+    [routerLink]="['/races', race.season, race.round, 'compare']"
+  >
+    Compare laps
+  </button>
 </ng-container>
 <ng-container *ngIf="!race.Results">
   <p>This race does not have results yet</p>

@@ -1,2 +1,21 @@
 {
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/.angular": true,
+    "**/.gitignore": true,
+    "**/.idea": true,
+    "**/.npmrc": true,
+    "**/.vscode": true,
+    "**/__MACOSX": true,
+    "**/dist": true,
+    "**/package-lock.json": true,
+    "node_modules": true,
+    "apps\\formule1\\src\\assets/leaflet-dist": true
+  },
+  "explorerExclude.backup": {}
 }

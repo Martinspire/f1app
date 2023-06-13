@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, first, map } from 'rxjs/operators';
+import { IDriver } from '../../interfaces/driver';
 import { ILap, ILapTimesData } from '../../interfaces/laptimes';
 import { IPitstop, IPitstopsData } from '../../interfaces/pitstops';
 import { IQualiData, IQualiItem } from '../../interfaces/quali';
@@ -101,6 +102,22 @@ export class RaceService  extends ApiService {
   getLapsResult(year: string, raceNumber: string): Observable<ILap[]> {
     return this.http
       .get<ILapTimesData>(this.apiURL + year + '/' + raceNumber + '/laps.json')
+      .pipe(
+        first(),
+        map((data) => {
+          if (!data?.MRData?.RaceTable?.Races[0]) {
+            console.log('data not right', data);
+            throw new Error('data not right');
+          }
+          return data.MRData.RaceTable.Races[0].Laps;
+        }),
+        catchError(this.handleError)
+      );
+  }
+
+  getLapsByDriver(year: string, raceNumber: string, driver: IDriver): Observable<ILap[]> {
+    return this.http
+      .get<ILapTimesData>(this.apiURL + year + '/' + raceNumber + '/drivers/' + driver.driverId + '/laps.json?limit=200')
       .pipe(
         first(),
         map((data) => {

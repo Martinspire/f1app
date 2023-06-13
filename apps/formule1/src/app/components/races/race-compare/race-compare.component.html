@@ -1,0 +1,57 @@
+<div class="btn loading" *ngIf="loading" aria-busy="true"></div>
+
+<ng-container *ngIf="!error && !loading && race && drivers">
+  <h3 class="heading-3">Compare driver laps</h3>
+
+  <div
+    class="driver-select grid lg:grid-cols-4 lg:gap-4 sm:gap-2 sm:grid-cols-2 gap-1 grid-cols-1"
+  >
+    <div class="driver" *ngFor="let driver of drivers">
+      <button
+        class="btn btn-block"
+        [ngClass]="haveDriver(driver) ? 'btn-primary' : 'btn-outline'"
+        (click)="toggleDriver(driver)"
+        [disabled]="driverNoLaps(driver)"
+      >
+        {{ driver.givenName }} {{ driver.familyName }}
+        <span *ngIf="driverNoLaps(driver)"> [0 laps]</span>
+        <span *ngIf="driverDNF(driver)"> [DNF]</span>
+      </button>
+    </div>
+  </div>
+
+  <table class="driver-compare">
+    <thead>
+      <tr>
+        <th style="width: 50px">Lap</th>
+        <th *ngFor="let driver of selectedDrivers">
+          {{ driver.givenName }} {{ driver.familyName }} [pos]
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let lap of laps">
+        <td>{{ lap + 1 }}</td>
+        <td *ngFor="let driver of selectedDrivers">
+          <span
+            *ngIf="
+              driverLaptimes[driver.driverId] &&
+              driverLaptimes[driver.driverId][lap] &&
+              driverLaptimes[driver.driverId][lap].Timings[0]?.time
+            "
+            class="driver-time"
+            [ngClass]="
+              compare(lap, driverLaptimes[driver.driverId][lap].Timings[0].time)
+            "
+            >{{ driverLaptimes[driver.driverId][lap].Timings[0].time }} [{{
+              driverLaptimes[driver.driverId][lap].Timings[0].position
+            }}]</span
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
+<ng-container *ngIf="error">
+  <p>Error loading laps</p>
+</ng-container>

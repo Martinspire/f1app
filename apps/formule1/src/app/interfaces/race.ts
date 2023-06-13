@@ -17,6 +17,7 @@ export interface IRaceData extends IMRData {
 export interface IRaceItem {
   raceId: string; // number as string
   round: string; // number as string
+  season: string; // year as string
   url: string; // wiki link
   raceName: string;
   Circuit: ICircuitItem;

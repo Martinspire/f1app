@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { AudioPlayerComponent } from '../audio-player/audio-player.component';
-import { ModalService } from '../modal/modal.service';
+import { DialogService } from '@ngneat/dialog';
 
 @Component({
   selector: 'f1-header',
@@ -11,23 +10,21 @@ export class HeaderComponent {
 
   public dropdownOpen = false;
 
-  constructor(private modalService: ModalService<AudioPlayerComponent>) {}
+  constructor(private dialog: DialogService) {}
 
-  async showAudioPlayer(): Promise<void> {
+  async showAudioPlayer() {
     const {AudioPlayerComponent} = await import(
       './../audio-player/audio-player.component'
     );
 
-    await this.modalService.open(AudioPlayerComponent);
+    this.dialog.open(AudioPlayerComponent);
   }
 
   toggle() {
     this.dropdownOpen = !this.dropdownOpen;
-    console.log(this.dropdownOpen);
   }
 
   close() {
     this.dropdownOpen = false;
-    console.log(this.dropdownOpen);
   }
 }

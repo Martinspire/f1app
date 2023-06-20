@@ -1,31 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { ModalService } from '../modal/modal.service';
+import { Component } from '@angular/core';
+import { DialogRef } from '@ngneat/dialog';
 
 @Component({
   selector: 'f1-share',
   templateUrl: './share.component.html',
   styleUrls: ['./share.component.scss']
 })
-export class ShareComponent implements OnInit {
+export class ShareComponent {
+  public githubUrl = 'http://github.com/martinspire/f1app/';
+  public siteUrl = 'http://martinspire.github.io/f1app/';
 
-  public url = '';
-
-  constructor(
-    private modalService: ModalService<ShareComponent>
-    ) {
-  }
-
-  ngOnInit() {
-    const current = location.href;
-    const github = 'http://martinspire.github.io/f1app/'
-    this.url = current.indexOf('localhost') > -1 ? github : current;
-  }
+  constructor(private ref: DialogRef) {}
 
   public close() {
-    this.modalService.close();
+    this.ref.close();
   }
 
-  public copyUrl() {
-    navigator.clipboard.writeText(this.url);
+  public copyUrl(url: string) {
+    navigator.clipboard.writeText(url);
   }
 }

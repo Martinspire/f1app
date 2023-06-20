@@ -65,7 +65,7 @@
         <td>
           <span>{{ driver.nationality }}</span>
         </td>
-        <td><a [href]="driver.url">Wiki</a></td>
+        <td><a [href]="driver.url" target="_blank">Wiki</a></td>
         <td><a [routerLink]="['/drivers', driver.driverId]">Details</a></td>
       </tr>
       <tr *ngIf="filteredDrivers.length === 0">

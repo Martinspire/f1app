@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { PerspectiveCamera, Scene, WebGLRenderer, Mesh, AmbientLight, PointLight, MeshPhongMaterial } from 'three';
+import { AmbientLight, Mesh, MeshPhongMaterial, PerspectiveCamera, PointLight, Scene, WebGLRenderer } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
 
@@ -61,7 +61,6 @@ export class ThreeViewerComponent implements OnInit, AfterViewInit {
     this.camera.add( light );
 
     this.loader.load(this.path, geometry => {
-      console.log('geometry', geometry);
 
       const material = new MeshPhongMaterial( { color: 0xff3333 } );
 

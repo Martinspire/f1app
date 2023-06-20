@@ -1,6 +1,5 @@
 <section
-  [class.open]="display"
-  class="fixed z-1000 inset-0 overflow-y-auto"
+  class="f1-modal fixed z-1000 inset-0 overflow-y-auto"
   (click)="close()"
 >
   <div
@@ -13,7 +12,7 @@
       aria-modal="true"
       aria-labelledby="modal-headline"
     >
-      <div class="modal-content">
+      <div class="f1-modal-content">
         <ng-content></ng-content>
       </div>
     </div>

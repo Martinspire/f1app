@@ -4,20 +4,19 @@ F1 app to try out some things.
 
 Made with NX, Angular, Jest, Cypress en Tailwind. DaisyUI Tailwind thema, Hero Icons
 
-## Assignment
+I was having some fun with an F1 statistics API so I thought why not go mad and add various cool things.
 
-So we've made changes to the assignment for recruitment and we want to achieve the following
-
-Create a driver page where you can:
-
-* select a driver
-* see details of said driver
-* see a list of his last 5 results.
-* If he has wins, show his last 5 wins.
-* If he has podiums, show his last 5 podiums.
-* If he has point finishes, show his last 5 point finishes.
-
-Outside of that we've implemented basic pages to consume the API and get it working properly.
+* Season/Race/Driver statistics
+* Wikipedia links and summary for driver page
+* Show laptimes and compare between drivers
+* 3d model of track when viewing track page
+* map of season locations
+* countdown to next race
+* automatically grab latest season and show details on home screen
+* verstappen direct link to profile
+* hype hype for getting into the F1 mood by playing the most iconic F1 music
+* QR code generation for sharing URL easily
+* Can compile into an application by using Capacitor
 
 ## Sources
 
@@ -28,7 +27,8 @@ Outside of that we've implemented basic pages to consume the API and get it work
 * Daisy Tailwind CSS Theme: to apply a nice theme to our styling <https://daisyui.com>
 * NX Workspace: to manage application <https://nx.dev>
 * Leaflet: to show maps <https://leafletjs.com/index.html>
-* Three: to render 3d models <https://threejs.org>
+* Three: to render 3d models <https://threejs.org> (STL Files are from 3d printable files)
+* Capacitor: to build a mobile application and deploy it there <https://capacitorjs.com>
 
 ### Plugins and libraries
 
@@ -36,14 +36,14 @@ Outside of that we've implemented basic pages to consume the API and get it work
 * Tailwind plugins - to make tailwind have a few more features
   * Aspect Ratio (official)
   * Forms (official)
-  * Line Clamp (official)
   * Typography (official)
 * Date-FNS - For managing dates <https://date-fns.org>
 * NGX-Date-FNS - for using them in Angular easily <https://github.com/joanllenas/ngx-date-fns>
-* ESLint - for validating code
+* ESLint - for validating code (though rules are still very basic and not as tight as I could do)
 * Prettier - for formatting code
 * NG Mocks - for easily mock items to test code <https://github.com/ike18t/ng-mocks>
-* NG Spectator - for easily bootstrapping tests and parsing DOM in tests<https://github.com/ngneat/spectator>
+* NG Neat Spectator - for easily bootstrapping tests and parsing DOM in tests <https://github.com/ngneat/spectator>
+* NG Neat Dialog - helper for adding modals easily to your page. Could probably make this work myself but compatibility is still annoying enough <https://github.com/ngneat/dialog>
 
 ## Developed
 
@@ -60,3 +60,28 @@ As soon as its fixed we will update the project.
 Also there is an issue with autoprefixer whining about the CSS for LeafletJS (and @tailwindcss/forms) and the only workaround seems to be that we fix it locally. Otherwise the browser console will start listing a few warnings that just aren't very interesting. Something about a css line being deprecated which isn't used much but also can't really be overridden. So when either the warning is gone or the projects are updated we can use it normally again.
 
 Well, of course we could downgrade but where's the fun in that?
+
+Installation commands is as follows: `npm run install-project`
+
+## Running and deployment
+
+If you want to run it locally, just use `nx serve` once everything is installed.
+
+You can also run tests `nx test` and lint `nx lint` to see some quality information, though I haven't really done much there yet (since its still more of a playground for me)
+
+Also with the right credentials (so only me basically) its possible to manually deploy to Github Pages with `npm run deploy` and it automatically builds once a new push to the main branch is done.
+
+## Version info
+
+### 20-6 fixed some bugs
+
+* updated readme with current status and tech
+* date of races in season list
+* audio player now pausing previous track when switching
+* different modal solution to easier make modals
+* removal of dummy or test data
+* open wiki links in new tab
+* added github link
+* removed ability to share current page link. Just always use main site (otherwise I have to make github behave with angular routing and environments and I don't really wanna)
+
+Earlier releases can be found in github history

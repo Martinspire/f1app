@@ -130,7 +130,6 @@ export class RaceCompareComponent implements OnChanges{
       const findFastest = Math.min(...compareLaps);
       const findSlowest = Math.max(...compareLaps);
 
-      console.log('fast en slow', findFastest, findSlowest, compareLaps);
 
       if (findFastest === comparedTime && findSlowest === comparedTime) {
         //
@@ -141,7 +140,6 @@ export class RaceCompareComponent implements OnChanges{
       }
 
     }
-    console.log('result', lapIndex, time, result);
     return result;
   }
 

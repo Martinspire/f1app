@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalService } from '../modal/modal.service';
-import { ShareComponent } from '../share/share.component';
+import { DialogService } from '@ngneat/dialog';
 
 @Component({
   selector: 'f1-footer',
@@ -9,13 +8,13 @@ import { ShareComponent } from '../share/share.component';
 })
 export class FooterComponent{
 
-  constructor(private modalService: ModalService<ShareComponent>) {}
+  constructor(private dialog: DialogService) {}
 
   async showShare(): Promise<void> {
     const {ShareComponent} = await import(
       './../share/share.component'
     );
 
-    await this.modalService.open(ShareComponent);
+    await this.dialog.open(ShareComponent);
   }
 }

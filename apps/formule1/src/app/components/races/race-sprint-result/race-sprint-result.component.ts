@@ -36,7 +36,7 @@ export class RaceSprintResultComponent implements OnChanges {
         this.sprintResults = data;
         this.loading = false;
       },
-      error: (error) => {
+      error: () => {
         console.log('error with sprint');
         this.error = true;
         this.loading = false;

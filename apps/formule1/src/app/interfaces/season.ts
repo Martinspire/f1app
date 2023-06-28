@@ -17,7 +17,7 @@ export interface ISeasonsItem {
 export interface ISeasonData extends IMRData {
   MRData: {
     RaceTable: ISeasonRaceTable;
-  }
+  };
 }
 
 export interface ISeasonRaceTable {
@@ -26,7 +26,7 @@ export interface ISeasonRaceTable {
 }
 
 export interface ISeasonRaceItem {
-  [key: string]: any;
+  [key: string]: unknown;
   season: string;
   round: string;
   url: string;

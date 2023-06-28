@@ -1,15 +1,13 @@
 module.exports = {
   displayName: 'formule1',
-
+  testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.spec.json',
-      stringifyContentPathRegex: '\\.(html|svg)$',
-    },
-  },
   transform: {
-    '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
+    '^.+\\.(ts|mjs|js|html)$': ['jest-preset-angular', {
+      babel: true,
+      tsConfig: '<rootDir>/tsconfig.spec.json',
+      stringifyContentPathRegex: '\\.(html|svg)$',
+    }],
     "node_modules/three/examples/jsm/.+\\.(j|t)s?$": "ts-jest"
   },
   transformIgnorePatterns: [

@@ -29,6 +29,7 @@ import { NextRaweCeekComponent } from './components/next/next-rawe-ceek/next-raw
 import { NextScheduleComponent } from './components/next/next-schedule/next-schedule.component';
 import { NextSeasonComponent } from './components/next/next-season/next-season.component';
 import { NextSessionComponent } from './components/next/next-session/next-session.component';
+import { NextSessionsComponent } from './components/next/next-sessions/next-sessions.component';
 import { RaceBioComponent } from './components/races/race-bio/race-bio.component';
 import { RaceCompareComponent } from './components/races/race-compare/race-compare.component';
 import { RaceDetailComponent } from './components/races/race-detail/race-detail.component';
@@ -102,6 +103,7 @@ import { TestFeatureComponent } from './features/test-feature/test-feature.compo
     NextRaweCeekComponent,
     NextScheduleComponent,
     NextHomeComponent,
+    NextSessionsComponent
   ],
   imports: [
     AppRoutingModule,
@@ -118,4 +120,4 @@ import { TestFeatureComponent } from './features/test-feature/test-feature.compo
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

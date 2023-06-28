@@ -6,7 +6,7 @@ import { CountdownType } from '../../../constants/app.enums';
   templateUrl: './next-countdown.component.html',
   styleUrls: ['./next-countdown.component.scss']
 })
-export class NextCountdownComponent implements OnDestroy{
+export class NextCountdownComponent implements OnDestroy {
   public activeInterval!: number;
   public interval = 0;
   public years = 0;
@@ -18,23 +18,25 @@ export class NextCountdownComponent implements OnDestroy{
   public expired = false;
 
   @Input() type: CountdownType = CountdownType.Medium;
-  @Input() set date(d : Date) {
+  @Input() set date(d: Date) {
     this.interval = d.getTime();
     this.setDate();
   }
 
   constructor(
     private ngZone: NgZone
-  ){}
+  ) { }
 
   ngOnDestroy(): void {
     clearInterval(this.activeInterval);
   }
 
   public setDate() {
-    this.activeInterval = window.setInterval(() => {
-      this.ngZone.run(() => this.tick());
-    }, 1000);
+    if (this.interval) {
+      this.activeInterval = window.setInterval(() => {
+        this.ngZone.run(() => this.tick());
+      }, 1000);
+    }
   }
 
   public tick() {
@@ -58,6 +60,6 @@ export class NextCountdownComponent implements OnDestroy{
       clearInterval(this.activeInterval);
       this.expired = true;
     }
-    console.log('tick', this);
+    // console.log('tick', this);
   }
 }

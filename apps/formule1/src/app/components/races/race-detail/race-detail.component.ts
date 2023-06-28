@@ -7,12 +7,13 @@ import { RaceService } from '../../../services/api/race.service';
   templateUrl: './race-detail.component.html',
   styleUrls: ['./race-detail.component.scss']
 })
-export class RaceDetailComponent implements OnChanges{
+export class RaceDetailComponent implements OnChanges {
   @Input() season = '';
   @Input() round = '';
 
   public race!: IRaceItem;
   public plannedRace!: IPlannedRaceItem;
+  public today = new Date();
 
   public loading = false;
   public error = false;

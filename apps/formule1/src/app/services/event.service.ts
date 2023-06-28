@@ -13,17 +13,12 @@ export class EventService {
   public isInProgressSeason = false;
   public isPastSeason = false;
   public isRaceweek = false;
-  public isCurrentUpcoming = false;
   public nextSession: SessionNames = SessionNames.None;
   public previousSession: SessionNames = SessionNames.None;
   public currentSession: SessionNames = SessionNames.None;
-  public closestToSession: SessionNames = SessionNames.None;
   public nextEvent!: ISeasonRaceItem;
   public previousEvent!: ISeasonRaceItem;
-  public currentEvent!: ISeasonRaceItem;
-  public closestToEvent!: ISeasonRaceItem;
   public previousDuration!: Duration;
-  public closestDuration!: Duration;
   public currentDuration!: Duration;
   public nextDuration!: Duration;
   public seasonIndex = 0;
@@ -59,14 +54,6 @@ export class EventService {
     this.nextSession = SessionNames.None;
     this.previousSession = SessionNames.None;
     this.currentSession = SessionNames.None;
-    this.closestToSession = SessionNames.None;
-    // this.nextEvent = undefined;
-    // this.previousEvent = undefined;
-    // this.currentEvent = undefined;
-    // this.closestToEvent = undefined;
-    // this.previousDuration = undefined;
-    // this.closestDuration = undefined;
-    // this.nextDuration = undefined;
     this.seasonIndex = 0;
     this.haveNextSprint = false;
     this.haveNextFp1 = false;
@@ -102,9 +89,9 @@ export class EventService {
         startTime = this.races[0]?.time;
       }
       let endDate, endTime;
-      if (this.races[this.races.length -1]?.date) {
-        endDate = this.races[this.races.length -1]?.date;
-        endTime = this.races[this.races.length -1]?.time;
+      if (this.races[this.races.length - 1]?.date) {
+        endDate = this.races[this.races.length - 1]?.date;
+        endTime = this.races[this.races.length - 1]?.time;
       }
       if (this.dateService.isFutureDateAndTimeString(startDate, startTime)) {
         this.isFutureSeason = true;
@@ -122,54 +109,35 @@ export class EventService {
     * and whether it makes sense to display previous race stats or not
     */
   private findRaceInSeasonProgress() {
-    const raceDates = this.races.map(race => race.date);
-    let closest = this.dateService.isClosestIndexOfDateStrings(this.today, raceDates);
-    if (!closest) {
-      closest = 0;
-    }
-
-    const closestRace = this.races[closest];
-    this.closestToEvent = closestRace;
-    if (this.dateService.isBeforeDateString(closestRace.date, this.todayDateString)) {
-      this.seasonIndex = closest;
-
-      if ((closest -1) > -1) {
-        this.previousEvent = this.races[closest -1];
+    const nextIndex = this.races.findIndex(race => this.dateService.isAfterDateString(race.date, this.todayDateString));
+    if (nextIndex > -1) {
+      this.nextEvent = this.races[nextIndex];
+      this.seasonIndex = nextIndex;
+      if (nextIndex > 0) {
+        this.previousEvent = this.races[nextIndex - 1];
       }
-      this.currentEvent = this.races[closest];
-
-      this.nextEvent = this.races[closest +1];
-    } else if (this.dateService.isAfterDateString(closestRace.date, this.todayDateString)) {
-      this.seasonIndex = closest + 1;
-      this.isCurrentUpcoming = true;
-
-      this.previousEvent = this.races[closest];
-      if ((closest +1) < this.races.length) {
-        this.currentEvent = this.races[closest +1];
-      }
-
-      if ((closest +2) < this.races.length) {
-        this.nextEvent = this.races[closest +2];
-      }
-      if (this.dateService.differenceInSecondsDate(this.today, this.dateService.parseDateAndTime(this.previousEvent.date, this.previousEvent.time)) < (60 * 60 * 24 * 3)) {
-        this.showPreviousResults = true;
+    } else {
+      for (let index = this.races.length; index > 0; index--) {
+        const race = this.races[index];
+        const havePrevious = this.dateService.isBeforeDateString(race.date, this.todayDateString);
+        if (havePrevious) {
+          this.previousEvent = race;
+          break;
+        }
       }
     }
+
+    if (this.dateService.differenceInSecondsDate(this.today, this.dateService.parseDateAndTime(this.previousEvent.date, this.previousEvent.time)) < (60 * 60 * 24 * 3)) {
+      this.showPreviousResults = true;
+    }
+
     if (this.previousEvent) {
       const previousDate = this.dateService.parseDateAndTime(this.previousEvent.date, this.previousEvent.time);
       this.previousDuration = this.dateService.intervalToDurationDate(this.today, previousDate);
     }
-    if (this.closestToEvent) {
-      const closestDate = this.dateService.parseDateAndTime(this.closestToEvent.date, this.closestToEvent.time);
-      this.closestDuration = this.dateService.intervalToDurationDate(this.today, closestDate);
-    }
     if (this.nextEvent) {
       const nextDate = this.dateService.parseDateAndTime(this.nextEvent.date, this.nextEvent.time);
       this.nextDuration = this.dateService.intervalToDurationDate(this.today, nextDate);
-    }
-    if (this.currentEvent) {
-      const currentDate = this.dateService.parseDateAndTime(this.currentEvent.date, this.currentEvent.time);
-      this.currentDuration = this.dateService.intervalToDurationDate(this.today, currentDate);
     }
   }
 
@@ -179,7 +147,7 @@ export class EventService {
   private findRaceProgress() {
     const nextDate = this.dateService.parseDateAndTime(this.nextEvent.date, this.nextEvent.time);
     const raceDifference = this.dateService.differenceInSecondsDate(this.today, nextDate);
-    if (raceDifference > 0  && raceDifference < (60 * 60 * 24 * 7)) {
+    if (raceDifference > 0 && raceDifference < (60 * 60 * 24 * 7)) {
       this.isRaceweek = true;
     }
 
@@ -209,12 +177,6 @@ export class EventService {
       this.haveNextRace = true;
       this.processSession(sessions, sessionNames, SessionNames.Race, this.showRaceResults, this.nextEvent);
     }
-
-    let closest = this.dateService.isClosestIndex(this.today, sessions);
-    if (!closest) {
-      closest = 0;
-    }
-    this.closestToSession = sessionNames[closest];
   }
 
   processSession(sessions: Date[], sessionNames: SessionNames[], sessionName: SessionNames, sessionResults: boolean, raceEvent: ISeasonRaceItem) {

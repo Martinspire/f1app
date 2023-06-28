@@ -1,17 +1,24 @@
 <div class="outer">
   <div class="inner">
-    <h1>
-      Upcoming event: <span>{{ upcomingEvent.raceName }}</span>
-    </h1>
-    <h2>
-      Race: <span>{{ countToRaceDate | dfnsFormat : 'dd-MM-yyyy' }}</span> -
-      <span>{{ countToRaceDate | dfnsFormat : 'hh:mm' }}</span>
-    </h2>
-    <p>
-      <f1-next-countdown
-        [type]="CountdownType.Big"
-        [date]="countToRaceDate"
-      ></f1-next-countdown>
-    </p>
+    <div class="countdown-header">
+      <h1>
+        Upcoming event: <a
+          [routerLink]="['/races', nextEvent.season, nextEvent.round]"><span>{{ nextEvent.raceName }}</span></a>
+      </h1>
+    </div>
+    <div class="countdown-details">
+      <div class="countdown-race">
+        <h2>
+          Race: <span>{{ countToRaceDate | dfnsFormat : 'dd-MM-yyyy' }}</span> -
+          <span>{{ countToRaceDate | dfnsFormat : 'HH:mm' }}</span>
+        </h2>
+        <p>
+          <f1-next-countdown [type]="CountdownType.Big" [date]="countToRaceDate" />
+        </p>
+      </div>
+      <div class="upcoming-sessions">
+        <f1-next-sessions />
+      </div>
+    </div>
   </div>
 </div>

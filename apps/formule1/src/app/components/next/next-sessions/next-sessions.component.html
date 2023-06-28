@@ -1,0 +1,58 @@
+<div *ngIf="showCountdown">
+  <h3>Sessions</h3>
+  <table class="table">
+    <thead>
+      <th>Session</th>
+      <th>When</th>
+      <th *ngIf="haveUpcomingFp1 || haveUpcomingFp2 || haveUpcomingFp3 || haveUpcomingQuali || haveUpcomingSprint">
+        How long</th>
+    </thead>
+    <tbody>
+      <tr *ngIf="haveFp1">
+        <td>FP1</td>
+        <td>{{countToFp1Date | dfnsFormat : 'HH:mm'}}</td>
+        <td *ngIf="haveUpcomingFp1">
+          <f1-next-countdown [type]="CountdownType.Small" [date]="countToFp1Date" />
+        </td>
+        <td *ngIf="!haveUpcomingFp1"></td>
+      </tr>
+      <tr *ngIf="haveFp2">
+        <td>FP2</td>
+        <td>{{countToFp2Date | dfnsFormat : 'HH:mm'}}</td>
+        <td *ngIf="haveUpcomingFp2">
+          <f1-next-countdown [type]="CountdownType.Small" [date]="countToFp2Date" />
+        </td>
+        <td *ngIf="!haveUpcomingFp2"></td>
+      </tr>
+      <tr *ngIf="haveFp3">
+        <td>FP3</td>
+        <td>{{countToFp3Date | dfnsFormat : 'HH:mm'}}</td>
+        <td *ngIf="haveUpcomingFp3">
+          <f1-next-countdown [type]="CountdownType.Small" [date]="countToFp3Date" />
+        </td>
+        <td *ngIf="!haveUpcomingFp3"></td>
+      </tr>
+      <tr *ngIf="haveQuali">
+        <td>Quali</td>
+        <td>{{countToQualiDate | dfnsFormat : 'HH:mm'}}</td>
+        <td *ngIf="haveUpcomingQuali">
+          <f1-next-countdown [type]="CountdownType.Small" [date]="countToQualiDate" />
+        </td>
+        <td *ngIf="!haveUpcomingQuali"></td>
+      </tr>
+      <tr *ngIf="haveSprint">
+        <td>Sprint</td>
+        <td>{{countToSprintRaceDate | dfnsFormat : 'HH:mm'}}</td>
+        <td *ngIf="haveUpcomingSprint">
+          <f1-next-countdown [type]="CountdownType.Small" [date]="countToSprintRaceDate" />
+        </td>
+        <td *ngIf="!haveUpcomingSprint"></td>
+      </tr>
+      <tr *ngIf="haveRace">
+        <td>Race</td>
+        <td>{{countToRaceDate | dfnsFormat : 'HH:mm'}}</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -3,11 +3,7 @@
 <ng-container *ngIf="race.Results">
   <h3 class="heading-3">Race results</h3>
   <div class="relative overflow-x-auto">
-    <table
-      class="table table-zebra w-full my-0 rounded-lg"
-      aria-describedby="circuits table"
-      *ngIf="race"
-    >
+    <table class="table table-zebra w-full my-0 rounded-lg" aria-describedby="circuits table" *ngIf="race">
       <thead>
         <tr class="align-text-top">
           <th class="rounded-tl-lg">Position</th>
@@ -48,10 +44,8 @@
       </tbody>
     </table>
   </div>
-  <button
-    class="btn btn-primary"
-    [routerLink]="['/races', race.season, race.round, 'compare']"
-  >
+
+  <button class="btn btn-primary mt-4" [routerLink]="['/races', race.season, race.round, 'compare']">
     Compare laps
   </button>
 </ng-container>

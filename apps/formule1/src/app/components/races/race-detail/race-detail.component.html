@@ -3,24 +3,64 @@
 <ng-container *ngIf="!error && !loading && race">
   <f1-race-bio [race]="race" [season]="season" [round]="round"></f1-race-bio>
   <f1-race-result [race]="race"></f1-race-result>
-  <!-- <f1-race-fastest-laps [season]="season" [round]="round"></f1-race-fastest-laps> -->
-  <!-- <f1-race-pitstops [season]="season" [round]="round"></f1-race-pitstops> -->
-  <f1-race-sprint-result
-    [season]="season"
-    [round]="round"
-  ></f1-race-sprint-result>
-  <f1-race-quali-result
-    [season]="season"
-    [round]="round"
-  ></f1-race-quali-result>
+  <f1-race-sprint-result [season]="season" [round]="round"></f1-race-sprint-result>
+  <f1-race-quali-result [season]="season" [round]="round"></f1-race-quali-result>
 </ng-container>
 <ng-container *ngIf="!error && !loading && plannedRace">
-  <f1-race-bio
-    [race]="plannedRace"
-    [season]="season"
-    [round]="round"
-  ></f1-race-bio>
-  <!-- countdown -->
+  <h1>Planned Race</h1>
+  <f1-race-bio [race]="plannedRace" [season]="season" [round]="round"></f1-race-bio>
+  <h3>Sessions</h3>
+  <table class="table">
+    <thead>
+      <th>Session</th>
+      <th>Date</th>
+      <th>Time</th>
+    </thead>
+    <tbody>
+      <tr *ngIf="plannedRace?.FirstPractice?.date && plannedRace?.FirstPractice?.time">
+        <td>FP1</td>
+        <td>{{plannedRace.FirstPractice?.date ?? '' | dfnsParse : 'yyyy-MM-dd' : today : {}
+        | dfnsFormat : 'dd-MM'}}</td>
+        <td>{{plannedRace.FirstPractice?.time ?? '' | dfnsParse : 'HH:mm:ssX' : today : {}
+        | dfnsFormat : 'HH:mm'}}</td>
+      </tr>
+      <tr *ngIf="plannedRace?.SecondPractice?.date && plannedRace?.SecondPractice?.time">
+        <td>FP2</td>
+        <td>{{plannedRace.SecondPractice?.date ?? '' | dfnsParse : 'yyyy-MM-dd' : today : {}
+        | dfnsFormat : 'dd-MM'}}</td>
+        <td>{{plannedRace.SecondPractice?.time ?? '' | dfnsParse : 'HH:mm:ssX' : today : {}
+        | dfnsFormat : 'HH:mm'}}</td>
+      </tr>
+      <tr *ngIf="plannedRace?.ThirdPractice?.date && plannedRace?.ThirdPractice?.time">
+        <td>FP3</td>
+        <td>{{plannedRace.ThirdPractice?.date ?? '' | dfnsParse : 'yyyy-MM-dd' : today : {}
+        | dfnsFormat : 'dd-MM'}}</td>
+        <td>{{plannedRace.ThirdPractice?.time ?? '' | dfnsParse : 'HH:mm:ssX' : today : {}
+        | dfnsFormat : 'HH:mm'}}</td>
+      </tr>
+      <tr *ngIf="plannedRace?.Qualifying?.date && plannedRace?.Qualifying?.time">
+        <td>Quali</td>
+        <td>{{plannedRace.Qualifying?.date ?? '' | dfnsParse : 'yyyy-MM-dd' : today : {}
+        | dfnsFormat : 'dd-MM'}}</td>
+        <td>{{plannedRace.Qualifying?.time ?? '' | dfnsParse : 'HH:mm:ssX' : today : {}
+        | dfnsFormat : 'HH:mm'}}</td>
+      </tr>
+      <tr *ngIf="plannedRace?.Sprint?.date && plannedRace?.Sprint?.time">
+        <td>Sprint</td>
+        <td>{{plannedRace.Sprint?.date ?? '' | dfnsParse : 'yyyy-MM-dd' : today : {}
+        | dfnsFormat : 'dd-MM'}}</td>
+        <td>{{plannedRace.Sprint?.time ?? '' | dfnsParse : 'HH:mm:ssX' : today : {}
+        | dfnsFormat : 'HH:mm'}}</td>
+      </tr>
+      <tr *ngIf="plannedRace?.date && plannedRace?.time">
+        <td>Race</td>
+        <td>{{plannedRace.date | dfnsParse : 'yyyy-MM-dd' : today : {}
+        | dfnsFormat : 'dd-MM'}}</td>
+        <td>{{plannedRace.time | dfnsParse : 'HH:mm:ssX' : today : {}
+        | dfnsFormat : 'HH:mm'}}</td>
+      </tr>
+    </tbody>
+  </table>
 </ng-container>
 <ng-container *ngIf="error">
   <p>Error loading race</p>

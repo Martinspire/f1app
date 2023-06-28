@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { CircleMarker, circleMarker, latLng, LatLngExpression, MapOptions, tileLayer } from 'leaflet';
+import { CircleMarker, LatLngExpression, MapOptions, circleMarker, latLng, tileLayer } from 'leaflet';
 import { AppConstant } from '../../../constants/app.constants';
 import { ISeasonRaceItem } from '../../../interfaces/season';
 
@@ -28,7 +28,7 @@ export class SeasonMapComponent implements OnChanges {
           attribution: '...'
         })
       ],
-      zoom: 1.2,
+      zoom: 1.5,
       center: latLng(0, 0)
     };
     //
@@ -58,7 +58,7 @@ export class SeasonMapComponent implements OnChanges {
           Number(race.Circuit.Location.lat),
           Number(race.Circuit.Location.long)
         ];
-        const raceMarker = circleMarker(position).on('click', () => {this.showPopup(race, position);});
+        const raceMarker = circleMarker(position).on('click', () => { this.showPopup(race, position); });
         this.raceMarker.push(
           raceMarker
         );

@@ -1,7 +1,7 @@
-import { CircuitDetailComponent } from './../../../components/circuits/circuit-detail/circuit-detail.component';
-import { MockComponent } from 'ng-mocks';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MockComponent } from 'ng-mocks';
+import { CircuitDetailComponent } from './../../../components/circuits/circuit-detail/circuit-detail.component';
 
 import { CircuitDetailFeatureComponent } from './circuit-detail-feature.component';
 
@@ -12,9 +12,9 @@ describe('CircuitDetailFeatureComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule.withRoutes([])],
-      declarations: [ CircuitDetailFeatureComponent, MockComponent(CircuitDetailComponent) ]
+      declarations: [CircuitDetailFeatureComponent, MockComponent(CircuitDetailComponent)]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

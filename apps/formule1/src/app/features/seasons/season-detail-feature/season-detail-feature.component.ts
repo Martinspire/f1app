@@ -1,21 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'f1-season-detail-feature',
   templateUrl: './season-detail-feature.component.html',
   styleUrls: ['./season-detail-feature.component.scss']
 })
-export class SeasonDetailFeatureComponent implements OnInit {
+export class SeasonDetailFeatureComponent {
 
-  public season = '';
-
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.season = params['season'];
-    })
-  }
+  @Input() season = '';
 
 }

@@ -1,23 +1,23 @@
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {AppComponent} from './app.component';
-import { MockComponent } from 'ng-mocks';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MockComponent } from 'ng-mocks';
+import { AppComponent } from './app.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule.withRoutes([])
       ],
-      declarations: [ AppComponent, MockComponent(FooterComponent), MockComponent(HeaderComponent) ]
+      declarations: [AppComponent, MockComponent(FooterComponent), MockComponent(HeaderComponent)]
     })
-    .compileComponents();
-  }));
+      .compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);

@@ -1,6 +1,6 @@
-import { DriversListComponent } from './../../components/drivers/drivers-list/drivers-list.component';
-import { MockComponent } from 'ng-mocks';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MockComponent } from 'ng-mocks';
+import { DriversListComponent } from './../../components/drivers/drivers-list/drivers-list.component';
 
 import { DriversFeatureComponent } from './drivers.component';
 
@@ -10,9 +10,9 @@ describe('DriversFeatureComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DriversFeatureComponent, MockComponent(DriversListComponent) ]
+      declarations: [DriversFeatureComponent, MockComponent(DriversListComponent)]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

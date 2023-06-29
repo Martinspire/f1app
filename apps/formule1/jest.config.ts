@@ -2,6 +2,7 @@
 export default {
   displayName: 'formule1',
   preset: '../../jest.preset.ts',
+  testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
@@ -12,7 +13,9 @@ export default {
       },
     ],
   },
-  transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
+  transformIgnorePatterns: [
+    '/node_modules/(?!@ionic|three/examples/jsm/).+\\.js$'
+  ],
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',
     'jest-preset-angular/build/serializers/ng-snapshot',

@@ -24,11 +24,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { NextCountdownComponent } from './components/next/next-countdown/next-countdown.component';
 import { NextHomeComponent } from './components/next/next-home/next-home.component';
-import { NextRaceComponent } from './components/next/next-race/next-race.component';
-import { NextRaweCeekComponent } from './components/next/next-rawe-ceek/next-rawe-ceek.component';
-import { NextScheduleComponent } from './components/next/next-schedule/next-schedule.component';
-import { NextSeasonComponent } from './components/next/next-season/next-season.component';
-import { NextSessionComponent } from './components/next/next-session/next-session.component';
 import { NextSessionsComponent } from './components/next/next-sessions/next-sessions.component';
 import { RaceBioComponent } from './components/races/race-bio/race-bio.component';
 import { RaceCompareComponent } from './components/races/race-compare/race-compare.component';
@@ -54,7 +49,6 @@ import { RaceCompareFeatureComponent } from './features/races/race-compare/race-
 import { RaceDetailFeatureComponent } from './features/races/race-detail/race-detail-feature.component';
 import { SeasonDetailFeatureComponent } from './features/seasons/season-detail-feature/season-detail-feature.component';
 import { SeasonsFeatureComponent } from './features/seasons/seasons.component';
-import { TestFeatureComponent } from './features/test-feature/test-feature.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +77,6 @@ import { TestFeatureComponent } from './features/test-feature/test-feature.compo
     SeasonMapComponent,
     SeasonsFeatureComponent,
     SeasonsListComponent,
-    TestFeatureComponent,
     ThreeViewerComponent,
     ShareComponent,
     RaceDetailComponent,
@@ -96,12 +89,7 @@ import { TestFeatureComponent } from './features/test-feature/test-feature.compo
     RaceQualiResultComponent,
     RaceDetailFeatureComponent,
     RaceBioComponent,
-    NextRaceComponent,
-    NextSeasonComponent,
     NextCountdownComponent,
-    NextSessionComponent,
-    NextRaweCeekComponent,
-    NextScheduleComponent,
     NextHomeComponent,
     NextSessionsComponent
   ],

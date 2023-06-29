@@ -1,10 +1,10 @@
 import { createHttpFactory, HttpMethod, SpectatorHttp } from '@ngneat/spectator/jest';
-import { WikiService } from './wiki.service';
+import { AppConstant } from '../../constants/app.constants';
 import { ApiService } from './api.service';
-import { AppConstant } from '../constants/app.constants';
+import { WikiService } from './wiki.service';
 
-import * as mockWikiImage from '../../../../../testing/mocks/wiki-image.json';
-import * as mockWikiSummary from '../../../../../testing/mocks/wiki-summary.json';
+import * as mockWikiImage from '../../../../../../testing/mocks/wiki-image.json';
+import * as mockWikiSummary from '../../../../../../testing/mocks/wiki-summary.json';
 
 describe('Service: Wiki', () => {
 
@@ -30,4 +30,3 @@ describe('Service: Wiki', () => {
     req.flush(mockWikiSummary);
   });
 });
-

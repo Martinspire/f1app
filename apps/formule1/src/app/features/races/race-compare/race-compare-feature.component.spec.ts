@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { MockComponent } from 'ng-mocks';
+import { RaceCompareComponent } from '../../../components/races/race-compare/race-compare.component';
 import { RaceCompareFeatureComponent } from './race-compare-feature.component';
 
 describe('RaceCompareFeatureComponent', () => {
@@ -8,7 +10,10 @@ describe('RaceCompareFeatureComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RaceCompareFeatureComponent]
+      declarations: [
+        RaceCompareFeatureComponent,
+        MockComponent(RaceCompareComponent),
+      ]
     });
     fixture = TestBed.createComponent(RaceCompareFeatureComponent);
     component = fixture.componentInstance;

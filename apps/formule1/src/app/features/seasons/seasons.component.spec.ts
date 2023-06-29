@@ -1,6 +1,6 @@
-import { SeasonsListComponent } from './../../components/seasons/seasons-list/seasons-list.component';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockComponent } from 'ng-mocks';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { SeasonsListComponent } from './../../components/seasons/seasons-list/seasons-list.component';
 
 import { SeasonsFeatureComponent } from './seasons.component';
 
@@ -8,12 +8,12 @@ describe('SeasonsFeatureComponent', () => {
   let component: SeasonsFeatureComponent;
   let fixture: ComponentFixture<SeasonsFeatureComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SeasonsFeatureComponent, MockComponent(SeasonsListComponent) ]
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [SeasonsFeatureComponent, MockComponent(SeasonsListComponent)]
     })
-    .compileComponents();
-  }));
+      .compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SeasonsFeatureComponent);

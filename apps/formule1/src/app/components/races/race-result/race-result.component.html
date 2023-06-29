@@ -1,6 +1,6 @@
 <div class="btn loading" *ngIf="!race" aria-busy="true"></div>
 
-<ng-container *ngIf="race.Results">
+<ng-container *ngIf="race?.Results">
   <h3 class="heading-3">Race results</h3>
   <div class="relative overflow-x-auto">
     <table class="table table-zebra w-full my-0 rounded-lg" aria-describedby="circuits table" *ngIf="race">
@@ -49,6 +49,6 @@
     Compare laps
   </button>
 </ng-container>
-<ng-container *ngIf="!race.Results">
+<ng-container *ngIf="!race?.Results">
   <p>This race does not have results yet</p>
 </ng-container>

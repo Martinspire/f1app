@@ -12,7 +12,7 @@ export class ThreeViewerComponent implements OnInit, AfterViewInit {
 
   @ViewChild('threeCanvas') threeCanvas!: ElementRef<HTMLCanvasElement>;
   @ViewChild('threeContainer') threeContainer!: ElementRef<HTMLDivElement>;
-  @Input() path !:string;
+  @Input() path !: string;
   private scene!: Scene;
   private camera!: PerspectiveCamera;
   private renderer!: WebGLRenderer;
@@ -23,48 +23,49 @@ export class ThreeViewerComponent implements OnInit, AfterViewInit {
 
   constructor(private render: Renderer2) {
     this.loader = new STLLoader();
-    this.path = 'assets/models/catalunya.stl';
   }
 
   ngOnInit(): void {
     //add listener for the resize of the window - will resize the renderer to fit the window
     this.render.listen('window', 'resize', () => {
       this.onWindowResize();
-    })
+    });
   }
 
   ngAfterViewInit(): void {
-    this.init3D();
+    if (this.path) {
+      this.init3D();
+    }
   }
 
-  init3D(){
+  init3D() {
     // renderer
-    this.renderer = new WebGLRenderer({alpha: true, canvas:  this.threeCanvas.nativeElement});
-    this.renderer.setSize( this.threeContainer.nativeElement.offsetWidth, this.threeContainer.nativeElement.offsetHeight );
-    this.renderer.setClearColor( 0x000000, 0 ); // the default
+    this.renderer = new WebGLRenderer({ alpha: true, canvas: this.threeCanvas.nativeElement });
+    this.renderer.setSize(this.threeContainer.nativeElement.offsetWidth, this.threeContainer.nativeElement.offsetHeight);
+    this.renderer.setClearColor(0x000000, 0); // the default
 
     // scene
     this.scene = new Scene();
 
     // camera
-    this.camera = new PerspectiveCamera( 50, this.threeCanvas.nativeElement.width / this.threeCanvas.nativeElement.height, 0.01, 2000 );
-    this.camera.position.set( 213, 211, 213 );
+    this.camera = new PerspectiveCamera(50, this.threeCanvas.nativeElement.width / this.threeCanvas.nativeElement.height, 0.01, 2000);
+    this.camera.position.set(213, 211, 213);
     this.camera.aspect = this.threeCanvas.nativeElement.width / this.threeCanvas.nativeElement.height;
-    this.scene.add( new AmbientLight( 0x222222 ) );
-    this.scene.add( this.camera ); // required, because we are adding a light as a child of the camera
+    this.scene.add(new AmbientLight(0x222222));
+    this.scene.add(this.camera); // required, because we are adding a light as a child of the camera
 
     // controls
-    this.controls = new OrbitControls(this.camera,this.renderer.domElement);
+    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
     // lights
-    const light = new PointLight( 0xffffff, 0.8 );
-    this.camera.add( light );
+    const light = new PointLight(0xffffff, 0.8);
+    this.camera.add(light);
 
     this.loader.load(this.path, geometry => {
 
-      const material = new MeshPhongMaterial( { color: 0xff3333 } );
+      const material = new MeshPhongMaterial({ color: 0xff3333 });
 
-      const mesh = new Mesh( geometry, material );
+      const mesh = new Mesh(geometry, material);
 
       mesh.geometry.computeBoundingSphere();
 
@@ -81,7 +82,7 @@ export class ThreeViewerComponent implements OnInit, AfterViewInit {
     }, () => {
       // error
       this.hideCanvas = true;
-    })
+    });
 
     //request animation
     this.animate();
@@ -92,7 +93,7 @@ export class ThreeViewerComponent implements OnInit, AfterViewInit {
    * render the scene and request the window animation frame
    */
   animate() {
-    this.camera.lookAt( this.scene.position );
+    this.camera.lookAt(this.scene.position);
     if (
       this.controls.getAzimuthalAngle() >= 0.8 || // Math.PI / 2 = half
       this.controls.getAzimuthalAngle() <= -0.8
@@ -112,6 +113,6 @@ export class ThreeViewerComponent implements OnInit, AfterViewInit {
   onWindowResize() {
     this.camera.aspect = this.threeContainer.nativeElement.offsetWidth / this.threeContainer.nativeElement.offsetHeight;
     this.camera.updateProjectionMatrix();
-    this.renderer.setSize( this.threeContainer.nativeElement.offsetWidth, this.threeContainer.nativeElement.offsetHeight );
+    this.renderer.setSize(this.threeContainer.nativeElement.offsetWidth, this.threeContainer.nativeElement.offsetHeight);
   }
 }

@@ -1,21 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'f1-circuit-detail-feature',
   templateUrl: './circuit-detail-feature.component.html',
   styleUrls: ['./circuit-detail-feature.component.scss']
 })
-export class CircuitDetailFeatureComponent implements OnInit {
+export class CircuitDetailFeatureComponent {
 
-  public circuit = '';
-
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.circuit = params['circuit'];
-    })
-  }
-
+  @Input() circuit = '';
 }

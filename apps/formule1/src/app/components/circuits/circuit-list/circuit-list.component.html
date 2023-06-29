@@ -1,31 +1,20 @@
 <div class="btn loading" *ngIf="loading" aria-busy="true"></div>
 
-<div class="relative overflow-x-auto">
-  <table
-    class="table table-zebra w-full my-0 rounded-lg"
-    aria-describedby="circuits table"
-  >
+<div class="relative overflow-x-auto" *ngIf="filteredCircuits">
+  <table class="table table-zebra w-full my-0 rounded-lg" aria-describedby="circuits table">
     <thead>
       <tr class="align-text-top">
         <th class="rounded-tl-lg">
           <label class="label">Name</label>
           <br />
-          <input
-            type="text"
-            class="input input-bordered w-full max-w-xs"
-            [(ngModel)]="nameFilter"
-            (ngModelChange)="applyFilters()"
-          />
+          <input type="text" class="input input-bordered w-full max-w-xs" [(ngModel)]="nameFilter"
+            (ngModelChange)="applyFilters()" />
         </th>
         <th class="">
           <label class="label">Country</label>
           <br />
-          <input
-            type="text"
-            class="input input-bordered w-full max-w-xs"
-            [(ngModel)]="countryFilter"
-            (ngModelChange)="applyFilters()"
-          />
+          <input type="text" class="input input-bordered w-full max-w-xs" [(ngModel)]="countryFilter"
+            (ngModelChange)="applyFilters()" />
         </th>
         <th class="">Links</th>
         <th class="rounded-tr-lg">Details</th>

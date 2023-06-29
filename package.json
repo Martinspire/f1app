@@ -9,8 +9,7 @@
     "build": "nx build",
     "build-app": "nx build --prod --base-href . --output-path ./f1app/www/",
     "sync": "npx cap sync",
-    "test": "nx test",
-    "project-install": "npm install --legacy-peer-deps"
+    "test": "nx test"
   },
   "private": true,
   "dependencies": {

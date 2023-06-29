@@ -26,4 +26,6 @@ describe('ThreeViewerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // will be difficult to test with threejs testing being a bit flaky and giving lots of errors
 });

@@ -1,6 +1,6 @@
 {
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "formule1",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "prefix": "f1",
   "projectType": "application",
   "sourceRoot": "apps/formule1/src",
@@ -42,14 +42,8 @@
       "defaultConfiguration": "production",
       "executor": "@angular-devkit/build-angular:browser",
       "options": {
-        "allowedCommonJsDependencies": [
-          "leaflet",
-          "qrcode"
-        ],
-        "assets": [
-          "apps/formule1/src/favicon.ico",
-          "apps/formule1/src/assets"
-        ],
+        "allowedCommonJsDependencies": ["leaflet", "qrcode"],
+        "assets": ["apps/formule1/src/favicon.ico", "apps/formule1/src/assets"],
         "index": "apps/formule1/src/index.html",
         "inlineStyleLanguage": "scss",
         "main": "apps/formule1/src/main.ts",
@@ -62,9 +56,7 @@
         ],
         "tsConfig": "apps/formule1/tsconfig.app.json"
       },
-      "outputs": [
-        "{options.outputPath}"
-      ]
+      "outputs": ["{options.outputPath}"]
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -99,9 +91,7 @@
         "jestConfig": "apps/formule1/jest.config.ts",
         "passWithNoTests": true
       },
-      "outputs": [
-        "{workspaceRoot}/coverage/apps/formule1"
-      ]
+      "outputs": ["{workspaceRoot}/coverage/apps/formule1"]
     }
   }
 }

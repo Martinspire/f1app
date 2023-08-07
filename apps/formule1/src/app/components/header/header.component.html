@@ -1,25 +1,11 @@
 <div class="navbar bg-red-600 text-primary-content">
   <div class="navbar-start relative">
     <button class="btn btn-ghost lg:hidden" (click)="toggle()">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-5 w-5"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h8m-8 6h16"
-        />
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
       </svg>
     </button>
-    <ul
-      *ngIf="dropdownOpen"
-      class="drop-menu menu menu-compact mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-    >
+    <ul *ngIf="dropdownOpen" class="drop-menu menu menu-compact mt-3 p-2 shadow bg-base-100 rounded-box w-52">
       <li class="menu-title">
         <span>Pages</span>
       </li>
@@ -31,20 +17,13 @@
         <span>Hype</span>
       </li>
       <li>
-        <a class="hover:bg-gray-900" (click)="showAudioPlayer(); close()"
-          >Get hyped!</a
-        >
+        <a class="hover:bg-gray-900" (click)="showAudioPlayer(); close()">Get hyped!</a>
       </li>
       <li>
-        <a
-          class="hover:bg-orange-600"
-          [routerLink]="['/drivers/max_verstappen']"
-          (click)="close()"
-          >See Max!</a
-        >
+        <a class="hover:bg-orange-600" [routerLink]="['/drivers/max_verstappen']" (click)="close()">See Max!</a>
       </li>
     </ul>
-    <a class="btn btn-ghost normal-case text-xl font-special">F1 App</a>
+    <a class="btn btn-ghost normal-case text-xl font-special" [routerLink]="['/']">F1 App</a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal p-0 rounded-box">
@@ -66,11 +45,7 @@
         <a class="hover:bg-gray-900" (click)="showAudioPlayer()">Hype!</a>
       </li>
       <li>
-        <a
-          class="hover:bg-orange-600"
-          [routerLink]="['/drivers/max_verstappen']"
-          >See Max!</a
-        >
+        <a class="hover:bg-orange-600" [routerLink]="['/drivers/max_verstappen']">See Max!</a>
       </li>
     </ul>
   </div>

@@ -73,6 +73,15 @@ Also with the right credentials (so only me basically) its possible to manually 
 
 ## Version info
 
+### 8-8 updated dependencies and renewed icon
+
+* Updated dependencies
+* Updated header logo link
+* Added icon
+* Added generating assets from icon and splash for devices
+* Fixed deploying to my Android device
+* Added a few tasks to run on Android and generate resources
+
 ### 20-6 fixed some bugs
 
 * updated readme with current status and tech

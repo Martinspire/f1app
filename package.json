@@ -46,7 +46,7 @@
     "@asymmetrik/ngx-leaflet": "^16.0.1",
     "@capacitor/android": "^5.2.2",
     "@capacitor/angular": "^2.0.3",
-    "@capacitor/assets": "^2.0.4",
+    "@capacitor/assets": "^3.0.1",
     "@capacitor/cli": "^5.2.2",
     "@capacitor/core": "^5.2.2",
     "@ngneat/dialog": "^4.1.0",

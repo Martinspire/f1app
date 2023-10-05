@@ -1,0 +1,12 @@
+tr.align-text-top {
+  th,
+  td {
+    vertical-align: text-top;
+  }
+}
+// override sticky behavior?
+.table th:first-child {
+  position: relative;
+  left: auto;
+  z-index: auto;
+}

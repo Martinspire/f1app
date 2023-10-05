@@ -1,11 +1,13 @@
-<footer class="footer footer-center p-4 bg-base-300 text-base-content">
+<footer class="footer footer-center p-4 bg-base-300 text-base-content flex flex-row">
+  <div>
+    <button class="btn btn-outline btn-sm" (click)="showShare()">
+      Share
+    </button>
+  </div>
   <div>
     <p>
-      Website by Martin Spierings - 2023 - <span *ngIf="version">v{{version}} - </span>Powered by
-      <a href="https://ergast.com/mrd/" target="_blank">Ergast</a>&nbsp;
-      <button class="btn btn-outline btn-sm" (click)="showShare()">
-        Share
-      </button>
+      Website by Martin Spierings - &copy; 2023 - <span *ngIf="version">v{{version}}<br /></span>Powered by
+      <a href="https://ergast.com/mrd/" target="_blank">Ergast</a>
     </p>
   </div>
 </footer>

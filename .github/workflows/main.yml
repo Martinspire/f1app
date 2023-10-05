@@ -29,7 +29,7 @@ jobs:
         run: npx nx build --base-href=https://martinspire.github.io/f1app/
 
       - name: Copy index to create 404.html to fix routing
-        run: cp dist/apps/formule1/index.html .dist/apps/formule1/404.html
+        run: cp ./dist/apps/formule1/index.html ./dist/apps/formule1/404.html
 
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v3.1.0
